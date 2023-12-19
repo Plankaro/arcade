@@ -5,13 +5,7 @@ import { useMediaQuery } from "react-responsive";
 function App() {
   const isMobile = useMediaQuery({ maxHeight: 767 });
   const isMobileHeight = useMediaQuery({ minHeight: 500 });
-  //   const styles = {
-  //     margin: 0;
-  //     padding: 0;
-  //     background- image: url("./assets/home/home.jpg"); /* Adjust the path accordingly */
-  //   background - size: cover;
-  //   background - position: center;
-  //   background - repeat: no - repeat;
+
   // }
   return (
     <div className={`w-screen ${isMobileHeight ? "h-screen" : "h-full"}`}>
@@ -24,6 +18,7 @@ function App() {
         {/* <CommonButton /> */}
         <div className={`  flex-grow ${isMobile ? "mt-3" : "mt-5"}`}>
           <AllOptions />
+          
         </div>
       </div>
     </div>
