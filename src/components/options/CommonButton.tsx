@@ -1,50 +1,41 @@
 import React, { useState } from "react";
 import { IconType } from "react-icons";
+import Label from "./Label";
 
 interface CommonProps {
   icon: IconType;
   label: string;
-  left: boolean;
+  right?: boolean;
 }
 
-const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, left }) => {
+const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, right }) => {
   const [isHovered, setIsHovered] = useState(false);
   console.log(isHovered)
 
   return (
     <div
-      className="flex cursor-pointer items-center justify-between"
+      className="flex cursor-pointer items-center justify-between hover:scale-105"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {left && <div className="w-[14rem]">
+      {right && <div className="md:w-[14rem] w-[8.5rem]">
         {
           isHovered && (
-            <>
-              {label}
-            </>
+            <Label label={label} right />
           )
         }
 
       </div>}
-      <div className={`w-[4.3rem] h-[4.3rem] rounded-full border-[0.23rem]  p-1 ${isHovered ? "border-primary" : "border-white"} `}>
+      <div className={`md:w-[4.3rem] md:h-[4.3rem] w-[3rem] h-[3rem] rounded-full md:border-[0.23rem] border-[0.12rem]  p-1 ${isHovered ? "border-primary" : "border-white"} `}>
         <div className={` rounded-full w-full  h-full  flex items-center justify-center ${isHovered ? "bg-white" : "bg-primary"}`}>
-          {Icon && <Icon size={34} color={isHovered ? "primary" : "white"} />}
+          {Icon && <Icon  size={window.innerWidth < 768 ? 24 : 34} color={isHovered ? "#AEA5A0" : "white"} />}
         </div>
       </div>
 
-      {!left && <div className="w-[14rem]">  {
+      {!right && <div className="md:w-[14rem] w-[10rem]">  {
         isHovered && (
-          <div className="flex items-center ">
-            <div className="w-[2rem] h-[0.2rem] bg-primary">
+          <Label label={label} />
 
-            </div>
-          <div className=" border-primary border-[0.15rem] rounded-3xl p-1">
-            <div className="w-[12rem] h-[2.4rem] bg-primary rounded-[2rem] flex items-center justify-center">
-              {label}
-            </div>
-          </div>
-          </div>
         )
       }</div>}
     </div>
