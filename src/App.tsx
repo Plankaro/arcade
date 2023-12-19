@@ -4,7 +4,7 @@ import { useMediaQuery } from "react-responsive";
 
 function App() {
   const isMobile = useMediaQuery({ maxHeight: 767 });
-  const isMobileHeight = useMediaQuery({ maxHeight: 500 });
+  const isMobileHeight = useMediaQuery({ minHeight: 500 });
   //   const styles = {
   //     margin: 0;
   //     padding: 0;
