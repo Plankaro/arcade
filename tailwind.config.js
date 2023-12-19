@@ -25,6 +25,11 @@ export default {
       'lg': '1.25rem',   // Large font size
       'xl': '1.5rem',    // Extra large font size
     },
+    fontFamily:{
+      roboto: ['Roboto', 'sans-serif'],
+      'roboto-light': ['Roboto', 'sans-serif', '300'], // Light (300) weight
+      'roboto-bold': ['Roboto', 'sans-serif', '700'],  // Bold (700) weight
+    }
   },
   plugins: [],
 }

@@ -1,8 +1,13 @@
+import React from "react"
 import logo from "../assets/logo/logo.png"
-const Logo = () => {
+
+interface LogoProps{
+    small?:boolean
+}
+const Logo:React.FC<LogoProps> = () => {
     return (
 
-            <img src={logo} alt="logo" className="h-[7rem] w-[7rem] absolute top-[-1.2rem]" />
+            <img src={logo} alt="logo" className="md:h-[7rem] h-[4rem] md:w-[7rem] w-[4rem] absolute top-[-1.2rem]" />
        
     )
 }
