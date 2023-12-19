@@ -4,6 +4,7 @@ import { useMediaQuery } from "react-responsive";
 
 function App() {
   const isMobile = useMediaQuery({ maxHeight: 767 });
+  const isMobileHeight = useMediaQuery({ maxHeight: 500 });
   //   const styles = {
   //     margin: 0;
   //     padding: 0;
@@ -13,7 +14,7 @@ function App() {
   //   background - repeat: no - repeat;
   // }
   return (
-    <div className="w-screen h-screen">
+    <div className={`w-screen ${isMobileHeight ? "h-screen" : "h-full"}`}>
 
 
       <div className="main w-full h-full p-2 flex flex-col" >
