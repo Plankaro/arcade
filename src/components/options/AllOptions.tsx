@@ -17,7 +17,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 
-const AllOptions = () => {
+const AllOptions:React.FC<AllOptionsProps> = ({
+    toggleFullScreen
+}) => {
     return (
         <div className="flex justify-between items-center p-3 w-full h-full">
             <div className="flex flex-col justify-between gap-4 h-full">
