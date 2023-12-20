@@ -14,6 +14,7 @@ import { IoIosContacts } from "react-icons/io";
 import { BsFullscreen } from "react-icons/bs";
 
 import { useSelector, useDispatch } from 'react-redux';
+import { open3dpalladian, openIntroVideo } from '../../store/slice/action';
 
 interface AllOptionsProps{
   toggleFullScreen:()=>void
@@ -22,14 +23,17 @@ interface AllOptionsProps{
 const AllOptions:React.FC<AllOptionsProps> = ({
     toggleFullScreen
 }) => {
+
+  const dispatch = useDispatch();
+
     return (
         <div className="flex justify-between items-center p-3 w-full h-full">
             <div className="flex flex-col justify-between gap-4 h-full">
-                <div><CommonButton onClick={() => {}} label='Introduction' icon={IoPlayCircleOutline} /></div>
+                <div><CommonButton onClick={() => {dispatch(openIntroVideo()); console.log('open intro video')}} label='Introduction' icon={IoPlayCircleOutline} /></div>
                 <div><CommonButton onClick={() => {}} label='Holistic Ecosystem' icon={BiNetworkChart} /></div>
                 <div><CommonButton onClick={() => {}} label='Neighbourhood 360 View' icon={Tb360View}/></div>
                 <div><CommonButton onClick={() => {}} label='Palladian Layout' icon={FiLayout} /></div>
-                <div><CommonButton onClick={() => {}} label='3D Palladian Tour' icon={PiVirtualRealityBold}/></div>
+                <div><CommonButton onClick={() => {dispatch(open3dpalladian())}} label='3D Palladian Tour' icon={PiVirtualRealityBold}/></div>
                 <div><CommonButton onClick={() => {}} label='Plans' icon={FaRegMap}/></div>
             </div>
             <div className="flex flex-col gap-4 justify-between h-full">

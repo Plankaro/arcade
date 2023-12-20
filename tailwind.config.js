@@ -21,12 +21,15 @@ export default {
       extra: "#14213D"
     },
     fontSize: {
+      'xs': '0.605rem',
       'sm': '0.875rem',  // Small font size
       'md': '0.925rem',
       'base': '1rem',    // Base font size
       'lg': '1.25rem',   // Large font size
       'xl': '1.5rem',    // Extra large font size
-      'xs': '0.605rem',
+      '2xl': '2rem',
+      '3xl':'3rem',
+      
     },
     fontFamily:{
       roboto: ['Roboto', 'sans-serif'],
