@@ -15,7 +15,9 @@ import { BsFullscreen } from "react-icons/bs";
 
 import { useSelector, useDispatch } from 'react-redux';
 
-
+interface AllOptionsProps{
+  toggleFullScreen:()=>void
+}
 
 const AllOptions:React.FC<AllOptionsProps> = ({
     toggleFullScreen
@@ -36,7 +38,7 @@ const AllOptions:React.FC<AllOptionsProps> = ({
                 <div><CommonButton onClick={() => {}} right label='Gallery' icon={GrGallery}/></div>
                 <div><CommonButton onClick={() => {}} right label='Contact Us' icon={LuContact}/></div>
                 <div><CommonButton onClick={() => {}} right label='About Us' icon={IoIosContacts}/></div>
-                <div><CommonButton right label='Full Screen' icon={BsFullscreen}/></div>
+                <div><CommonButton onClick={() => toggleFullScreen()} right label='Full Screen' icon={BsFullscreen}/></div>
             </div>
 
         </div>

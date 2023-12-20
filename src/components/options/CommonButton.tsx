@@ -10,11 +10,12 @@ interface CommonProps {
   onClick?: () => void;
 }
 
-const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, right }) => {
+const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, right, onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.div
+      onClick={onClick}
       className="flex cursor-pointer items-center justify-between "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

@@ -31,10 +31,10 @@ function App() {
       <div className={`w-screen ${isMobileHeight ? "h-screen" : "h-full"}`}>
       <div className="main relative w-full h-full p-2 flex flex-col">
         <div className="absolute inset-0 z-0 backdrop-brightness-50 " />
-          <div className="w-full h-[5rem] p-3 relative">
+          <div className="z-10 w-full h-[5rem] p-3 relative">
             <Logo />
           </div>
-          <div className={`  flex-grow ${isMobile ? "mt-3" : "mt-5"}`}>
+          <div className={`z-10 flex-grow ${isMobile ? "mt-3" : "mt-5"}`}>
             <AllOptions toggleFullScreen={toggleFullScreen} />
           
           </div>
