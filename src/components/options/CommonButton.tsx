@@ -7,6 +7,7 @@ interface CommonProps {
   icon: IconType;
   label: string;
   right?: boolean;
+  onClick?: () => void;
 }
 
 const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, right }) => {
