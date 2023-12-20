@@ -20,7 +20,7 @@ function ARImageViewer({ imageUrl }: any) {
       <pointLight position={[10, 10, 10]} />
       <mesh>
         <sphereGeometry args={[500, 60, 40]} />
-        <meshBasicMaterial side={2} map={texture} />
+        <meshBasicMaterial side={2} map={texture as any} />
       </mesh>
       <OrbitControls enableZoom enablePan enableRotate />
     </Canvas>
