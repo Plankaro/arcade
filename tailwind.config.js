@@ -18,7 +18,8 @@ export default {
       white: "#FEFEFE",
       gray: "#636466",
       dark: "#454647",
-      extra: "#14213D"
+      extra: "#14213D",
+      black: "#000000",
     },
     fontSize: {
       'xs': '0.605rem',
@@ -35,6 +36,9 @@ export default {
       roboto: ['Roboto', 'sans-serif'],
       'roboto-light': ['Roboto', 'sans-serif', '300'], // Light (300) weight
       'roboto-bold': ['Roboto', 'sans-serif', '700'],  // Bold (700) weight
+      // 'sans': ['open sans', ...defaultTheme.fontFamily.sans],
+      // 'serif': [...defaultTheme.fontFamily.serif],
+      // 'mono': [...defaultTheme.fontFamily.mono]
     },
     boxShadow: {
       'sm': '0 1px 2px 0 rgba(0, 0, 0, 0.05)', // Small shadow
@@ -44,6 +48,7 @@ export default {
       '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)', // 2x large shadow
       'inner': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)', // Inner shadow
       'outline': '0 0 0 3px rgba(66, 153, 225, 0.5)', // Outline shadow
+      'outline-long': '0 0 0 6x rgba(66, 153, 225, 0.5)', // Outline shadow
       'none': 'none', // No shadow
     },
   },

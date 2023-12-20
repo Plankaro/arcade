@@ -14,6 +14,10 @@ const CommonModal = ({ show, children }: IntroModalProps) => {
   // const isIntroVideoOpen = useSelector((state: any) => state?.isIntroVideo);
   return (
     <motion.div
+      initial={{
+        translateX: '-100%',
+        opacity: 0,
+      }}
       animate={{
         translateX: show ? '0%' : '-100%',
         opacity: show ? 1 : 0,

@@ -9,6 +9,7 @@ import Sample from "./components/PdfModel";
 import RoommComponent from "./components/RoomComponent";
 import IntroModal from "./components/transitions/IntroModal";
 import PalladianTour from "./components/transitions/PalladianTour";
+import HolisticEcosystem from "./components/transitions/HolisticEcosystem";
 
 function App() {
   const isMobile = useMediaQuery({ maxHeight: 767 });
@@ -46,6 +47,7 @@ function App() {
           <div className="z-10 w-full h-[5rem] p-3 relative">
             <IntroModal />
             <PalladianTour />
+            <HolisticEcosystem />
           </div>
         </div>
         {/* <RoommComponent imageUrl={"https://images.unsplash.com/photo-1625015531264-43c3fce8c792?q=80&w=1460&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"} /> */}
