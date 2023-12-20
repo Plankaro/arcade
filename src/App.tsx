@@ -1,9 +1,9 @@
+//@ts-ignore
+// import VRScene from "./components/RoomComponent";
 import Logo from "./components/Logo";
-import VRScene from "./components/RoomComponent";
 import AllOptions from "./components/options/AllOptions";
 import { useMediaQuery } from "react-responsive";
-import { Canvas, extend, useFrame } from "@react-three/fiber";
-import ThreeImageViewer from "./components/RoomComponent";
+// import ThreeImageViewer from "./components/RoomComponent";
 
 function App() {
   const isMobile = useMediaQuery({ maxHeight: 767 });
@@ -11,18 +11,17 @@ function App() {
 
   return (
     <div className={`w-screen ${isMobileHeight ? "h-screen" : "h-full"}`}>
-      {/* <div className="main w-full h-full p-2 flex flex-col">
-        {" "}
-        <div className="w-full h-[5rem] p-3 relative ">
-          {" "}
+      <div className="main relative w-full h-full p-2 flex flex-col">
+        <div className="absolute inset-0 z-0 backdrop-brightness-50 " />
+        <div className="w-full h-[5rem] p-3 relative z-10">
           <Logo />{" "}
         </div>
-        <div className={`  flex-grow ${isMobile ? "mt-3" : "mt-5"}`}>
+        <div className={`z-10 flex-grow ${isMobile ? "mt-3" : "mt-5"}`}>
           <AllOptions />
         </div>
-      </div> */}
+      </div>
 
-        <ThreeImageViewer imageUrl="/bedroom1-1.jpg" />
+        {/* <ThreeImageViewer imageUrl="/bedroom1-1.jpg" /> */}
 
     </div>
   );

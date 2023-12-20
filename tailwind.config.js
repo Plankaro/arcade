@@ -14,22 +14,35 @@ export default {
       },
     },
     colors: {
-      primary:"#AEA5A0",
-      white: "#fff",
+      primary:"#575452",
+      white: "#FEFEFE",
       gray: "#636466",
+      dark: "#454647",
       extra: "#14213D"
     },
     fontSize: {
       'sm': '0.875rem',  // Small font size
+      'md': '0.925rem',
       'base': '1rem',    // Base font size
       'lg': '1.25rem',   // Large font size
       'xl': '1.5rem',    // Extra large font size
+      'xs': '0.605rem',
     },
     fontFamily:{
       roboto: ['Roboto', 'sans-serif'],
       'roboto-light': ['Roboto', 'sans-serif', '300'], // Light (300) weight
       'roboto-bold': ['Roboto', 'sans-serif', '700'],  // Bold (700) weight
-    }
+    },
+    boxShadow: {
+      'sm': '0 1px 2px 0 rgba(0, 0, 0, 0.05)', // Small shadow
+      'md': '0 4px 6px -1px rgba(0, 0, 0, 0.1)', // Medium shadow
+      'lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1)', // Large shadow
+      'xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1)', // Extra large shadow
+      '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)', // 2x large shadow
+      'inner': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)', // Inner shadow
+      'outline': '0 0 0 3px rgba(66, 153, 225, 0.5)', // Outline shadow
+      'none': 'none', // No shadow
+    },
   },
   plugins: [],
 }
