@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux'
 import { allClose } from '../../store/slice/action'
 import { IoClose } from "react-icons/io5";
 import { useSelector } from 'react-redux';
-import RoommComponent from '../RoomComponent';
 import ArView from '../lib/ArView';
 
 const Neighbourhood360View = () => {

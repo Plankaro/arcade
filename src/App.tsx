@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+// import React, { Suspense } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Logo from "./components/Logo";
 import AllOptions from "./components/options/AllOptions";
@@ -15,7 +15,7 @@ import PdfViewerComponent from "./components/PdfModel";
 import pdf from "./assets/Arcade_residentail_brochure_R2_compressed (1).pdf"
 import Neighbourhood360View from "./components/transitions/Neighbourhood360View";
 import Plans from "./components/transitions/Plans";
-import Layouts from "./components/transitions/Layouts";
+// import Layouts from "./components/transitions/Layouts";
 import GalaryModel from "./components/GalaryModel";
 
 // import FullPageLoading from "./components/extras/FullPageLoading";
@@ -49,7 +49,7 @@ function App() {
     <FullScreen handle={handle}>
       <div className={`w-screen ${isMobileHeight ? "h-screen" : "h-full"}`}>
 
-        <RoommComponent imageUrl={"/3d.jpg"} nextRoomImageUrl={"/bedroom1-1.jpg"} />
+        <RoommComponent imageUrl={"/3d.jpg"} nextRoomImageUrl={"/360/villa.jpg"} />
 
         <div className="main relative w-full h-full p-2 flex flex-col">
           <div className="absolute inset-0 z-0 backdrop-brightness-50 " />
@@ -66,7 +66,7 @@ function App() {
             {appSelector?.isSalesPresenter && <PdfViewerComponent document={pdf} />}
             {<Neighbourhood360View />}
             {appSelector?.isplans && <Plans />}
-            {appSelector?.ispalladian && <Layouts />}
+            {/* {appSelector?.ispalladian && <Layouts />} */}
             {appSelector?.isGalary && <GalaryModel />}
           </div>
         </div>

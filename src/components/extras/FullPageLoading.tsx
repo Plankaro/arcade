@@ -1,5 +1,3 @@
-import React from 'react'
-
 const FullPageLoading = () => {
   return (
     <div className=' fixed inset-0 backdrop-brightness-50 flex items-center justify-center z-50'>
