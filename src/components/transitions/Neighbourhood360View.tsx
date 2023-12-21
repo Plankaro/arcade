@@ -5,6 +5,7 @@ import { allClose } from '../../store/slice/action'
 import { IoClose } from "react-icons/io5";
 import { useSelector } from 'react-redux';
 import RoommComponent from '../RoomComponent';
+import ArView from '../lib/ArView';
 
 const Neighbourhood360View = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const Neighbourhood360View = () => {
         </button>
       </div>
       <div className=" h-screen flex items-center justify-center">
-        {<RoommComponent imageUrl={"/360/1.png"} />}
+        <ArView imageUrl={"/360/villa.jpg"} />
       </div>
     </motion.div>
   )

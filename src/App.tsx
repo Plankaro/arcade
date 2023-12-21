@@ -29,6 +29,7 @@ function App() {
   const dispatch = useDispatch();
 
   const handle = useFullScreenHandle();
+  const appSelector = useSelector((state: any) => state);
 
   const toggleFullScreen = () => {
     Options.isFullScreen
@@ -55,13 +56,13 @@ function App() {
             <AllOptions toggleFullScreen={toggleFullScreen} />
           </div>
           <div className="z-10 w-full h-[5rem] p-3 relative">
-            <IntroModal />
-            <PalladianTour />
-            <HolisticEcosystem />
-            <PdfViewerComponent  document={pdf}/>
-            <Neighbourhood360View  />
-            <Plans />
-            <Layouts />
+            { appSelector?.isIntroVideo  && <IntroModal />}
+            { appSelector?.is3dpalladian  && <PalladianTour />}
+            { appSelector?.isHolisticsEcoststem  && <HolisticEcosystem />}
+            { appSelector?.isSalesPresenter  && <PdfViewerComponent  document={pdf}/>}
+            { appSelector?.is360view  && <Neighbourhood360View  />}
+            { appSelector?.isplans  && <Plans />}
+            { appSelector?.ispalladian  && <Layouts />}
           </div>
         </div>
         {/* <RoommComponent imageUrl={"/360/1.png"} /> */}

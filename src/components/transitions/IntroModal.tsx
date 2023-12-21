@@ -7,8 +7,11 @@ const IntroModal = () => {
   return (
     <>
       <CommonModal show={isIntroVideoOpen}>
-        <div>
-          <ReactPlayer url='https://www.youtube.com/watch?v=ht4Fcf2kYwg' />
+        <div className=' max-w-[900px] w-[50vw] aspect-video'>
+          <ReactPlayer
+            width='100%'
+            height='100%'
+            url='https://www.youtube.com/watch?v=ht4Fcf2kYwg' />
         </div>
       </CommonModal>
     </>
