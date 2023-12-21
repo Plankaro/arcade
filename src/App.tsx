@@ -4,13 +4,15 @@ import Logo from "./components/Logo";
 import AllOptions from "./components/options/AllOptions";
 import { useMediaQuery } from "react-responsive";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import { allClose, openFullScreen, openIntroVideo } from "./store/slice/action";
-import Sample from "./components/PdfModel";
+import { allClose, openFullScreen } from "./store/slice/action";
+// import Sample from "./components/PdfModel";
 // import { toggleFullScreenAction } from 'path/to/your/actions'; // Import your action
-import RoommComponent from "./components/RoomComponent";
+// import RoommComponent from "./components/RoomComponent";
 import IntroModal from "./components/transitions/IntroModal";
 import PalladianTour from "./components/transitions/PalladianTour";
 import HolisticEcosystem from "./components/transitions/HolisticEcosystem";
+import PdfViewerComponent from "./components/PdfModel";
+import pdf  from "./assets/Arcade_residentail_brochure_R2_compressed (1).pdf"
 
 // import FullPageLoading from "./components/extras/FullPageLoading";
 // const IntroModal = React.lazy(() => import("./components/transitions/IntroModal"));
@@ -20,17 +22,16 @@ import HolisticEcosystem from "./components/transitions/HolisticEcosystem";
 function App() {
   const isMobile = useMediaQuery({ maxHeight: 767 });
   const isMobileHeight = useMediaQuery({ minHeight: 500 });
-  const isFullScreen = useSelector((state: any) => state?.isFullScreen);
-
+  const Options = useSelector((state: any) => state);
   const dispatch = useDispatch();
 
   const handle = useFullScreenHandle();
 
   const toggleFullScreen = () => {
-    isFullScreen
+    Options.isFullScreen
       ? dispatch(allClose()) :  // Dispatch your action to toggle fullscreen state
       dispatch(openFullScreen())  // Dispatch your action to toggle off fullscreen state
-    if (!isFullScreen) {
+    if (!Options.isFullScreen) {
       handle.enter(); // Enter fullscreen on user action
     } else {
       handle.exit(); // Exit fullscreen on user action
@@ -54,6 +55,7 @@ function App() {
             <IntroModal />
             <PalladianTour />
             <HolisticEcosystem />
+            <PdfViewerComponent  document={pdf}/>
           </div>
         </div>
         {/* <RoommComponent imageUrl={"/360/1.png"} /> */}

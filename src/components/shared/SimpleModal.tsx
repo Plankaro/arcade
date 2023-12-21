@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { allClose } from '../../store/slice/action'
 import { IoClose } from "react-icons/io5";
 
@@ -11,7 +11,6 @@ interface IntroModalProps {
 
 const CommonModal = ({ show, children }: IntroModalProps) => {
   const dispatch = useDispatch();
-  // const isIntroVideoOpen = useSelector((state: any) => state?.isIntroVideo);
   return (
     <motion.div
       initial={{
@@ -27,8 +26,8 @@ const CommonModal = ({ show, children }: IntroModalProps) => {
     >
       <div className=''>
         <button
-          className="absolute top-0 right-0 p-4 text-white text-2xl hover:bg-white hover:text-primary transition-all"
-          onClick={() => { dispatch(allClose()) }}>
+          className="absolute  p-2 top-2 right-2 text-white text-2xl hover:bg-white cursor-pointer z-25 hover:text-primary transition-all"
+          onClick={() => { dispatch(allClose())}}>
           <IoClose />
         </button>
       </div>

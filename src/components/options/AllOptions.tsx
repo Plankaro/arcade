@@ -13,8 +13,8 @@ import { LuContact } from "react-icons/lu";
 import { IoIosContacts } from "react-icons/io";
 import { BsFullscreen } from "react-icons/bs";
 
-import { useSelector, useDispatch } from 'react-redux';
-import { open3dpalladian, openHolisticsEcoststem, openIntroVideo } from '../../store/slice/action';
+import { useDispatch } from 'react-redux';
+import { open3dpalladian, openHolisticsEcoststem, openIntroVideo, openSalesPresenter } from '../../store/slice/action';
 
 interface AllOptionsProps{
   toggleFullScreen:()=>void
@@ -38,7 +38,7 @@ const AllOptions:React.FC<AllOptionsProps> = ({
             </div>
             <div className="flex flex-col gap-4 justify-between h-full">
                 <div><CommonButton onClick={() => {}} right label='3D Home Tour' icon={BsHeadsetVr}/></div>
-                <div><CommonButton onClick={() => {}} right label='Sales Presenter' icon={RiPresentationLine}/></div>
+                <div><CommonButton onClick={() => {dispatch(openSalesPresenter())}} right label='Sales Presenter' icon={RiPresentationLine}/></div>
                 <div><CommonButton onClick={() => {}} right label='Gallery' icon={GrGallery}/></div>
                 <div><CommonButton onClick={() => {}} right label='Contact Us' icon={LuContact}/></div>
                 <div><CommonButton onClick={() => {}} right label='About Us' icon={IoIosContacts}/></div>
