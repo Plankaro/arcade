@@ -1,12 +1,20 @@
 import { Canvas, useLoader } from "@react-three/fiber";
-import { OrbitControls} from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import { TextureLoader } from "three";
+import { useEffect } from "react";
 
 function ARImageViewer({ imageUrl }: any) {
-  const texture = useLoader(TextureLoader, imageUrl);
+  let texture;
+  texture = useLoader(TextureLoader, imageUrl);
   return (
     <Canvas
-      style={{ backgroundImage: `url(${imageUrl})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
+      style={{
+        backgroundImage: `url(${imageUrl})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        zIndex: 40
+      }}
       camera={{
         fov: 75,
         aspect: window.innerWidth / window.innerHeight,
@@ -20,7 +28,7 @@ function ARImageViewer({ imageUrl }: any) {
       <pointLight position={[10, 10, 10]} />
       <mesh>
         <sphereGeometry args={[500, 60, 40]} />
-        <meshBasicMaterial side={2} map={texture as any} />
+        {texture && <meshBasicMaterial side={2} map={texture as any} />}
       </mesh>
       <OrbitControls enableZoom enablePan enableRotate />
     </Canvas>

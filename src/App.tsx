@@ -13,6 +13,9 @@ import PalladianTour from "./components/transitions/PalladianTour";
 import HolisticEcosystem from "./components/transitions/HolisticEcosystem";
 import PdfViewerComponent from "./components/PdfModel";
 import pdf  from "./assets/Arcade_residentail_brochure_R2_compressed (1).pdf"
+import Neighbourhood360View from "./components/transitions/Neighbourhood360View";
+import Plans from "./components/transitions/Plans";
+import Layouts from "./components/transitions/Layouts";
 
 // import FullPageLoading from "./components/extras/FullPageLoading";
 // const IntroModal = React.lazy(() => import("./components/transitions/IntroModal"));
@@ -56,6 +59,9 @@ function App() {
             <PalladianTour />
             <HolisticEcosystem />
             <PdfViewerComponent  document={pdf}/>
+            <Neighbourhood360View  />
+            <Plans />
+            <Layouts />
           </div>
         </div>
         {/* <RoommComponent imageUrl={"/360/1.png"} /> */}

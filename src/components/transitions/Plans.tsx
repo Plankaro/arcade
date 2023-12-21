@@ -5,17 +5,23 @@ import { allClose } from '../../store/slice/action';
 import { IoClose } from 'react-icons/io5';
 import Sidebar from '../shared/Sidebar';
 
-const HolisticEcosystem = () => {
+const Plans = () => {
   const dispatch = useDispatch();
-  const isHolisticsEcoststem = useSelector((state: any) => state?.isHolisticsEcoststem);
+  const isplans = useSelector((state: any) => state?.isplans);
 
   const slideImages = [{
-    title: "Slide 1",
-    imageUrl: "https://images.unsplash.com/photo-1625015531264-43c3fce8c792?q=80&w=1460&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  }, {
-    title: "Slide 2",
-    imageUrl: "https://wallpapercave.com/wp/Os2ZgZR.jpg",
-  }];
+    title: "Smart City",
+    imageUrl: "https://img.freepik.com/premium-photo/glowing-smart-building-architecture-urban-landscape-urban-futuristic-technology-concepts-3d-rendering_634053-274.jpg",
+  },
+   {
+    title: "Faster Connectivity",
+    imageUrl: "https://i.pinimg.com/originals/e9/90/c0/e990c001eee994e2512bf8754e49b937.jpg",
+  },
+   {
+    title: "Best Infrastructure",
+    imageUrl: "https://thumbs.dreamstime.com/z/drawing-od-modern-building-architecture-plans-18781467.jpg",
+  },
+];
 
 
   const [slide, setSlide] = useState(0);
@@ -25,8 +31,8 @@ const HolisticEcosystem = () => {
   return (
     <motion.div
       animate={{
-        translateX: isHolisticsEcoststem ? '0%' : '-100%',
-        opacity: isHolisticsEcoststem ? 1 : 0,
+        translateX: isplans ? '0%' : '-100%',
+        opacity: isplans ? 1 : 0,
       }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className={` fixed inset-0 bg-white`}
@@ -51,6 +57,11 @@ const HolisticEcosystem = () => {
             translateX: 0,
             skewY: 0,
           }}
+          exit={{
+            opacity: 0,
+            translateX: '20%',
+            skewY: -3,
+          }}
           transition={{
             duration: 0.5,
             ease: "easeInOut",
@@ -73,5 +84,5 @@ const HolisticEcosystem = () => {
   )
 }
 
-export default HolisticEcosystem
+export default Plans
 

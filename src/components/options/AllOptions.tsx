@@ -14,7 +14,7 @@ import { IoIosContacts } from "react-icons/io";
 import { BsFullscreen } from "react-icons/bs";
 
 import { useDispatch } from 'react-redux';
-import { open3dpalladian, openHolisticsEcoststem, openIntroVideo, openSalesPresenter } from '../../store/slice/action';
+import { open360view, open3dpalladian, openHolisticsEcoststem, openIntroVideo, openSalesPresenter, openpalladian, openplans } from '../../store/slice/action';
 
 interface AllOptionsProps{
   toggleFullScreen:()=>void
@@ -31,10 +31,10 @@ const AllOptions:React.FC<AllOptionsProps> = ({
             <div className="flex flex-col justify-between gap-4 h-full">
                 <div><CommonButton onClick={() => {dispatch(openIntroVideo()); console.log('open intro video')}} label='Introduction' icon={IoPlayCircleOutline} /></div>
                 <div><CommonButton onClick={() => {dispatch(openHolisticsEcoststem())}} label='Holistic Ecosystem' icon={BiNetworkChart} /></div>
-                <div><CommonButton onClick={() => {}} label='Neighbourhood 360 View' icon={Tb360View}/></div>
-                <div><CommonButton onClick={() => {}} label='Palladian Layout' icon={FiLayout} /></div>
+                <div><CommonButton onClick={() => {dispatch(open360view())}} label='Neighbourhood 360 View' icon={Tb360View}/></div>
+                <div><CommonButton onClick={() => {dispatch(openpalladian())}} label='Palladian Layout' icon={FiLayout} /></div>
                 <div><CommonButton onClick={() => {dispatch(open3dpalladian())}} label='3D Palladian Tour' icon={PiVirtualRealityBold}/></div>
-                <div><CommonButton onClick={() => {}} label='Plans' icon={FaRegMap}/></div>
+                <div><CommonButton onClick={() => {dispatch(openplans())}} label='Plans' icon={FaRegMap}/></div>
             </div>
             <div className="flex flex-col gap-4 justify-between h-full">
                 <div><CommonButton onClick={() => {}} right label='3D Home Tour' icon={BsHeadsetVr}/></div>
