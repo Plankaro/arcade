@@ -15,9 +15,9 @@ import { useSelector } from 'react-redux';
 import "../index.css"
 const GalaryModel = () => {
   const isGalary = useSelector((state: any) => state.isGalary);
-  const images = import.meta.glob('../../public/3BHK-All-photos/*.{png,jpg,jpeg,svg}');
-  const imageUrls = Object.values(images).map((image) => image.name);
-  console.log("🚀 ~ file: GalaryModel.tsx:20 ~ GalaryModel ~ imageUrls:", imageUrls)
+  // const images = import.meta.glob('../../public/3BHK-All-photos/*.{png,jpg,jpeg,svg}');
+  // const imageUrls = Object.values(images).map((image) => image.name);
+  // console.log("🚀 ~ file: GalaryModel.tsx:20 ~ GalaryModel ~ imageUrls:", imageUrls)
 
   return (
     <CommonModal show={isGalary}>
@@ -33,10 +33,22 @@ const GalaryModel = () => {
             modules={[EffectFade, Navigation, Pagination]}
             className="mySwiper "
           >
-            {imageUrls.map((src: string, idx:number) =>
+            {/* {imageUrls.map((src: string, idx:number) =>
             (<SwiperSlide key={idx}>
               <img src={src} />
-            </SwiperSlide>))}
+            </SwiperSlide>))} */}
+            <SwiperSlide>
+              <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+            </SwiperSlide>
 
           </Swiper>
         </div>
