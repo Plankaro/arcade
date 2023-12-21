@@ -4,15 +4,19 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .main {
   margin: 0;
   padding: 0;
   /* Adjust the path accordingly */
-  background-image: url("./assets/home/home.jpg"); 
+  background-image: url("./assets/home/home.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
+
 }
 
 body {

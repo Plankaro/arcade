@@ -29,7 +29,13 @@ const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, right, onClick
 
       <motion.div
         className={`md:w-[4.3rem] md:h-[4.3rem] w-[3rem] h-[3rem] rounded-full p-1 shadow-outline shadow-white `}
-        whileHover={{ scale: 1.1 }} 
+        // whileHover={{ scale: 1.1 }} 
+        animate={{
+          boxShadow: isHovered
+            ? "0px 0px 0px 3px #fff"
+            : "0px 0px 0px 3px #fff",
+        }}
+        transition={{ duration: 0.2 }}          
       >
         <motion.div
           className={` rounded-full w-full h-full flex items-center justify-center ${
