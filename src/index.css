@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .main {
@@ -16,7 +16,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
 }
 
 body {
@@ -25,4 +24,11 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.swiper {
+  /* max-width: 95vw !important; */
+  /* margin-left: 5rem !important; */
+  max-height: 700px !important;
+  height: 100%;
 }

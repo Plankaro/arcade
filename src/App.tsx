@@ -12,6 +12,7 @@ import PalladianTour from "./components/transitions/PalladianTour";
 import HolisticEcosystem from "./components/transitions/HolisticEcosystem";
 import PdfViewerComponent from "./components/PdfModel";
 import pdf from "./assets/Arcade_residentail_brochure_R2_compressed (1).pdf"
+import GalaryModel from "./components/GalaryModel";
 
 function App() {
   const isMobile = useMediaQuery({ maxHeight: 767 });
@@ -49,6 +50,7 @@ function App() {
             <AllOptions toggleFullScreen={toggleFullScreen} />
           </div>
           <div className="z-10 w-full h-[5rem] p-3 relative">
+            <GalaryModel />
             {/* <IntroModal />
             <PalladianTour />
             <HolisticEcosystem />
