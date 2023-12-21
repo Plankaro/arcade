@@ -16,13 +16,13 @@ const HolisticEcosystem = () => {
     imageUrl: "https://images.unsplash.com/photo-1625015531264-43c3fce8c792?q=80&w=1460&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   }, {
     title: "Slide 2",
-    imageUrl: "https://images.unsplash.com/photo-1625015531264-43c3fce8c792?q=80&w=1460&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    imageUrl: "https://wallpapercave.com/wp/Os2ZgZR.jpg",
   }];
 
- 
+
   const [slide, setSlide] = useState(0);
 
-  console.log("holistic rendered");
+  console.log("holistic rendered", slide);
 
   return (
     <motion.div
@@ -35,23 +35,37 @@ const HolisticEcosystem = () => {
     >
 
       <Sidebar
-        // show={isMenuOpen}
         items={slideImages.map(i => i.title)}
         setSlide={setSlide}
-        // setMenuOpen={setMenuOpen}
-         />
+      />
 
+      {/* body */}
       <div className=" z-10 relative h-screen flex items-center justify-center ">
-        <div className=' absolute top-0 left-0 w-7 bg-black h-full'>
-          {/* <button onClick={() => setMenuOpen(true)}
-            className='absolute top-1/2 rounded-full -translate-y-1/2 translate-x-1/3 border border-black bg-accent w-[40px] h-[40px] flex items-center justify-center '
-          >
-            <MdOutlineArrowForwardIos className=' text-white' />
-          </button> */}
-        </div>
-        <h1>Holistic Ecosystem</h1>
+        {/* <div className=' absolute top-0 left-0 w-7 bg-black h-full'>
+        </div> */}
+        <motion.div
+          key={slideImages[slide].title} // Add a unique key based on the image title
+          initial={{
+            opacity: 0,
+            translateX: '-20%',
+            skewY: 3,
+          }}
+          animate={{
+            opacity: 1,
+            translateX: '0%',
+            skewY: 0,
+          }}
+          transition={{
+            duration: 0.5,
+            ease: "easeInOut",
+          }}
+          className='flex items-center justify-center h-full'>
+          <img src={slideImages[slide].imageUrl} alt='gallery image' className='aspect-video h-[70%]' />
+        </motion.div>
+
       </div>
 
+      {/* close button */}
       <div className='z-30'>
         <button
           className="absolute z-30 top-0 right-0 p-4 text-black text-2xl hover:bg-black hover:text-white transition-all"
@@ -77,18 +91,18 @@ export const Sidebar = ({ items, setSlide }: SidebarProps) => {
   console.log("sidebar rendered");
   return (
     <motion.div
-      // initial={{
-      //   translateX: '-80%',
-      //   // opacity: 0,
-      // }}
-      // animate={{
-      //   translateX: isMenuOpen ? '0%' : '-80%',
-      //   // opacity: isMenuOpen ? 1 : 0,
-      // }}
-      // transition={{
-      //   duration: 0.5,
-      //   ease: "easeInOut",
-      // }}
+      initial={{
+        translateX: '-90%',
+        // opacity: 0,/
+      }}
+      animate={{
+        translateX: isMenuOpen ? '0%' : '-90%',
+        // opacity: isMenuOpen ? 1 : 0,
+      }}
+      transition={{
+        duration: 0.5,
+        ease: "easeIn",
+      }}
       className={` z-30 fixed top-0 left-0 min-w-[300px] text-white bg-black shadow-lg h-screen p-8`}
     >
       <div className=' z-30 absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 '>
@@ -109,11 +123,17 @@ export const Sidebar = ({ items, setSlide }: SidebarProps) => {
           {items.map((item, index) => {
             return (
               <div key={index} className=' w-full text-left border-b border-[#FFD700] pl-6 spacing tracking widset'>
-                <button className=' py-4 text-lg italic tracking-normal w-full text-start'
+                <motion.button className=' py-4 text-lg italic tracking-normal w-full text-start'
+                  initial={{
+                    background: '#000',
+                  }}
+                  whileHover={{
+                    color: '#FFD700',
+                  }}
                   onClick={() => { setSlide(index) }}
                 >
                   {item?.[0].toUpperCase() + item.slice(1)}
-                </button>
+                </motion.button>
               </div>
             )
           })}
