@@ -37,7 +37,7 @@ const AllOptions:React.FC<AllOptionsProps> = ({
                 <div><CommonButton onClick={() => {dispatch(openplans())}} label='Plans' icon={FaRegMap}/></div>
             </div>
             <div className="flex flex-col gap-4 justify-between h-full">
-                <div><CommonButton onClick={() => {}} right label='3D Home Tour' icon={BsHeadsetVr}/></div>
+                <div><CommonButton onClick={() => {dispatch(open3dHomeTour())}} right label='3D Home Tour' icon={BsHeadsetVr}/></div>
                 <div><CommonButton onClick={() => {dispatch(openSalesPresenter())}} right label='Sales Presenter' icon={RiPresentationLine}/></div>
                 <div><CommonButton onClick={() => {}} right label='Gallery' icon={GrGallery}/></div>
                 <div><CommonButton onClick={() => {}} right label='Contact Us' icon={LuContact}/></div>
