@@ -14,6 +14,7 @@ export default {
       },
     },
     colors: {
+      accent: "#21ADE8",
       primary:"#575452",
       white: "#FEFEFE",
       gray: "#636466",
