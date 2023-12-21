@@ -29,6 +29,7 @@
     "react-redux": "^9.0.4",
     "react-responsive": "^9.0.2",
     "redux": "^5.0.0",
+    "swiper": "^11.0.5",
     "three": "^0.159.0",
     "valtio": "^1.12.1"
   },
