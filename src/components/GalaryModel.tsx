@@ -37,7 +37,6 @@ const GalaryModel = () => {
             (<SwiperSlide key={idx}>
               <img src={src} />
             </SwiperSlide>))}
-
           </Swiper>
         </div>
       </div>

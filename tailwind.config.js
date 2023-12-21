@@ -12,6 +12,11 @@ export default {
         'normal': 1.5,     // Normal line height
         'relaxed': 1.75,   // Relaxed line height
       },
+
+      backgroundImage: {
+        
+      }
+
     },
     colors: {
       accent: "#21ADE8",
