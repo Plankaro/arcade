@@ -7,7 +7,7 @@ const PalladianTour = () => {
   return (
     <>
       <CommonModal show={is3dpalladian}>
-      <div className=' max-w-[900px] min-w-[400px] w-[50vw] aspect-video '>
+        <div className=' min-w-[450px] w-[70vw] aspect-video'>
           <ReactPlayer
             width='100%'
             height='100%'

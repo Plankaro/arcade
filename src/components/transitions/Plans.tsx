@@ -20,7 +20,7 @@ const Plans = () => {
         opacity: isplans ? 1 : 0,
       }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className={` fixed inset-0 bg-white `}
+      className={` fixed inset-0 bg-black/30 `}
     >
 
       <Sidebar

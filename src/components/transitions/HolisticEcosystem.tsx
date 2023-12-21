@@ -29,7 +29,7 @@ const HolisticEcosystem = () => {
         opacity: isHolisticsEcoststem ? 1 : 0,
       }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className={` fixed inset-0 bg-white`}
+      className={` fixed inset-0 backdrop-brightness-75`}
     >
 
       <Sidebar
@@ -64,7 +64,7 @@ const HolisticEcosystem = () => {
       {/* close button */}
       <div className='z-30'>
         <button
-          className="absolute z-30 top-0 right-0 p-4 text-black text-2xl hover:bg-black hover:text-white transition-all"
+          className="absolute z-30 top-0 right-0 p-4 text-white text-2xl bg-black hover:text-white transition-all"
           onClick={() => { dispatch(allClose()) }}>
           <IoClose />
         </button>

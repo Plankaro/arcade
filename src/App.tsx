@@ -15,7 +15,7 @@ import PdfViewerComponent from "./components/PdfModel";
 import pdf from "./assets/Arcade_residentail_brochure_R2_compressed (1).pdf"
 import Neighbourhood360View from "./components/transitions/Neighbourhood360View";
 import Plans from "./components/transitions/Plans";
-// import Layouts from "./components/transitions/Layouts";
+import Layouts from "./components/transitions/Layouts";
 import GalaryModel from "./components/GalaryModel";
 
 // import FullPageLoading from "./components/extras/FullPageLoading";
@@ -45,6 +45,8 @@ function App() {
 
   console.log("=> Main app rendered");
 
+  
+
   return (
     <FullScreen handle={handle}>
       <div className={`w-screen ${isMobileHeight ? "h-screen" : "h-full"}`}>
@@ -66,11 +68,10 @@ function App() {
             {appSelector?.isSalesPresenter && <PdfViewerComponent document={pdf} />}
             {<Neighbourhood360View />}
             {appSelector?.isplans && <Plans />}
-            {/* {appSelector?.ispalladian && <Layouts />} */}
+            {appSelector?.ispalladian && <Layouts />}
             {appSelector?.isGalary && <GalaryModel />}
           </div>
         </div>
-        {/* <RoommComponent imageUrl={"/360/1.png"} /> */}
       </div>
     </FullScreen>
   );

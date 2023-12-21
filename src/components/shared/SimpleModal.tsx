@@ -26,7 +26,7 @@ const CommonModal = ({ show, children }: IntroModalProps) => {
     >
       <div className=''>
         <button
-          className="absolute  p-2 top-2 right-2 text-white text-2xl hover:bg-white cursor-pointer z-25 hover:text-primary transition-all"
+          className="absolute  p-2 top-0 right-0 text-white text-2xl hover:bg-white cursor-pointer z-25 hover:text-primary transition-all"
           onClick={() => { dispatch(allClose())}}>
           <IoClose />
         </button>
