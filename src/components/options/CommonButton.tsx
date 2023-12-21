@@ -26,7 +26,7 @@ const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, right, onClick
       )}
 
       <motion.div
-        className={`md:w-[4.3rem] md:h-[4.3rem] w-[3rem] h-[3rem] rounded-full p-1 shadow-outline shadow-white `}
+        className={`md:w-[4rem] md:h-[4rem] w-[2.5rem] h-[2.5rem] rounded-full p-1 shadow-outline shadow-white `}
         // whileHover={{ scale: 1.1 }} 
         animate={{
           boxShadow: isHovered

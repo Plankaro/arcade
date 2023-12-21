@@ -13,7 +13,7 @@ interface SidebarProps {
 
 export const Sidebar = ({ items, setSlide }: SidebarProps) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
-  console.log("sidebar rendered");
+  // console.log("sidebar rendered");
   return (
     <motion.div
       initial={{
