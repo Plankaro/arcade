@@ -32,7 +32,7 @@ const Neighbourhood360View = () => {
         </button>
       </div>
       <div className=" h-screen flex items-center justify-center">
-        <ArView imageUrl={"/360/villa.jpg"} />
+        {<ArView imageUrl={"/360/villa.jpg"} />}
       </div>
     </motion.div>
   )

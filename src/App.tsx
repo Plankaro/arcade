@@ -63,7 +63,7 @@ function App() {
             { appSelector?.is3dpalladian  && <PalladianTour />}
             { appSelector?.isHolisticsEcoststem  && <HolisticEcosystem />}
             { appSelector?.isSalesPresenter  && <PdfViewerComponent  document={pdf}/>}
-            { appSelector?.is360view  && <Neighbourhood360View  />}
+            { <Neighbourhood360View  />}
             { appSelector?.isplans  && <Plans />}
             { appSelector?.ispalladian  && <Layouts />}
           </div>

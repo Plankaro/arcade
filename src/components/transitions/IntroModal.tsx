@@ -7,7 +7,7 @@ const IntroModal = () => {
   return (
     <>
       <CommonModal show={isIntroVideoOpen}>
-        <div className=' max-w-[900px] w-[50vw] aspect-video'>
+        <div className=' min-w-[900px] w-[70vw] aspect-video'>
           <ReactPlayer
             width='100%'
             height='100%'
