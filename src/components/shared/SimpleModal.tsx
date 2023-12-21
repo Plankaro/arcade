@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { allClose } from '../../store/slice/action'
 import { IoClose } from "react-icons/io5";
 
@@ -11,7 +11,6 @@ interface IntroModalProps {
 
 const CommonModal = ({ show, children }: IntroModalProps) => {
   const dispatch = useDispatch();
-  // const isIntroVideoOpen = useSelector((state: any) => state?.isIntroVideo);
   return (
     <motion.div
       initial={{

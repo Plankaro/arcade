@@ -13,7 +13,7 @@ import { LuContact } from "react-icons/lu";
 import { IoIosContacts } from "react-icons/io";
 import { BsFullscreen } from "react-icons/bs";
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { open3dpalladian, openHolisticsEcoststem, openIntroVideo } from '../../store/slice/action';
 
 interface AllOptionsProps{

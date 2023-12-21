@@ -23,7 +23,7 @@ const HolisticEcosystem = () => {
   const [slide, setSlide] = useState(0);
 
   console.log("holistic rendered");
-
+  
   return (
     <motion.div
       animate={{
@@ -50,6 +50,9 @@ const HolisticEcosystem = () => {
           </button> */}
         </div>
         <h1>Holistic Ecosystem</h1>
+        <p>
+          {slideImages[slide].title}
+        </p>
       </div>
 
       <div className='z-30'>
