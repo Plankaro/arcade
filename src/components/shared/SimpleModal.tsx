@@ -6,7 +6,7 @@ import { IoClose } from "react-icons/io5";
 
 interface IntroModalProps {
   children: React.ReactNode;
-  show: boolean;
+  show?: boolean;
 }
 
 const CommonModal = ({ show, children }: IntroModalProps) => {

@@ -11,6 +11,7 @@ import CommonModal from './shared/SimpleModal';
 import { useSelector } from 'react-redux';
 import "../index.css"
 const GalaryModel = () => {
+    
     const isGalary = useSelector((state: any) => state.isGalary);
     return (
         <CommonModal show={isGalary}>
