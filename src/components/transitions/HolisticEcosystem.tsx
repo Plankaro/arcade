@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion'
-import { allClose } from '../../store/slice/action';
-import { IoClose } from 'react-icons/io5';
 import Sidebar from '../shared/Sidebar';
+import CloseButton from '../options/CloseButton';
 
 const HolisticEcosystem = () => {
-  const dispatch = useDispatch();
   const isHolisticsEcoststem = useSelector((state: any) => state?.isHolisticsEcoststem);
 
   const slideImages = [{
@@ -62,13 +60,7 @@ const HolisticEcosystem = () => {
       </div>
 
       {/* close button */}
-      <div className='z-30'>
-        <button
-          className="absolute z-30 top-0 right-0 p-4 text-white text-2xl bg-black hover:text-white transition-all"
-          onClick={() => { dispatch(allClose()) }}>
-          <IoClose />
-        </button>
-      </div>
+      <CloseButton />
     </motion.div>
   )
 }

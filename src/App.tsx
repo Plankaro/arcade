@@ -61,14 +61,14 @@ function App() {
           <div className={`z-10 px-[1rem] flex-grow ${isMobile ? "mt-3" : "mt-5"}`}>
             <AllOptions toggleFullScreen={toggleFullScreen} />
           </div>
-          <div className="z-10 w-full h-[5rem] p-3 relative">
+          <div className="z-10 w-full p-3 relative">
             {appSelector?.isIntroVideo && <IntroModal />}
-            {appSelector?.is3dpalladian && <PalladianTour />}
             {appSelector?.isHolisticsEcoststem && <HolisticEcosystem />}
-            {appSelector?.isSalesPresenter && <PdfViewerComponent document={pdf} />}
             {<Neighbourhood360View />}
-            {appSelector?.isplans && <Plans />}
             {appSelector?.ispalladian && <Layouts />}
+            {appSelector?.is3dpalladian && <PalladianTour />}
+            {appSelector?.isplans && <Plans />}
+            {appSelector?.isSalesPresenter && <PdfViewerComponent document={pdf} />}
             {appSelector?.isGalary && <GalaryModel />}
           </div>
         </div>

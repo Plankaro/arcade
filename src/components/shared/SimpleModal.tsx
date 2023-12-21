@@ -1,8 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { useDispatch } from 'react-redux'
-import { allClose } from '../../store/slice/action'
-import { IoClose } from "react-icons/io5";
+import CloseButton from '../options/CloseButton';
 
 interface IntroModalProps {
   children: React.ReactNode;
@@ -10,7 +8,6 @@ interface IntroModalProps {
 }
 
 const CommonModal = ({ show, children }: IntroModalProps) => {
-  const dispatch = useDispatch();
   return (
     <motion.div
       initial={{
@@ -24,13 +21,7 @@ const CommonModal = ({ show, children }: IntroModalProps) => {
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className={` fixed inset-0 backdrop-brightness-75 z-20`}
     >
-      <div className=''>
-        <button
-          className="absolute  p-2 top-0 right-0 text-white text-2xl hover:bg-white cursor-pointer z-25 hover:text-primary transition-all"
-          onClick={() => { dispatch(allClose())}}>
-          <IoClose />
-        </button>
-      </div>
+      <CloseButton />
       <div className=" h-screen flex items-center justify-center">
         {children}
       </div>
