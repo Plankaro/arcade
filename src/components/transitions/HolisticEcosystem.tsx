@@ -41,10 +41,8 @@ const HolisticEcosystem = () => {
 
       {/* body */}
       <div className=" z-10 relative h-screen flex items-center justify-center ">
-        {/* <div className=' absolute top-0 left-0 w-7 bg-black h-full'>
-        </div> */}
         <motion.div
-          key={slideImages[slide].title} // Add a unique key based on the image title
+          key={slideImages[slide].title}
           initial={{
             opacity: 0,
             translateX: '-20%',
@@ -52,7 +50,7 @@ const HolisticEcosystem = () => {
           }}
           animate={{
             opacity: 1,
-            translateX: '0%',
+            translateX: 0,
             skewY: 0,
           }}
           transition={{
@@ -60,7 +58,7 @@ const HolisticEcosystem = () => {
             ease: "easeInOut",
           }}
           className='flex items-center justify-center h-full'>
-          <img src={slideImages[slide].imageUrl} alt='gallery image' className='aspect-video h-[70%]' />
+          <img src={slideImages[slide].imageUrl} alt='gallery image' className=' translate-x-16 aspect-video h-[70%]' />
         </motion.div>
 
       </div>
@@ -87,7 +85,7 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ items, setSlide }: SidebarProps) => {
-  const [isMenuOpen, setMenuOpen] = useState(true);
+  const [isMenuOpen, setMenuOpen] = useState(false);
   console.log("sidebar rendered");
   return (
     <motion.div
@@ -100,7 +98,7 @@ export const Sidebar = ({ items, setSlide }: SidebarProps) => {
         // opacity: isMenuOpen ? 1 : 0,
       }}
       transition={{
-        duration: 0.5,
+        duration: 0.3,
         ease: "easeIn",
       }}
       className={` z-30 fixed top-0 left-0 min-w-[300px] text-white bg-black shadow-lg h-screen p-8`}
@@ -123,7 +121,7 @@ export const Sidebar = ({ items, setSlide }: SidebarProps) => {
           {items.map((item, index) => {
             return (
               <div key={index} className=' w-full text-left border-b border-[#FFD700] pl-6 spacing tracking widset'>
-                <motion.button className=' py-4 text-lg italic tracking-normal w-full text-start'
+                <motion.button className={` py-4 text-lg italic tracking-normal w-full text-start`}
                   initial={{
                     background: '#000',
                   }}

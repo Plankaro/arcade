@@ -51,18 +51,12 @@ function App() {
             <AllOptions toggleFullScreen={toggleFullScreen} />
           </div>
           <div className="z-10 w-full h-[5rem] p-3 relative">
-            {/* <Suspense fallback={<FullPageLoading />}> */}
-              <IntroModal />
-            {/* </Suspense> */}
-            {/* <Suspense fallback={<FullPageLoading />}> */}
-              <PalladianTour />
-            {/* </Suspense> */}
-            {/* <Suspense fallback={<FullPageLoading />}> */}
-              <HolisticEcosystem />
-            {/* </Suspense> */}
+            <IntroModal />
+            <PalladianTour />
+            <HolisticEcosystem />
           </div>
         </div>
-        {/* <RoommComponent imageUrl={"https://images.unsplash.com/photo-1625015531264-43c3fce8c792?q=80&w=1460&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"} /> */}
+        {/* <RoommComponent imageUrl={"/360/1.png"} /> */}
       </div>
     </FullScreen>
   );
