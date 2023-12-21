@@ -12,10 +12,11 @@ import IntroModal from "./components/transitions/IntroModal";
 import PalladianTour from "./components/transitions/PalladianTour";
 import HolisticEcosystem from "./components/transitions/HolisticEcosystem";
 import PdfViewerComponent from "./components/PdfModel";
-import pdf  from "./assets/Arcade_residentail_brochure_R2_compressed (1).pdf"
+import pdf from "./assets/Arcade_residentail_brochure_R2_compressed (1).pdf"
 import Neighbourhood360View from "./components/transitions/Neighbourhood360View";
 import Plans from "./components/transitions/Plans";
 import Layouts from "./components/transitions/Layouts";
+import GalaryModel from "./components/GalaryModel";
 
 // import FullPageLoading from "./components/extras/FullPageLoading";
 // const IntroModal = React.lazy(() => import("./components/transitions/IntroModal"));
@@ -59,13 +60,14 @@ function App() {
             <AllOptions toggleFullScreen={toggleFullScreen} />
           </div>
           <div className="z-10 w-full h-[5rem] p-3 relative">
-            { appSelector?.isIntroVideo  && <IntroModal />}
-            { appSelector?.is3dpalladian  && <PalladianTour />}
-            { appSelector?.isHolisticsEcoststem  && <HolisticEcosystem />}
-            { appSelector?.isSalesPresenter  && <PdfViewerComponent  document={pdf}/>}
-            { <Neighbourhood360View  />}
-            { appSelector?.isplans  && <Plans />}
-            { appSelector?.ispalladian  && <Layouts />}
+            {appSelector?.isIntroVideo && <IntroModal />}
+            {appSelector?.is3dpalladian && <PalladianTour />}
+            {appSelector?.isHolisticsEcoststem && <HolisticEcosystem />}
+            {appSelector?.isSalesPresenter && <PdfViewerComponent document={pdf} />}
+            {<Neighbourhood360View />}
+            {appSelector?.isplans && <Plans />}
+            {appSelector?.ispalladian && <Layouts />}
+            {appSelector?.isGalary && <GalaryModel />}
           </div>
         </div>
         {/* <RoommComponent imageUrl={"/360/1.png"} /> */}

@@ -14,7 +14,7 @@ import { IoIosContacts } from "react-icons/io";
 import { BsFullscreen } from "react-icons/bs";
 
 import { useDispatch } from 'react-redux';
-import { open360view, open3dHomeTour, open3dpalladian, openHolisticsEcoststem, openIntroVideo, openSalesPresenter, openpalladian, openplans } from '../../store/slice/action';
+import { open360view, open3dHomeTour, open3dpalladian, openHolisticsEcoststem, openIntroVideo, openSalesPresenter, openpalladian, openplans, openGalary } from '../../store/slice/action';
 
 interface AllOptionsProps{
   toggleFullScreen:()=>void
