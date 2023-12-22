@@ -13,12 +13,10 @@ import { EffectFade, Navigation, Pagination } from 'swiper/modules';
 import CommonModal from './shared/SimpleModal';
 import { useSelector } from 'react-redux';
 import "../index.css"
+import { ImageUrls } from '../constants/ImageUrls';
+
 const GalaryModel = () => {
   const isGalary = useSelector((state: any) => state.isGalary);
-  const images = import.meta.glob('../../public/3BHK-All-photos/*.{png,jpg,jpeg,svg}');
-  const imageUrls = Object.values(images).map((image) => image.name);
-  console.log("🚀 ~ file: GalaryModel.tsx:20 ~ GalaryModel ~ imageUrls:", imageUrls)
-
   return (
     <CommonModal show={isGalary}>
       <div className="self-stretch w-full h-full flex items-center justify-center flex-col rounded-md">
@@ -33,9 +31,12 @@ const GalaryModel = () => {
             modules={[EffectFade, Navigation, Pagination]}
             className="mySwiper "
           >
-            {imageUrls.map((src: string, idx:number) =>
+            {ImageUrls.map((src: string, idx:number) =>
             (<SwiperSlide key={idx}>
-              <img src={src} />
+              <img src={src} loading="lazy"/>
+              <div className="swiper-lazy-preloader">
+                loading...
+              </div>
             </SwiperSlide>))}
           </Swiper>
         </div>
