@@ -24,14 +24,14 @@ const Logo: React.FC<LogoProps> = () => {
         opacity: focusHome ? 1 : 0,
       }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="top-0 left-0 z-10 w-full h-[5rem] flex flex-row justify-between items-center">
+      className="top-0 left-0 z-10 w-full flex flex-row justify-between items-center">
       <a href="/">
         <img src={logo} alt="logo"
-          className="md:h-[7rem] h-[4rem] md:w-[7rem] w-[4rem] top-[-1.2rem]" />
+          className="md:h-[7rem] h-[4rem] md:w-[7rem] w-[4rem]" />
       </a>
       <a href="https://stackkaroo.com" target="__blank">
         <img src={"/stackkaroo-logo.svg"} alt="stackkaroo-logo"
-          className="md:h-[7rem] h-[4rem] md:w-[7rem] w-[4rem] top-[-1.2rem] right-0" />
+          className="md:h-[7rem] h-[4rem] md:w-[7rem] w-[4rem] right-0 mx-[16px]" />
       </a>
     </motion.div>
 
