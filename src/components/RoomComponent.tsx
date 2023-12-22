@@ -45,9 +45,11 @@
 
 import { useRef, useState } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
-import { Box, OrbitControls } from "@react-three/drei";
+import { Box, OrbitControls, Html } from "@react-three/drei";
 import { TextureLoader } from "three";
 import { useSelector } from "react-redux";
+import { VRButton } from 'three/examples/jsm/webxr/VRButton.js';
+import { BsDoorOpen } from "react-icons/bs";
 
 function ARImageViewer({ imageUrl, nextRoomImageUrl }: any) {
   const is3dHomeTour = useSelector((state: any) => state?.is3dHomeTour);
@@ -56,22 +58,16 @@ function ARImageViewer({ imageUrl, nextRoomImageUrl }: any) {
   const [isTransitioning, setTransitioning] = useState(false);
   const doorRef = useRef();
   const handleDoorClick = () => {
-   
-      setTransitioning((value)=> !value);
-      // Perform any transition logic here, e.g., loading the next room
-    //   setTimeout(() => {
-    //     // Simulating a delay before changing the room
-    //     setTransitioning(false);
-    //     // Update the state, URL, or perform any other logic to switch to the next room
-    //   }, 1000);
+
+    setTransitioning((value) => !value);
 
   };
-  
-  if(isTransitioning){
+
+  if (isTransitioning) {
     texture = nextRoomTexture
   }
 
-  
+
 
   return (
     <>
@@ -98,16 +94,44 @@ function ARImageViewer({ imageUrl, nextRoomImageUrl }: any) {
             {/* Door/Button */}
             <mesh
               ref={doorRef as any}
-              position={[-5, 0, 4]} // Adjust the position of the door/button
+              position={[380, 30, -550]} // Adjust the position of the door/button
               onClick={handleDoorClick}
             // cursor="pointer"
             >
-              <Box material-color="hotpink" />
+              {/* <Box material-color="hotpink" /> */}
+              <Html position={[0, 0, 0]}>
+                <div
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  <button
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      background: 'transparent',
+                      border: 'none',
+                      color: 'white',
+                      cursor: 'pointer',
+                      fontSize: '1em',
+                    }}
+                  onClick={handleDoorClick}
+                  >
+                    Click me!
+                    <BsDoorOpen />
+                  </button>
+                </div>
+              </Html>
             </mesh>
+
 
             {/* Orbit Controls for Interaction */}
             <OrbitControls enableZoom enablePan enableRotate />
-           
+
 
           </Canvas>
         </div>
@@ -117,3 +141,4 @@ function ARImageViewer({ imageUrl, nextRoomImageUrl }: any) {
 }
 
 export default ARImageViewer;
+
