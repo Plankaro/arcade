@@ -45,10 +45,9 @@
 
 import { useRef, useState } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
-import { Box, OrbitControls, Html } from "@react-three/drei";
+import {  OrbitControls, Html } from "@react-three/drei";
 import { TextureLoader } from "three";
 import { useSelector } from "react-redux";
-import { VRButton } from 'three/examples/jsm/webxr/VRButton.js';
 import { BsDoorOpen } from "react-icons/bs";
 
 function ARImageViewer({ imageUrl, nextRoomImageUrl }: any) {
