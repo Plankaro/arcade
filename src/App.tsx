@@ -1,28 +1,34 @@
 // import React, { Suspense } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Logo from "./components/Logo";
-import AllOptions from "./components/options/AllOptions";
 import { useMediaQuery } from "react-responsive";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { allClose, openFullScreen } from "./store/slice/action";
 // import Sample from "./components/PdfModel";
 // import { toggleFullScreenAction } from 'path/to/your/actions'; // Import your action
 import RoommComponent from "./components/RoomComponent";
-import IntroModal from "./components/transitions/IntroModal";
-import PalladianTour from "./components/transitions/PalladianTour";
-import HolisticEcosystem from "./components/transitions/HolisticEcosystem";
-import PdfViewerComponent from "./components/PdfModel";
 import pdf from "./assets/Arcade_residentail_brochure_R2_compressed (1).pdf"
 import Neighbourhood360View from "./components/transitions/Neighbourhood360View";
-import Plans from "./components/transitions/Plans";
-// import Layouts from "./components/transitions/Layouts";
-import GalaryModel from "./components/GalaryModel";
-import ContactUsModel from "./components/ContactUsModel";
 
-// import FullPageLoading from "./components/extras/FullPageLoading";
-// const IntroModal = React.lazy(() => import("./components/transitions/IntroModal"));
-// const PalladianTour = React.lazy(() => import("./components/transitions/PalladianTour"));
-// const HolisticEcosystem = React.lazy(() => import("./components/transitions/HolisticEcosystem"));
+// import IntroModal from "./components/transitions/IntroModal";
+// import PalladianTour from "./components/transitions/PalladianTour";
+// import HolisticEcosystem from "./components/transitions/HolisticEcosystem";
+// import Plans from "./components/transitions/Plans";
+// import Layouts from "./components/transitions/Layouts";
+// import GalaryModel from "./components/GalaryModel";
+// import PdfViewerComponent from "./components/PdfModel";
+
+import FullPageLoading from "./components/extras/FullPageLoading";
+import React from "react";
+import AllOptions from "./components/options/AllOptions";
+import ContactUsModel from "./components/ContactUsModel";
+const IntroModal = React.lazy(() => import("./components/transitions/IntroModal"));
+const HolisticEcosystem = React.lazy(() => import("./components/transitions/HolisticEcosystem"));
+const Layouts = React.lazy(() => import("./components/transitions/Layouts"));
+const PalladianTour = React.lazy(() => import("./components/transitions/PalladianTour"));
+const Plans = React.lazy(() => import("./components/transitions/Plans"));
+const GalaryModel = React.lazy(() => import("./components/GalaryModel"));
+const PdfViewerComponent = React.lazy(() => import("./components/PdfModel"));
 
 function App() {
   const isMobile = useMediaQuery({ maxHeight: 767 });
@@ -44,7 +50,9 @@ function App() {
     }
   };
 
-  console.log("=> Main app rendered");
+  // console.log("=> Main app rendered");
+
+
 
   return (
     <FullScreen handle={handle}>
@@ -54,25 +62,40 @@ function App() {
 
         <div className="main relative w-full h-full p-2 flex flex-col">
           <div className="absolute inset-0 z-0 backdrop-brightness-50 " />
-          <div className="z-10 w-full h-[5rem] p-3 relative">
+          <div className="z-10 w-full px-3 py-3 relative">
             <Logo />
           </div>
           <div className={`z-10 px-[1rem] flex-grow ${isMobile ? "mt-3" : "mt-5"}`}>
             <AllOptions toggleFullScreen={toggleFullScreen} />
           </div>
-          <div className="z-10 w-full h-[5rem] p-3 relative">
-            {appSelector?.isIntroVideo && <IntroModal />}
-            {appSelector?.is3dpalladian && <PalladianTour />}
-            {appSelector?.isHolisticsEcoststem && <HolisticEcosystem />}
-            {appSelector?.isSalesPresenter && <PdfViewerComponent document={pdf} />}
+          <div className="z-10 w-full p-3 relative">
+            <React.Suspense fallback={<FullPageLoading />}>
+              {appSelector?.isIntroVideo && <IntroModal />}
+            </React.Suspense>
+            <React.Suspense fallback={<FullPageLoading />}>
+              {appSelector?.isHolisticsEcoststem && <HolisticEcosystem />}
+            </React.Suspense>
             {<Neighbourhood360View />}
-            {appSelector?.isplans && <Plans />}
-            {/* {appSelector?.ispalladian && <Layouts />} */}
-            {appSelector?.isGalary && <GalaryModel />}
-            {appSelector?.isContactUs && <ContactUsModel />}
+            <React.Suspense fallback={<FullPageLoading />}>
+              {appSelector?.ispalladian && <Layouts />}
+            </React.Suspense>
+            <React.Suspense fallback={<FullPageLoading />}>
+              {appSelector?.is3dpalladian && <PalladianTour />}
+            </React.Suspense>
+            <React.Suspense fallback={<FullPageLoading />}>
+              {appSelector?.isplans && <Plans />}
+            </React.Suspense>
+            <React.Suspense fallback={<FullPageLoading />}>
+              {appSelector?.isSalesPresenter && <PdfViewerComponent document={pdf} />}
+            </React.Suspense>
+            <React.Suspense fallback={<FullPageLoading />}>
+              {appSelector?.isGalary && <GalaryModel />}
+            </React.Suspense>
+            <React.Suspense fallback={<FullPageLoading />}>
+              {appSelector?.isContactUs && <ContactUsModel />}
+            </React.Suspense>
           </div>
         </div>
-        {/* <RoommComponent imageUrl={"/360/1.png"} /> */}
       </div>
     </FullScreen>
   );

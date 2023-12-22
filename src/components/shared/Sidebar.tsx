@@ -6,14 +6,15 @@ import logo from "../../assets/logo/logo.png";
 
 interface SidebarProps {
   // show: boolean;
+  selected: number;
   items: string[];
   setSlide: (index: number) => void;
   // setMenuOpen: (isOpen: boolean) => void;
 }
 
-export const Sidebar = ({ items, setSlide }: SidebarProps) => {
+export const Sidebar = ({ selected, items, setSlide }: SidebarProps) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
-  console.log("sidebar rendered");
+  // console.log("sidebar rendered");
   return (
     <motion.div
       initial={{
@@ -51,6 +52,9 @@ export const Sidebar = ({ items, setSlide }: SidebarProps) => {
                 <motion.button className={` py-4 text-lg italic tracking-normal w-full text-start`}
                   whileHover={{
                     color: '#FFD700',
+                  }}
+                  animate={{
+                    color: selected === index ? '#FFD700' : '#fff',
                   }}
                   onClick={() => { setSlide(index) }}
                 >

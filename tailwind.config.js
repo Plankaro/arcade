@@ -12,6 +12,11 @@ export default {
         'normal': 1.5,     // Normal line height
         'relaxed': 1.75,   // Relaxed line height
       },
+
+      backgroundImage: {
+        
+      }
+
     },
     colors: {
       accent: "#21ADE8",
@@ -48,8 +53,9 @@ export default {
       'xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1)', // Extra large shadow
       '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)', // 2x large shadow
       'inner': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)', // Inner shadow
-      'outline': '0 0 0 3px rgba(66, 153, 225, 0.5)', // Outline shadow
-      'outline-long': '0 0 0 6x rgba(66, 153, 225, 0.5)', // Outline shadow
+      'outlineShort': '0 0 0 1px rgba(66, 153, 225, 0.5)', // Outline shadow
+      'outline': '0 0 0 2px rgba(66, 153, 225, 0.5)', // Outline shadow
+      'outlineLong': '0 0 0 6x rgba(66, 153, 225, 0.5)', // Outline shadow
       'none': 'none', // No shadow
     },
   },

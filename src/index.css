@@ -9,6 +9,7 @@
 }
 
 .main {
+  height: 100%;
   margin: 0;
   padding: 0;
   /* Adjust the path accordingly */
@@ -28,7 +29,8 @@ body {
 
 .player-wrapper {
   position: relative;
-  padding-top: 56.25%; /* 720 / 1280 = 0.5625 */
+  padding-top: 56.25%;
+  /* 720 / 1280 = 0.5625 */
 }
 
 .react-player {
@@ -36,6 +38,7 @@ body {
   top: 0;
   left: 0;
 }
+
 .swiper {
   /* max-width: 95vw !important; */
   /* margin-left: 5rem !important; */
@@ -43,7 +46,25 @@ body {
   height: 100%;
 }
 
-.leaflate-container{
+.leaflate-container {
   width: 80vw !important;
   height: 70vh !important;
+}
+.loading-spinner circle {
+  fill: transparent;
+  stroke: #0ac8a6;
+  stroke-width: 8; /* Adjust the stroke width as needed */
+  stroke-linecap: round;
+  stroke-dasharray: 239; /* (2 * PI * radius) - for radius of 76 */
+  animation: dash 1s linear infinite; /* Adjust the animation duration as needed */
+  transform-origin: center;
+}
+
+@keyframes dash {
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
