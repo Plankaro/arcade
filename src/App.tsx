@@ -3,7 +3,7 @@ import Logo from "./components/Logo";
 import { useMediaQuery } from "react-responsive";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { allClose, openFullScreen } from "./store/slice/action";
-import RoommComponent from "./components/RoomComponent";
+// import RoommComponent from "./components/RoomComponent";
 import Neighbourhood360View from "./components/transitions/Neighbourhood360View";
 
 import IntroModal from "./components/transitions/IntroModal";
