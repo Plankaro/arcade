@@ -26,12 +26,12 @@ const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, right, onClick
       )}
 
       <motion.div
-        className={`md:w-[4rem] md:h-[4rem] w-[2.5rem] h-[2.5rem] rounded-full p-1 shadow-outline sm:shadow-2xl shadow-white `}
-        whileHover={{ scale: 1.1 }} 
+        className={`md:w-[4rem] md:h-[4rem] w-[2.5rem] h-[2.5rem] rounded-full p-[2px] sm:p-[4px] `}
+        // whileHover={{ scale: 1.1 }} 
         animate={{
           boxShadow: isHovered
             ? "0px 0px 0px 3px #fff"
-            : "0px 0px 0px 3px #fff",
+            : "0px 0px 0px 2px #fff",
         }}
         transition={{ duration: 0.2 }}
       >
@@ -43,7 +43,7 @@ const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, right, onClick
         >
           {Icon && (
             <Icon
-              className={` text-xl md:text-2xl ${isHovered ? 'text-[#454647]' : 'text-[#FFF]' } `}
+              className={` text-lg sm:text-xl md:text-2xl ${isHovered ? 'text-[#454647]' : 'text-[#FFF]' } `}
             />
           )}
         </motion.div>

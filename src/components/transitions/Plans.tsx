@@ -45,7 +45,9 @@ const Plans = () => {
             <img
               src={PlanImageUrls[index].url}
               alt='gallery image'
-              className=''
+              loading='lazy'
+              className=' w-full h-full object-contain'
+              onLoad={() => console.log("loaded", index)}
             />
           </motion.div>
         ))}

@@ -4,7 +4,21 @@ import logo from '../../assets/logo/logo.png';
 const FullPageLoading = () => {
   return (
     <motion.div className='fixed inset-0 backdrop-brightness-50 flex items-center justify-center z-50'>
-      <motion.div className='bg-white h-40 w-40 rounded-full flex items-center justify-center relative overflow-hidden'>
+      <motion.div
+        initial={{ 
+          scale: 0,
+        }}
+        animate={{
+          scale: 1,
+        }}
+        exit={{
+          scale: 0,
+        }}
+        transition={{
+          duration: 0.5,
+          ease: "easeInOut",
+        }}
+        className='bg-white h-40 w-40 rounded-full flex items-center justify-center relative overflow-hidden'>
         <img
           src={logo}
           alt="logo"
