@@ -141,6 +141,9 @@ export const Sidebar = ({ setSrc }: SidebarProps) => {
                     whileHover={{
                       color: '#FFD700',
                     }}
+                    animate={{
+                      color: path[0] === index ? '#FFD700' : '#fff',
+                    }}
                     onClick={() => { setPath([index, null]) }}
                   >
                     {item?.title[0].toUpperCase() + item.title.slice(1)}
