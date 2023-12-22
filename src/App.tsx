@@ -7,7 +7,6 @@ import { allClose, openFullScreen } from "./store/slice/action";
 // import Sample from "./components/PdfModel";
 // import { toggleFullScreenAction } from 'path/to/your/actions'; // Import your action
 import RoommComponent from "./components/RoomComponent";
-import pdf from "./assets/Arcade_residentail_brochure_R2_compressed (1).pdf"
 import Neighbourhood360View from "./components/transitions/Neighbourhood360View";
 
 import IntroModal from "./components/transitions/IntroModal";
@@ -64,7 +63,7 @@ function App() {
             {appSelector?.ispalladian && <Layouts />}
             {appSelector?.is3dpalladian && <PalladianTour />}
             {appSelector?.isplans && <Plans />}
-            {appSelector?.isSalesPresenter && <PdfViewerComponent document={pdf} />}
+            {appSelector?.isSalesPresenter && <PdfViewerComponent />}
             {appSelector?.isGalary && <GalaryModel />}
             {appSelector?.isContactUs && <ContactUsModel />}
             {appSelector?.isAboutUs && <AboutUs />}
