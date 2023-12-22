@@ -6,7 +6,7 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { allClose, openFullScreen } from "./store/slice/action";
 // import Sample from "./components/PdfModel";
 // import { toggleFullScreenAction } from 'path/to/your/actions'; // Import your action
-import RoommComponent from "./components/RoomComponent";
+// import RoommComponent from "./components/RoomComponent";
 import Neighbourhood360View from "./components/transitions/Neighbourhood360View";
 
 import IntroModal from "./components/transitions/IntroModal";
