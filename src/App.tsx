@@ -1,12 +1,9 @@
-// import React, { Suspense } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Logo from "./components/Logo";
 import { useMediaQuery } from "react-responsive";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { allClose, openFullScreen } from "./store/slice/action";
-// import Sample from "./components/PdfModel";
-// import { toggleFullScreenAction } from 'path/to/your/actions'; // Import your action
-// import RoommComponent from "./components/RoomComponent";
+import RoommComponent from "./components/RoomComponent";
 import Neighbourhood360View from "./components/transitions/Neighbourhood360View";
 
 import IntroModal from "./components/transitions/IntroModal";
@@ -20,6 +17,8 @@ import PdfViewerComponent from "./components/PdfModel";
 import AllOptions from "./components/options/AllOptions";
 import ContactUsModel from "./components/ContactUsModel";
 import AboutUs from "./components/transitions/AboutUs";
+import { useEffect, useState } from "react";
+import AskForLandscape from "./components/extras/AskForLandscape";
 
 function App() {
   const isMobile = useMediaQuery({ maxHeight: 767 });
@@ -41,6 +40,21 @@ function App() {
     }
   };
 
+  const [isLandscape, setIsLandscape] = useState(window.innerWidth > window.innerHeight);
+
+  useEffect(() => {
+    const handleOrientationChange = () => {
+      setTimeout(() => {
+        setIsLandscape(window.innerWidth > window.innerHeight);
+        console.log("orientation changed", window.innerWidth > window.innerHeight, isLandscape);
+      }, 100);
+    };
+    window.addEventListener('orientationchange', handleOrientationChange);
+    return () => {
+      window.removeEventListener('orientationchange', handleOrientationChange);
+    };
+  }, []); 
+
 
   return (
     <FullScreen handle={handle}>
@@ -49,26 +63,31 @@ function App() {
         {/* <RoommComponent imageUrl={"/3d.jpg"} nextRoomImageUrl={"/360/villa.jpg"} /> */}
 
         <div className="main relative w-full h-full p-2 flex flex-col">
-          <div className="absolute inset-0 z-0 backdrop-brightness-50 " />
-          <div className="z-10 w-full px-3 py-1 relative">
-            <Logo />
-          </div>
-          <div className={`z-10 px-[1rem] flex-grow ${isMobile ? "mt-3" : "mt-5"}`}>
-            <AllOptions toggleFullScreen={toggleFullScreen} />
-          </div>
-          <div className="z-10 w-full p-3 relative">
-            {<Neighbourhood360View />}
-            {appSelector?.isIntroVideo && <IntroModal />}
-            {appSelector?.isHolisticsEcoststem && <HolisticEcosystem />}
-            {appSelector?.ispalladian && <Layouts />}
-            {appSelector?.is3dpalladian && <PalladianTour />}
-            {appSelector?.isplans && <Plans />}
-            {appSelector?.isSalesPresenter && <PdfViewerComponent />}
-            {appSelector?.isGalary && <GalaryModel />}
-            {appSelector?.isContactUs && <ContactUsModel />}
-            {appSelector?.isAboutUs && <AboutUs />}
-            
-          </div>
+          {isLandscape ?
+            <>
+              <div className="absolute inset-0 z-0 backdrop-brightness-50 " />
+              <div className="z-10 w-full px-3 py-1 relative">
+                <Logo />
+              </div>
+              <div className={`z-10 px-[1rem] flex-grow ${isMobile ? "mt-3" : "mt-5"}`}>
+                <AllOptions toggleFullScreen={toggleFullScreen} />
+              </div>
+              <div className="z-10 w-full p-3 relative">
+                {<Neighbourhood360View />}
+                {appSelector?.isIntroVideo && <IntroModal />}
+                {appSelector?.isHolisticsEcoststem && <HolisticEcosystem />}
+                {appSelector?.ispalladian && <Layouts />}
+                {appSelector?.is3dpalladian && <PalladianTour />}
+                {appSelector?.isplans && <Plans />}
+                {appSelector?.isSalesPresenter && <PdfViewerComponent />}
+                {appSelector?.isGalary && <GalaryModel />}
+                {appSelector?.isContactUs && <ContactUsModel />}
+                {appSelector?.isAboutUs && <AboutUs />}
+
+              </div>
+            </>
+            : <AskForLandscape /> 
+          }
         </div>
       </div>
     </FullScreen>

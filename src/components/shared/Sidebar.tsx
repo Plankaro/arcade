@@ -42,9 +42,9 @@ export const Sidebar = ({ selected, items, setSlide }: SidebarProps) => {
       </div>
 
       <div className=' z-40 relative flex items-center flex-col justify-start h-full'>
-        <div className=' min-h-10 mb-[30px]'>
+        {window.innerHeight > 600 && <div className=' min-h-10 mb-[30px]'>
           <img src={logo} alt="logo" className="md:h-[7rem] h-[4rem] md:w-[7rem] w-[4rem]" />
-        </div>
+        </div>}
         <div className=' mt-[30px] mb-auto self-stretch'>
           {items.map((item, index) => {
             return (

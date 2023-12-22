@@ -8,7 +8,7 @@ const Image = ({ src, className }: { src: string, className?: string }) => {
       <img
         src={src}
         alt='gallery image'
-        className={className ?? ` aspect-video w-[70vw] max-w-[900px] ${loaded ? ' opacity-100' : 'opacity-0'}`}
+        className={className ?? ` max-h-full aspect-video w-auto max-w-[900px] ${loaded ? ' opacity-100' : 'opacity-0'}`}
         onLoad={() => setLoaded(true)}
       />
       {!loaded && <div
