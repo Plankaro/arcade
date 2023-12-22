@@ -19,6 +19,8 @@ import GalaryModel from "./components/GalaryModel";
 import PdfViewerComponent from "./components/PdfModel";
 
 import AllOptions from "./components/options/AllOptions";
+import ContactUsModel from "./components/ContactUsModel";
+import AboutUs from "./components/transitions/AboutUs";
 
 function App() {
   const isMobile = useMediaQuery({ maxHeight: 767 });
@@ -64,6 +66,9 @@ function App() {
             {appSelector?.isplans && <Plans />}
             {appSelector?.isSalesPresenter && <PdfViewerComponent document={pdf} />}
             {appSelector?.isGalary && <GalaryModel />}
+            {appSelector?.isContactUs && <ContactUsModel />}
+            {appSelector?.isAboutUs && <AboutUs />}
+            
           </div>
         </div>
       </div>
