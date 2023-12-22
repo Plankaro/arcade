@@ -14,7 +14,7 @@ import { IoIosContacts } from "react-icons/io";
 import { BsFullscreen } from "react-icons/bs";
 
 import { useDispatch } from 'react-redux';
-import { open360view, open3dHomeTour, open3dpalladian, openHolisticsEcoststem, openIntroVideo, openSalesPresenter, openpalladian, openplans, openGalary, openContactUs } from '../../store/slice/action';
+import { open360view, open3dHomeTour, open3dpalladian, openHolisticsEcoststem, openIntroVideo, openSalesPresenter, openpalladian, openplans, openGalary, openContactUs, openAboutUs } from '../../store/slice/action';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 
@@ -100,7 +100,7 @@ const AllOptions: React.FC<AllOptionsProps> = ({
           <CommonButton onClick={() => {dispatch(openContactUs()) }} right label='Contact Us' icon={LuContact} />
         </div>
         <div>
-          <CommonButton onClick={() => { }} right label='About Us' icon={IoIosContacts} />
+          <CommonButton onClick={() => {dispatch(openAboutUs())}} right label='About Us' icon={IoIosContacts} />
         </div>
         <div>
           <CommonButton onClick={() => toggleFullScreen()} right label='Full Screen' icon={BsFullscreen} />

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Sidebar from '../shared/Sidebar';
 import { PlanImageUrls } from '../../constants/ImageUrls';
 import CloseButton from '../options/CloseButton';
+import Image from '../extras/Image';
 
 // // Preload the images outside the component
 // const preloadedImages = PlanImageUrls.map((item) => {
@@ -35,23 +36,17 @@ const Plans = () => {
 
       {/* body */}
       <div className="z-10 relative h-screen flex items-center justify-center">
-        {PlanImageUrls.map((item, index) => (
-          <motion.div
-            key={item.title}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: index === slide ? 1 : 0 }}
-            transition={{ duration: 0.5 }}
-            className='absolute w-[70vw] max-w-[500px] bg-white rounded-md overflow-hidden shadow-2xl flex items-center justify-center'
-          >
-            <img
-              src={PlanImageUrls[index].url}
-              alt='gallery image'
-              loading='lazy'
-              className=' w-full h-full object-contain'
-              onLoad={() => console.log("loaded", index)}
-            />
-          </motion.div>
-        ))}
+        <motion.div
+          key={slide}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className='absolute w-[70vw] max-w-[500px] bg-white rounded-md overflow-hidden shadow-2xl flex items-center justify-center'
+        >
+          <Image
+            src={PlanImageUrls[slide].url}
+            className={"w-full h-full object-contain"} />
+        </motion.div>
       </div>
 
       {/* close button */}
