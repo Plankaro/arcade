@@ -49,7 +49,7 @@ function App() {
     }
   };
 
-  console.log("=> Main app rendered");
+  // console.log("=> Main app rendered");
 
 
 
