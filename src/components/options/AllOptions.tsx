@@ -59,7 +59,7 @@ const AllOptions: React.FC<AllOptionsProps> = ({
           x: focusHome ? 0 : -20,
         }}
         exit={{ opacity: 0 }}
-        className="flex flex-col justify-end gap-[4vh] h-full">
+        className="flex flex-col justify-between gap-[4vh] h-full">
         <div>
           <CommonButton onClick={() => { dispatch(openIntroVideo()); console.log('open intro video') }} label='Introduction' icon={IoPlayCircleOutline} />
         </div>
@@ -86,7 +86,7 @@ const AllOptions: React.FC<AllOptionsProps> = ({
           x: focusHome ? 0 : 20,
         }}
         exit={{ opacity: 0 }}
-        className="flex flex-col gap-[4vh] justify-end h-full">
+        className="flex flex-col gap-[4vh] justify-between h-full">
         <div>
           <CommonButton onClick={() => { dispatch(open3dHomeTour()) }} right label='3D Home Tour' icon={BsHeadsetVr} />
         </div>

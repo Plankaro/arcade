@@ -1,9 +1,16 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 import Sidebar from '../shared/Sidebar';
-import { PlanImageUrls } from '../../constants/ImageUrls'
+import { PlanImageUrls } from '../../constants/ImageUrls';
 import CloseButton from '../options/CloseButton';
+
+// Preload the images outside the component
+const preloadedImages = PlanImageUrls.map((item) => {
+  const image = new Image();
+  image.src = item.url;
+  return image;
+});
 
 const Plans = () => {
   const isplans = useSelector((state: any) => state?.isplans);
@@ -12,54 +19,44 @@ const Plans = () => {
   console.log("holistic rendered", slide);
 
   return (
-    <motion.div
-      animate={{
-        translateX: isplans ? '0%' : '-100%',
+    <div
+      style={{
+        transform: `translateX(${isplans ? '0%' : '-100%'})`,
         opacity: isplans ? 1 : 0,
+        transition: 'transform 0.5s ease-in-out, opacity 0.5s ease-in-out',
       }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
-      className={` fixed inset-0 bg-black/30 `}
+      className={`fixed inset-0 bg-black/30`}
     >
-
       <Sidebar
         items={PlanImageUrls.map(i => i.title)}
         setSlide={setSlide}
       />
 
       {/* body */}
-      <div className=" z-10 relative h-screen flex items-center justify-center ">
-        <motion.div
-          key={PlanImageUrls[slide].title}
-          initial={{
-            opacity: 0,
-            // translateX: '-20%',
-            // skewY: 3,
-          }}
-          animate={{
-            opacity: 1,
-            // translateX: 0,
-            // skewY: 0,
-          }}
-          exit={{
-            opacity: 0,
-            // translateX: '20%',
-            // skewY: -3,
-          }}
-          transition={{
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          className='flex items-center justify-center h-full'>
-          <img src={PlanImageUrls[slide].url} alt='gallery image' className=' translate-x-16 h-[70%]' />
-        </motion.div>
-
+      <div className="z-10 relative h-screen flex items-center justify-center">
+        {PlanImageUrls.map((item, index) => (
+          <motion.div
+            key={item.title}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: index === slide ? 1 : 0 }}
+            transition={{ duration: 0.5 }}
+            className='absolute w-[70vw] max-w-[500px] bg-white rounded-md overflow-hidden shadow-2xl flex items-center justify-center'
+          >
+            <img
+              src={preloadedImages[index].src} // Use preloaded images directly
+              alt='gallery image'
+              className=''
+            />
+          </motion.div>
+        ))}
       </div>
 
       {/* close button */}
       <CloseButton />
-    </motion.div>
-  )
-}
+    </div>
+  );
+};
 
-export default Plans
+export default Plans;
+
 

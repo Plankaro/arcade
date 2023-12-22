@@ -8,7 +8,7 @@ const CloseButton = () => {
     <>
       <div className='z-50'>
         <button
-          className="absolute z-50  p-2 top-0 right-0 text-white text-2xl hover:bg-white cursor-pointer z-25 hover:text-primary transition-all"
+          className="absolute z-50 p-2 top-0 right-0 bg-white text-black text-2xl hover:text-white hover:bg-black cursor-pointer z-25 transition-all"
           onClick={() => { dispatch(allClose()) }}>
           <IoClose />
         </button>

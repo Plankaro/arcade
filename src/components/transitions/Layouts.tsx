@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 
@@ -10,13 +10,47 @@ import { LayoutMap } from '../../constants/ImageUrls';
 const Layouts = () => {
   const ispalladian = useSelector((state: any) => state?.ispalladian);
 
+  const [imagesLoaded, setImagesLoaded] = useState(false);
   const [src, setSrc] = useState<string | null>(null);
+
+
+  useEffect(() => {
+    // Preload images function
+    const preloadImages = (imageUrls: string[]) => {
+      return Promise.all(imageUrls.map((imageUrl) => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.src = imageUrl;
+          img.onload = resolve;
+        });
+      }));
+    };
+
+    // Preload all images from LayoutMap
+    const imageUrlsToPreload: string[] = [];
+    LayoutMap.forEach((item) => {
+      item.items.forEach((imageItem) => {
+        imageUrlsToPreload.push(imageItem.image);
+      });
+    });
+
+    preloadImages(imageUrlsToPreload).then(() => {
+      setImagesLoaded(true);
+    });
+
+
+    // Clean-up (optional)
+    return () => {
+      // Perform clean-up if needed
+    };
+  }, []);
+
 
   return (
     <motion.div
       animate={{
         translateX: ispalladian ? '0%' : '-100%',
-        opacity: ispalladian ? 1 : 0,
+        opacity: ispalladian && imagesLoaded ? 1 : 0,
       }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className={` fixed inset-0 bg-black/30`}
@@ -46,7 +80,11 @@ const Layouts = () => {
             ease: "easeInOut",
           }}
           className='flex items-center justify-center h-full'>
-          <img src={src ?? LayoutMap[0].items[0].image} alt='gallery image' className=' translate-x-16 aspect-video h-[70%]' />
+          <img
+            src={src ?? LayoutMap[0].items[0].image}
+            className=' translate-x-16 aspect-video w-[70vw] max-w-[900px]'
+            alt='gallery image'
+          />
         </motion.div>
 
       </div>
@@ -123,7 +161,7 @@ export const Sidebar = ({ setSrc }: SidebarProps) => {
               ease: "easeInOut",
             }}
           >
-
+            {/* parent menu */}
             {LayoutMap.map((item, index) => {
               return (
                 <div
@@ -143,6 +181,7 @@ export const Sidebar = ({ setSrc }: SidebarProps) => {
             })}
           </motion.div>
 
+          {/* child menu */}
           <motion.div
             className=' absolute top-0 w-full text-left pl-6 spacing flex items-stretch flex-col'
             initial={{
@@ -166,6 +205,9 @@ export const Sidebar = ({ setSrc }: SidebarProps) => {
                     className=' w-full text-left border-b border-[#FFD700] pl-6 spacing'
                   >
                     <motion.button className={` py-4 text-lg italic tracking-normal w-full text-start`}
+                      animate={{
+                        color: path[1] === index ? '#FFD700' : '#fff',
+                      }}
                       whileHover={{
                         color: '#FFD700',
                       }}

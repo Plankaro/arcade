@@ -11,6 +11,7 @@ const PalladianTour = () => {
           <ReactPlayer
             width='100%'
             height='100%'
+            controls={true}
             url='https://www.youtube.com/watch?v=ht4Fcf2kYwg' />
         </div>
       </CommonModal>

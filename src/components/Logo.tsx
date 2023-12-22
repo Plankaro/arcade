@@ -24,7 +24,7 @@ const Logo: React.FC<LogoProps> = () => {
         opacity: focusHome ? 1 : 0,
       }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="absolute top-0 left-0 z-10 w-full h-[5rem] p-3 flex flex-row justify-between items-center">
+      className="top-0 left-0 z-10 w-full h-[5rem] flex flex-row justify-between items-center">
       <a href="/">
         <img src={logo} alt="logo"
           className="md:h-[7rem] h-[4rem] md:w-[7rem] w-[4rem] top-[-1.2rem]" />
