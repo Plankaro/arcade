@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion'
 import Sidebar from '../shared/Sidebar';
 import CloseButton from '../options/CloseButton';
+import Image from '../extras/Image'
 
 const HolisticEcosystem = () => {
   const isHolisticsEcoststem = useSelector((state: any) => state?.isHolisticsEcoststem);
@@ -55,7 +56,11 @@ const HolisticEcosystem = () => {
             ease: "easeInOut",
           }}
           className='flex items-center justify-center h-full'>
-          <img src={slideImages[slide].imageUrl} alt='gallery image' className=' translate-x-16 aspect-video h-[70%]' />
+          {/* <img
+            src={slideImages[slide].imageUrl}
+            alt='gallery image'
+            className=' aspect-video w-[70vw] max-w-[900px]' /> */}
+          <Image src={slideImages[slide].imageUrl} />
         </motion.div>
 
       </div>

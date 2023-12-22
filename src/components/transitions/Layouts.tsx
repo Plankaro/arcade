@@ -5,11 +5,13 @@ import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md"
 import logo from "../../assets/logo/logo.png";
 import CloseButton from '../options/CloseButton';
 import { LayoutMap } from '../../constants/ImageUrls';
+import Image from '../extras/Image';
 
 const Layouts = () => {
   const ispalladian = useSelector((state: any) => state?.ispalladian);
 
   const [src, setSrc] = useState<string | null>(LayoutMap[0].items[0].image);
+
   console.log("layout rendered", src);
   return (
     <motion.div
@@ -29,31 +31,32 @@ const Layouts = () => {
       {/* body */}
       {
         <div className=" z-10 relative h-screen flex items-center justify-center ">
-          {LayoutMap.map((section) =>
-            section.items.map((item) => (
+          {/* {LayoutMap.map((section) =>
+            section.items.map((item) => ( */}
               <motion.div
-                key={item.title}
+                key={src}
                 initial={{
                   opacity: 0,
                   translateX: '-20%',
                   skewY: 3,
                 }}
                 animate={{
-                  opacity: src === item.image ? 1 : 0,
-                  translateX: src === item.image ? '0%' : '-20%',
-                  skewY: src === item.image ? 0 : 3,
+                  opacity: 1,
+                  translateX: '0%',
+                  skewY: 0,
                 }}
                 transition={{
                   duration: 0.5,
                   ease: "easeInOut",
                 }}
                 className='absolute flex items-center justify-center h-full'>
-                <img
-                  src={item.image ?? LayoutMap[0].items[0].image}
+                {/* <img
+                  src={src ?? LayoutMap[0].items[0].image}
                   className=' translate-x-16 aspect-video w-[70vw] max-w-[900px]'
                   alt='gallery image'
-                />
-              </motion.div>)))}
+                /> */}
+                <Image src={src ?? LayoutMap[0].items[0].image} />
+              </motion.div>
 
         </div>
       }

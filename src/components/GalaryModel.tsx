@@ -31,15 +31,16 @@ const GalaryModel = () => {
             pagination={{
               clickable: true,
             }}
-            modules={[EffectFade, Navigation, Pagination]}
             className="mySwiper "
+            // lazy={true} // Enable lazy loading
+            modules={[EffectFade, Navigation, Pagination]}
           >
-            {ImageUrls.map((src: string, idx:number) =>
+            {ImageUrls.map((src: string, idx: number) =>
             (<SwiperSlide key={idx}>
-              <img src={src} loading="lazy"/>
-              <div className="swiper-lazy-preloader">
-                loading...
-              </div>
+              <img
+                src={src}
+                loading="lazy" />
+              <div className="swiper-lazy-preloader"></div>
             </SwiperSlide>))}
           </Swiper>
         </div>

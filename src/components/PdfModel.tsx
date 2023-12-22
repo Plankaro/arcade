@@ -6,7 +6,6 @@ import 'react-pdf/dist/esm/Page/TextLayer.css';
 import pdf from "../assets/Arcade_residentail_brochure_R2_compressed (1).pdf";
 
 import type { PDFDocumentProxy } from 'pdfjs-dist';
-import CommonModal from './shared/SimpleModal';
 import CloseButton from './options/CloseButton';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -26,7 +25,7 @@ const maxWidth = 1400;
 type PDFFile = string | File | null;
 
 export default function Sample() {
-  const [file, setFile] = useState<PDFFile>(pdf);
+  const [file] = useState<PDFFile>(pdf);
   const [numPages, setNumPages] = useState<number>();
   const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
   const [containerWidth, setContainerWidth] = useState<number>();
