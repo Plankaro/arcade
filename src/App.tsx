@@ -86,7 +86,7 @@ function App() {
               {appSelector?.isplans && <Plans />}
             </React.Suspense>
             <React.Suspense fallback={<FullPageLoading />}>
-              {appSelector?.isSalesPresenter && <PdfViewerComponent document={pdf} />}
+              {appSelector?.isSalesPresenter && <PdfViewerComponent />}
             </React.Suspense>
             <React.Suspense fallback={<FullPageLoading />}>
               {appSelector?.isGalary && <GalaryModel />}
