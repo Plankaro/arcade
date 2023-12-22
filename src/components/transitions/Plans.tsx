@@ -29,6 +29,7 @@ const Plans = () => {
       className={`fixed inset-0 bg-black/30`}
     >
       <Sidebar
+        selected={slide}
         items={PlanImageUrls.map(i => i.title)}
         setSlide={setSlide}
       />

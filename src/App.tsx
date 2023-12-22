@@ -1,7 +1,6 @@
 // import React, { Suspense } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Logo from "./components/Logo";
-import AllOptions from "./components/options/AllOptions";
 import { useMediaQuery } from "react-responsive";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { allClose, openFullScreen } from "./store/slice/action";
@@ -19,16 +18,15 @@ import Layouts from "./components/transitions/Layouts";
 import GalaryModel from "./components/GalaryModel";
 import PdfViewerComponent from "./components/PdfModel";
 
-// import FullPageLoading from "./components/extras/FullPageLoading";
-
-// import React from "react";
-// const IntroModal = React.lazy(() => import("./components/transitions/IntroModal"));
-// const HolisticEcosystem = React.lazy(() => import("./components/transitions/HolisticEcosystem"));
-// const Layouts = React.lazy(() => import("./components/transitions/Layouts"));
-// const PalladianTour = React.lazy(() => import("./components/transitions/PalladianTour"));
-// const Plans = React.lazy(() => import("./components/transitions/Plans"));
-// const GalaryModel = React.lazy(() => import("./components/GalaryModel"));
-// const PdfViewerComponent = React.lazy(() => import("./components/PdfModel"));
+import FullPageLoading from "./components/extras/FullPageLoading";
+import React from "react";
+const IntroModal = React.lazy(() => import("./components/transitions/IntroModal"));
+const HolisticEcosystem = React.lazy(() => import("./components/transitions/HolisticEcosystem"));
+const Layouts = React.lazy(() => import("./components/transitions/Layouts"));
+const PalladianTour = React.lazy(() => import("./components/transitions/PalladianTour"));
+const Plans = React.lazy(() => import("./components/transitions/Plans"));
+const GalaryModel = React.lazy(() => import("./components/GalaryModel"));
+const PdfViewerComponent = React.lazy(() => import("./components/PdfModel"));
 
 function App() {
   const isMobile = useMediaQuery({ maxHeight: 767 });
@@ -67,13 +65,21 @@ function App() {
           </div>
           <div className="z-10 w-full p-3 relative">
             {<Neighbourhood360View />}
-            {appSelector?.isIntroVideo && <IntroModal />}
-            {appSelector?.isHolisticsEcoststem && <HolisticEcosystem />}
-            {appSelector?.ispalladian && <Layouts />}
-            {appSelector?.is3dpalladian && <PalladianTour />}
-            {appSelector?.isplans && <Plans />}
-            {appSelector?.isSalesPresenter && <PdfViewerComponent document={pdf} />}
-            {appSelector?.isGalary && <GalaryModel />}
+            <React.Suspense fallback={<FullPageLoading />}>
+              {appSelector?.ispalladian && <Layouts />}
+            </React.Suspense>
+            <React.Suspense fallback={<FullPageLoading />}>
+              {appSelector?.is3dpalladian && <PalladianTour />}
+            </React.Suspense>
+            <React.Suspense fallback={<FullPageLoading />}>
+              {appSelector?.isplans && <Plans />}
+            </React.Suspense>
+            <React.Suspense fallback={<FullPageLoading />}>
+              {appSelector?.isSalesPresenter && <PdfViewerComponent document={pdf} />}
+            </React.Suspense>
+            <React.Suspense fallback={<FullPageLoading />}>
+              {appSelector?.isGalary && <GalaryModel />}
+            </React.Suspense>
           </div>
         </div>
       </div>

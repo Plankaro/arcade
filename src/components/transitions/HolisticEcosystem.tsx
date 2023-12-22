@@ -32,6 +32,7 @@ const HolisticEcosystem = () => {
     >
 
       <Sidebar
+        selected={slide}
         items={slideImages.map(i => i.title)}
         setSlide={setSlide}
       />

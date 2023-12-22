@@ -4,7 +4,7 @@ import CloseButton from '../options/CloseButton';
 
 interface IntroModalProps {
   children: React.ReactNode;
-  show: boolean;
+  show?: boolean;
 }
 
 const CommonModal = ({ show, children }: IntroModalProps) => {

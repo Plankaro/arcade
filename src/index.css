@@ -46,6 +46,10 @@ body {
   height: 100%;
 }
 
+.leaflate-container {
+  width: 80vw !important;
+  height: 70vh !important;
+}
 .loading-spinner circle {
   fill: transparent;
   stroke: #0ac8a6;

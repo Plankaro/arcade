@@ -16,6 +16,8 @@ const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, right, onClick
   return (
     <motion.div
       className="flex cursor-pointer items-center justify-between "
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     // whileHover={{ scale: 1.05 }} 
     >
       {right && (
@@ -38,8 +40,7 @@ const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, right, onClick
         <motion.div
           className={` rounded-full w-full h-full flex items-center justify-center ${isHovered ? "bg-white" : " bg-primary"
             }`}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+
         >
           {Icon && (
             <Icon
