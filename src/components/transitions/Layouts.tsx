@@ -33,30 +33,30 @@ const Layouts = () => {
         <div className=" z-10 relative h-screen flex items-center justify-center ">
           {/* {LayoutMap.map((section) =>
             section.items.map((item) => ( */}
-              <motion.div
-                key={src}
-                initial={{
-                  opacity: 0,
-                  translateX: '-20%',
-                  skewY: 3,
-                }}
-                animate={{
-                  opacity: 1,
-                  translateX: '0%',
-                  skewY: 0,
-                }}
-                transition={{
-                  duration: 0.5,
-                  ease: "easeInOut",
-                }}
-                className='absolute flex items-center justify-center h-full'>
-                {/* <img
+          <motion.div
+            key={src}
+            initial={{
+              opacity: 0,
+              translateX: '-20%',
+              skewY: 3,
+            }}
+            animate={{
+              opacity: 1,
+              translateX: '0%',
+              skewY: 0,
+            }}
+            transition={{
+              duration: 0.5,
+              ease: "easeInOut",
+            }}
+            className='absolute flex items-center justify-center h-full'>
+            {/* <img
                   src={src ?? LayoutMap[0].items[0].image}
                   className=' translate-x-16 aspect-video w-[70vw] max-w-[900px]'
                   alt='gallery image'
                 /> */}
-                <Image src={src ?? LayoutMap[0].items[0].image} />
-              </motion.div>
+            <Image src={src ?? LayoutMap[0].items[0].image} />
+          </motion.div>
 
         </div>
       }
@@ -80,6 +80,7 @@ interface SidebarProps {
 export const Sidebar = ({ setSrc }: SidebarProps) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [path, setPath] = useState<[number | null, number | null]>([null, null]);
+  console.log("sidebar rendered", path);
 
   return (
     <motion.div
@@ -93,22 +94,28 @@ export const Sidebar = ({ setSrc }: SidebarProps) => {
         duration: 0.3,
         ease: "easeIn",
       }}
-      className={` z-30 fixed top-0 left-0 min-w-[300px] text-white bg-black/30 shadow-lg h-screen p-8`}
+      className={` z-30 fixed top-0 left-0 min-w-[280px] max-w-screen text-white bg-black/70 min-h-screen shadow-lg p-8`}
     >
+
+      {/* menu toggler */}
       <div className=' z-30 absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 '>
         <button onClick={() => setMenuOpen(i => !i)}
           className=' border border-black bg-accent w-[40px] h-[40px] flex items-center justify-center rounded-full'
         >
-          {isMenuOpen ?
-            <MdOutlineArrowBackIos className=' text-white' />
+          {isMenuOpen
+            ? <MdOutlineArrowBackIos className=' text-white' />
             : <MdOutlineArrowForwardIos className=' text-white' />}
         </button>
       </div>
 
       <div className=' z-40 relative flex items-center flex-col justify-start h-full'>
-        <div className=' min-h-10 mb-[30px]'>
+
+        {/* logo */}
+        {window.innerHeight > 600 && <div className=' min-h-10 mb-[30px]'>
           <img src={logo} alt="logo" className="md:h-[7rem] h-[4rem] md:w-[7rem] w-[4rem]" />
-        </div>
+        </div>}
+
+        {/* back button */}
         <div className=' self-stretch'>
           <motion.button className={` w-[40px] h-[40px] rounded-full border border-white bg-accent disabled:bg-accent/50 disabled:text-gray flex items-center justify-center`}
             disabled={path[0] === null}
@@ -117,7 +124,10 @@ export const Sidebar = ({ setSrc }: SidebarProps) => {
             <MdOutlineArrowBackIos className=' text-inherit' />
           </motion.button>
         </div>
-        <div className=' relative mt-[30px] mb-auto self-stretch'>
+
+        {/* menu */}
+        <div className=' relative mt-[30px] mb-auto self-stretch max-h-[200px]'>
+          {/* parent menu */}
           <motion.div
             className=' w-full text-left pl-6 spacing flex items-stretch flex-col'
             initial={{
@@ -133,12 +143,11 @@ export const Sidebar = ({ setSrc }: SidebarProps) => {
               ease: "easeInOut",
             }}
           >
-            {/* parent menu */}
             {LayoutMap.map((item, index) => {
               return (
                 <div
                   key={index}
-                  className=' w-full text-left border-b border-[#FFD700] pl-6 spacing flex items-stretch'
+                  className=' w-full text-left border-b border-[#FFD700] pl-0 spacing flex items-stretch'
                 >
                   <motion.button className={` relative py-4 text-lg italic tracking-normal w-full text-start`}
                     whileHover={{
@@ -177,7 +186,7 @@ export const Sidebar = ({ setSrc }: SidebarProps) => {
                 return (
                   <div
                     key={index}
-                    className=' w-full text-left border-b border-[#FFD700] pl-6 spacing'
+                    className=' w-full text-left border-b border-[#FFD700] pl-0 spacing'
                   >
                     <motion.button className={` py-4 text-lg italic tracking-normal w-full text-start`}
                       animate={{
