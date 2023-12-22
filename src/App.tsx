@@ -1,3 +1,4 @@
+// import React, { Suspense } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Logo from "./components/Logo";
 import AllOptions from "./components/options/AllOptions";
@@ -12,7 +13,16 @@ import PalladianTour from "./components/transitions/PalladianTour";
 import HolisticEcosystem from "./components/transitions/HolisticEcosystem";
 import PdfViewerComponent from "./components/PdfModel";
 import pdf from "./assets/Arcade_residentail_brochure_R2_compressed (1).pdf"
+import Neighbourhood360View from "./components/transitions/Neighbourhood360View";
+import Plans from "./components/transitions/Plans";
+// import Layouts from "./components/transitions/Layouts";
 import GalaryModel from "./components/GalaryModel";
+import ContactUsModel from "./components/ContactUsModel";
+
+// import FullPageLoading from "./components/extras/FullPageLoading";
+// const IntroModal = React.lazy(() => import("./components/transitions/IntroModal"));
+// const PalladianTour = React.lazy(() => import("./components/transitions/PalladianTour"));
+// const HolisticEcosystem = React.lazy(() => import("./components/transitions/HolisticEcosystem"));
 
 function App() {
   const isMobile = useMediaQuery({ maxHeight: 767 });
@@ -21,6 +31,7 @@ function App() {
   const dispatch = useDispatch();
 
   const handle = useFullScreenHandle();
+  const appSelector = useSelector((state: any) => state);
 
   const toggleFullScreen = () => {
     Options.isFullScreen
@@ -39,7 +50,7 @@ function App() {
     <FullScreen handle={handle}>
       <div className={`w-screen ${isMobileHeight ? "h-screen" : "h-full"}`}>
 
-        <RoommComponent imageUrl={"/3d.jpg"} nextRoomImageUrl={"/bedroom1-1.jpg"} />
+        <RoommComponent imageUrl={"/3d.jpg"} nextRoomImageUrl={"/360/villa.jpg"} />
 
         <div className="main relative w-full h-full p-2 flex flex-col">
           <div className="absolute inset-0 z-0 backdrop-brightness-50 " />
@@ -50,13 +61,18 @@ function App() {
             <AllOptions toggleFullScreen={toggleFullScreen} />
           </div>
           <div className="z-10 w-full h-[5rem] p-3 relative">
-            <GalaryModel />
-            {/* <IntroModal />
-            <PalladianTour />
-            <HolisticEcosystem />
-            <PdfViewerComponent document={pdf} /> */}
+            {appSelector?.isIntroVideo && <IntroModal />}
+            {appSelector?.is3dpalladian && <PalladianTour />}
+            {appSelector?.isHolisticsEcoststem && <HolisticEcosystem />}
+            {appSelector?.isSalesPresenter && <PdfViewerComponent document={pdf} />}
+            {<Neighbourhood360View />}
+            {appSelector?.isplans && <Plans />}
+            {/* {appSelector?.ispalladian && <Layouts />} */}
+            {appSelector?.isGalary && <GalaryModel />}
+            {appSelector?.isContactUs && <ContactUsModel />}
           </div>
         </div>
+        {/* <RoommComponent imageUrl={"/360/1.png"} /> */}
       </div>
     </FullScreen>
   );

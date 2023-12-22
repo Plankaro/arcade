@@ -43,7 +43,7 @@
 
 // export default ARImageViewer;
 
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
 import { Box, OrbitControls } from "@react-three/drei";
 import { TextureLoader } from "three";

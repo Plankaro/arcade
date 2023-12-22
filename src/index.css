@@ -26,9 +26,24 @@ body {
   padding: 0;
 }
 
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25%; /* 720 / 1280 = 0.5625 */
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .swiper {
   /* max-width: 95vw !important; */
   /* margin-left: 5rem !important; */
   max-height: 700px !important;
   height: 100%;
+}
+
+.leaflate-container{
+  width: 80vw !important;
+  height: 70vh !important;
 }
