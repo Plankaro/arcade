@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
-
 import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
 import logo from "../../assets/logo/logo.png";
 import CloseButton from '../options/CloseButton';
@@ -10,47 +9,13 @@ import { LayoutMap } from '../../constants/ImageUrls';
 const Layouts = () => {
   const ispalladian = useSelector((state: any) => state?.ispalladian);
 
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  const [src, setSrc] = useState<string | null>(null);
-
-
-  useEffect(() => {
-    // Preload images function
-    const preloadImages = (imageUrls: string[]) => {
-      return Promise.all(imageUrls.map((imageUrl) => {
-        return new Promise((resolve) => {
-          const img = new Image();
-          img.src = imageUrl;
-          img.onload = resolve;
-        });
-      }));
-    };
-
-    // Preload all images from LayoutMap
-    const imageUrlsToPreload: string[] = [];
-    LayoutMap.forEach((item) => {
-      item.items.forEach((imageItem) => {
-        imageUrlsToPreload.push(imageItem.image);
-      });
-    });
-
-    preloadImages(imageUrlsToPreload).then(() => {
-      setImagesLoaded(true);
-    });
-
-
-    // Clean-up (optional)
-    return () => {
-      // Perform clean-up if needed
-    };
-  }, []);
-
-
+  const [src, setSrc] = useState<string | null>(LayoutMap[0].items[0].image);
+  console.log("layout rendered", src);
   return (
     <motion.div
       animate={{
         translateX: ispalladian ? '0%' : '-100%',
-        opacity: ispalladian && imagesLoaded ? 1 : 0,
+        opacity: ispalladian ? 1 : 0,
       }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className={` fixed inset-0 bg-black/30`}
@@ -62,32 +27,36 @@ const Layouts = () => {
       />
 
       {/* body */}
-      <div className=" z-10 relative h-screen flex items-center justify-center ">
-        <motion.div
-          key={src ?? LayoutMap[0].items[0].image}
-          initial={{
-            opacity: 0,
-            translateX: '-20%',
-            skewY: 3,
-          }}
-          animate={{
-            opacity: 1,
-            translateX: 0,
-            skewY: 0,
-          }}
-          transition={{
-            duration: 0.5,
-            ease: "easeInOut",
-          }}
-          className='flex items-center justify-center h-full'>
-          <img
-            src={src ?? LayoutMap[0].items[0].image}
-            className=' translate-x-16 aspect-video w-[70vw] max-w-[900px]'
-            alt='gallery image'
-          />
-        </motion.div>
+      {
+        <div className=" z-10 relative h-screen flex items-center justify-center ">
+          {LayoutMap.map((section) =>
+            section.items.map((item) => (
+              <motion.div
+                key={item.title}
+                initial={{
+                  opacity: 0,
+                  translateX: '-20%',
+                  skewY: 3,
+                }}
+                animate={{
+                  opacity: src === item.image ? 1 : 0,
+                  translateX: src === item.image ? '0%' : '-20%',
+                  skewY: src === item.image ? 0 : 3,
+                }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeInOut",
+                }}
+                className='absolute flex items-center justify-center h-full'>
+                <img
+                  src={item.image ?? LayoutMap[0].items[0].image}
+                  className=' translate-x-16 aspect-video w-[70vw] max-w-[900px]'
+                  alt='gallery image'
+                />
+              </motion.div>)))}
 
-      </div>
+        </div>
+      }
 
       {/* close button */}
       <CloseButton />

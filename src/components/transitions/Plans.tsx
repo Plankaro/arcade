@@ -5,12 +5,12 @@ import Sidebar from '../shared/Sidebar';
 import { PlanImageUrls } from '../../constants/ImageUrls';
 import CloseButton from '../options/CloseButton';
 
-// Preload the images outside the component
-const preloadedImages = PlanImageUrls.map((item) => {
-  const image = new Image();
-  image.src = item.url;
-  return image;
-});
+// // Preload the images outside the component
+// const preloadedImages = PlanImageUrls.map((item) => {
+//   const image = new Image();
+//   image.src = item.url;
+//   return image;
+// });
 
 const Plans = () => {
   const isplans = useSelector((state: any) => state?.isplans);
@@ -43,7 +43,7 @@ const Plans = () => {
             className='absolute w-[70vw] max-w-[500px] bg-white rounded-md overflow-hidden shadow-2xl flex items-center justify-center'
           >
             <img
-              src={preloadedImages[index].src} // Use preloaded images directly
+              src={PlanImageUrls[index].url}
               alt='gallery image'
               className=''
             />
