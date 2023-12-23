@@ -65,8 +65,8 @@ function App() {
         <div className="main relative w-full h-full p-2 flex flex-col">
           {isLandscape ?
             <>
-              <div className="absolute inset-0 z-0 backdrop-brightness-50 " />
-              <div className="z-10 w-full px-3 py-1 relative">
+              <div className="absolute inset-0 z-0  " />
+              <div className="z-10 w-full px-3 py-1 relative ">
                 <Logo />
               </div>
               <div className={`z-10 px-[1rem] flex-grow ${isMobile ? "mt-3" : "mt-5"}`}>

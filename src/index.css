@@ -13,7 +13,7 @@
   margin: 0;
   padding: 0;
   /* Adjust the path accordingly */
-  background-image: url("./assets/home/home.jpg");
+  background-image: url("./home.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -68,3 +68,4 @@ body {
     transform: rotate(360deg);
   }
 }
+

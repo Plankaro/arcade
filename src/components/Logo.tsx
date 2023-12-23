@@ -2,6 +2,7 @@ import React from "react"
 import logo from "../assets/logo/logo.png"
 import { useSelector } from "react-redux";
 import { motion } from 'framer-motion'
+import "../index.css"
 
 interface LogoProps {
   small?: boolean
@@ -27,7 +28,7 @@ const Logo: React.FC<LogoProps> = () => {
       className="top-0 left-0 z-10 w-full flex flex-row justify-between items-center">
       <a href="/">
         <img src={logo} alt="logo"
-          className="md:h-[7rem] h-[4rem] md:w-[7rem] w-[4rem]" />
+          className="md:h-[7rem] h-[4rem] md:w-[7rem] w-[4rem]"   />
       </a>
       <a href="https://stackkaroo.com" target="__blank">
         <img src={"/stackkaroo-logo.svg"} alt="stackkaroo-logo"
