@@ -19,7 +19,7 @@ const HolisticEcosystem = () => {
 
   const [slide, setSlide] = useState(0);
 
-  console.log("holistic rendered", slide);
+  // console.log("holistic rendered", slide);
 
   return (
     <motion.div
@@ -60,7 +60,7 @@ const HolisticEcosystem = () => {
             src={slideImages[slide].imageUrl}
             alt='gallery image'
             className=' aspect-video w-[70vw] max-w-[900px]' /> */}
-          <Image src={slideImages[slide].imageUrl} />
+          <Image src={slideImages[slide].imageUrl} className=' max-w-screen max-h-screen w-[90vw] sm:w-[60vw] ' />
         </motion.div>
 
       </div>

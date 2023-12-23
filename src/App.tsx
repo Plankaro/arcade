@@ -11,14 +11,17 @@ import PalladianTour from "./components/transitions/PalladianTour";
 import HolisticEcosystem from "./components/transitions/HolisticEcosystem";
 import Plans from "./components/transitions/Plans";
 import Layouts from "./components/transitions/Layouts";
-import GalaryModel from "./components/GalaryModel";
 import PdfViewerComponent from "./components/PdfModel";
 
 import AllOptions from "./components/options/AllOptions";
 import ContactUsModel from "./components/ContactUsModel";
 import AboutUs from "./components/transitions/AboutUs";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import AskForLandscape from "./components/extras/AskForLandscape";
+import FullPageLoading from "./components/extras/FullPageLoading";
+
+// import GalaryModel from "./components/GalaryModel";
+const GalaryModel = React.lazy(() => import("./components/GalaryModel"))
 
 function App() {
   const isMobile = useMediaQuery({ maxHeight: 767 });
@@ -53,7 +56,7 @@ function App() {
     return () => {
       window.removeEventListener('orientationchange', handleOrientationChange);
     };
-  }, []); 
+  }, []);
 
 
   return (
@@ -80,13 +83,15 @@ function App() {
                 {appSelector?.is3dpalladian && <PalladianTour />}
                 {appSelector?.isplans && <Plans />}
                 {appSelector?.isSalesPresenter && <PdfViewerComponent />}
-                {appSelector?.isGalary && <GalaryModel />}
+                <React.Suspense fallback={<FullPageLoading />}>
+                  {appSelector?.isGalary && <GalaryModel />}
+                </React.Suspense>
                 {appSelector?.isContactUs && <ContactUsModel />}
                 {appSelector?.isAboutUs && <AboutUs />}
 
               </div>
             </>
-            : <AskForLandscape /> 
+            : <AskForLandscape />
           }
         </div>
       </div>

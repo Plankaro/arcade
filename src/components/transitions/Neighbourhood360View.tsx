@@ -5,7 +5,7 @@ import CloseButton from '../options/CloseButton';
 
 const Neighbourhood360View = () => {
   const is360view = useSelector((state: any) => state?.is360view);
-  console.log('is360view rendered', is360view);
+  // console.log('is360view rendered', is360view);
   return (
     <motion.div
       initial={{

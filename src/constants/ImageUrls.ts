@@ -22,23 +22,23 @@ export const ImageUrls = (folder: string = "full_size", suffix: string = "") => 
 export const PlanImageUrls = [
   {
     title: "2 BHK Plan A",
-    url: "BlockB-plan/2 BHK A.png",
+    url: "BlockB-plan/compressed_half/2 BHK A-min.png",
   },
   {
     title: "2 BHK Plan B",
-    url: "BlockB-plan/2 BHK B.png",
+    url: "BlockB-plan/compressed_half/2 BHK B-min.png",
   },
   {
     title: "2 BHK Plan C",
-    url: "BlockB-plan/2 BHK C.png",
+    url: "BlockB-plan/compressed_half/2 BHK C-min.png",
   },
   {
     title: "3 BHK Plan A",
-    url: "BlockB-plan/3 BHK A.png",
+    url: "BlockB-plan/compressed_half/3 BHK A-min.png",
   },
   {
     title: "3 BHK Plan B",
-    url: "BlockB-plan/3 BHK B.png",
+    url: "BlockB-plan/compressed_half/3 BHK B-min.png",
   },
 ];
 
