@@ -15,6 +15,7 @@ const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, right, onClick
 
   return (
     <motion.div
+      onClick={onClick}
       className="flex cursor-pointer items-center justify-between "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -27,8 +28,7 @@ const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, right, onClick
       )}
 
       <motion.div
-        onClick={onClick}
-        className={`md:w-[4rem] md:h-[4rem] w-[2.8rem] h-[2.8rem] rounded-full p-[2px] sm:p-[4px] `}
+        className={`md:w-[3rem] md:h-[3rem] w-[2.4rem] h-[2.4rem] rounded-full p-[2px] sm:p-[3px] `}
         // whileHover={{ scale: 1.1 }} 
         animate={{
           boxShadow: isHovered
@@ -44,7 +44,7 @@ const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, right, onClick
         >
           {Icon && (
             <Icon
-              className={` text-lg md:text-2xl ${isHovered ? 'text-[#454647]' : 'text-[#FFF]' } `}
+              className={` text-[20px] md:text-[24px] ${isHovered ? 'text-[#454647]' : 'text-[#FFF]'} `}
             />
           )}
         </motion.div>

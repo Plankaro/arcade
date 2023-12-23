@@ -19,7 +19,7 @@ const CommonModal = ({ show, children }: IntroModalProps) => {
         opacity: show ? 1 : 0,
       }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className={` fixed inset-0 backdrop-brightness-75 z-20`}
+      className={` fixed inset-0 z-20`}
     >
       <CloseButton />
       <div className=" h-screen flex items-center justify-center">

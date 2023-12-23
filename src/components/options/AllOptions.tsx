@@ -14,7 +14,7 @@ import { IoIosContacts } from "react-icons/io";
 import { BsFullscreen } from "react-icons/bs";
 
 import { useDispatch } from 'react-redux';
-import { open360view, open3dHomeTour, open3dpalladian, openHolisticsEcoststem, openIntroVideo, openSalesPresenter, openpalladian, openplans, openGalary, openContactUs, openAboutUs } from '../../store/slice/action';
+import { open360view, open3dpalladian, openHolisticsEcoststem, openIntroVideo, openSalesPresenter, openpalladian, openplans, openGalary, openContactUs, openAboutUs } from '../../store/slice/action';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 
@@ -88,7 +88,7 @@ const AllOptions: React.FC<AllOptionsProps> = ({
         exit={{ opacity: 0 }}
         className="flex flex-col gap-2 justify-between h-full">
         <div>
-          <CommonButton onClick={() => { dispatch(open3dHomeTour()) }} right label='3D Home Tour' icon={BsHeadsetVr} />
+          <CommonButton onClick={() => { window.location.href = "https://vr-tour-arcade-git-main-plankaro.vercel.app/" }} right label='3D Home Tour' icon={BsHeadsetVr} />
         </div>
         <div>
           <CommonButton onClick={() => { dispatch(openSalesPresenter()) }} right label='Sales Presenter' icon={RiPresentationLine} />

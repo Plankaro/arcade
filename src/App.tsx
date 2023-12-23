@@ -3,7 +3,7 @@ import Logo from "./components/Logo";
 import { useMediaQuery } from "react-responsive";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { allClose, openFullScreen } from "./store/slice/action";
-import RoommComponent from "./components/RoomComponent";
+// import RoommComponent from "./components/RoomComponent";
 import Neighbourhood360View from "./components/transitions/Neighbourhood360View";
 
 import IntroModal from "./components/transitions/IntroModal";
@@ -60,13 +60,13 @@ function App() {
     <FullScreen handle={handle}>
       <div className={`w-screen ${isMobileHeight ? "h-screen" : "h-full"}`}>
 
-        <RoommComponent imageUrl={"/3d.jpg"} nextRoomImageUrl={"/360/villa.jpg"} />
+        {/* <RoommComponent imageUrl={"/3d.jpg"} nextRoomImageUrl={"/360/villa.jpg"} /> */}
 
         <div className="main relative w-full h-full p-2 flex flex-col">
           {isLandscape ?
             <>
-              <div className="absolute inset-0 z-0 backdrop-brightness-50 " />
-              <div className="z-10 w-full px-3 py-1 relative">
+              <div className="absolute inset-0 z-0  " />
+              <div className="z-10 w-full px-3 py-1 relative ">
                 <Logo />
               </div>
               <div className={`z-10 px-[1rem] flex-grow ${isMobile ? "mt-3" : "mt-5"}`}>
