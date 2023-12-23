@@ -1,4 +1,4 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -14,11 +14,12 @@ import CommonModal from './shared/SimpleModal';
 import { useSelector } from 'react-redux';
 import "../index.css"
 import { ImageUrls } from '../constants/ImageUrls';
+
+
 const GalaryModel = () => {
   const isGalary = useSelector((state: any) => state.isGalary);
-  // const images = import.meta.glob('../../public/3BHK-All-photos/*.{png,jpg,jpeg,svg}');
-  // const imageUrls = Object.values(images).map((image) => image.name);
-  // console.log("🚀 ~ file: GalaryModel.tsx:20 ~ GalaryModel ~ imageUrls:", imageUrls)
+  const galleryImages = ImageUrls("compressed_tenth", "-min");
+
 
   return (
     <CommonModal show={isGalary}>
@@ -32,16 +33,20 @@ const GalaryModel = () => {
               clickable: true,
             }}
             className="mySwiper "
-            // lazy={true} // Enable lazy loading
+            // lazy={true} // Enable lazy loading // not works in swiper js v>9
             modules={[EffectFade, Navigation, Pagination]}
           >
-            {ImageUrls.map((src: string, idx: number) =>
-            (<SwiperSlide key={idx}>
-              <img
-                src={src}
-                loading="lazy" />
-              <div className="swiper-lazy-preloader"></div>
-            </SwiperSlide>))}
+            {/* <PreloadController /> */}
+            {
+              galleryImages.map((src: string, idx: number) =>
+              (<SwiperSlide key={idx}>
+                <img
+                  src={src}
+                  loading="lazy"
+                  />
+                <div className="swiper-lazy-preloader"></div>
+              </SwiperSlide>))
+            }
           </Swiper>
         </div>
       </div>
@@ -50,3 +55,31 @@ const GalaryModel = () => {
 }
 
 export default GalaryModel;
+
+
+// const PreloadController = () => {
+
+//   const swiper = useSwiper();
+//   const preloadNext = (n: any) => {
+//     console.log(swiper.slides);
+//     swiper
+//       .slides
+//       .slice(swiper.activeIndex, swiper.activeIndex + n + 1)
+//       .map(slide => slide.querySelector('img'))
+//       .forEach((s: any) => {
+//         // s.setAttribute('loading', 'eager')
+//         s.style.display = "block";
+//       });
+//   };
+
+//   // preload the next 2 images immediately
+//   preloadNext(2);
+
+//   // preload the next 2 images after changing slides
+//   swiper.on('slideChange', (n: any) => {
+//     console.log("slide changed: ", n)
+//     preloadNext(2);
+//   });
+
+//   return (<></>)
+// }
