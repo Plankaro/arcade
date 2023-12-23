@@ -8,10 +8,10 @@ import { FaRegMap } from "react-icons/fa6";
 
 import { BsHeadsetVr } from "react-icons/bs";
 import { RiPresentationLine } from "react-icons/ri";
-import { GrGallery } from "react-icons/gr";
+import { FaRegImages } from "react-icons/fa";
 import { LuContact } from "react-icons/lu";
 import { IoIosContacts } from "react-icons/io";
-import { BsFullscreen } from "react-icons/bs";
+import { MdFullscreen } from "react-icons/md";
 
 import { useDispatch } from 'react-redux';
 import { open360view, open3dpalladian, openHolisticsEcoststem, openIntroVideo, openSalesPresenter, openpalladian, openplans, openGalary, openContactUs, openAboutUs } from '../../store/slice/action';
@@ -51,7 +51,7 @@ const AllOptions: React.FC<AllOptionsProps> = ({
 
 
   return (
-    <div className="flex justify-between items-center p-3 w-full h-full">
+    <div className="menu-menu-box  flex grow justify-between items-center py-4 w-full h-full">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{
@@ -94,7 +94,7 @@ const AllOptions: React.FC<AllOptionsProps> = ({
           <CommonButton onClick={() => { dispatch(openSalesPresenter()) }} right label='Sales Presenter' icon={RiPresentationLine} />
         </div>
         <div>
-          <CommonButton onClick={() => { dispatch(openGalary()) }} right label='Gallery' icon={GrGallery} />
+          <CommonButton onClick={() => { dispatch(openGalary()) }} right label='Gallery' icon={FaRegImages} />
         </div>
         <div>
           <CommonButton onClick={() => {dispatch(openContactUs()) }} right label='Contact Us' icon={LuContact} />
@@ -103,7 +103,7 @@ const AllOptions: React.FC<AllOptionsProps> = ({
           <CommonButton onClick={() => {dispatch(openAboutUs())}} right label='About Us' icon={IoIosContacts} />
         </div>
         <div>
-          <CommonButton onClick={() => toggleFullScreen()} right label='Full Screen' icon={BsFullscreen} />
+          <CommonButton onClick={() => toggleFullScreen()} right label='Full Screen' icon={MdFullscreen} />
         </div>
       </motion.div>
 

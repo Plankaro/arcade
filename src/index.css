@@ -8,20 +8,9 @@
   font-family: "Open Sans", sans-serif;
 }
 
-/* :root {
-  --swiper-pagination-color: #000;
-  --swiper-pagination-bullet-size: 8px;
-  --swiper-pagination-bullet-width: 8px;
-  --swiper-pagination-bullet-height: 8px;
-  --swiper-pagination-bullet-inactive-color: #000;
-  --swiper-pagination-bullet-inactive-opacity: 0.2;
-  --swiper-pagination-bullet-opacity: 1;
-  --swiper-pagination-bullet-horizontal-gap: 4px;
-  --swiper-pagination-bullet-vertical-gap: 6px;
-} */
 
 .main {
-  height: 100%;
+  height: 100vh;
   margin: 0;
   padding: 0;
   /* Adjust the path accordingly */
@@ -62,13 +51,17 @@ body {
   width: 80vw !important;
   height: 70vh !important;
 }
+
 .loading-spinner circle {
   fill: transparent;
   stroke: #0ac8a6;
-  stroke-width: 8; /* Adjust the stroke width as needed */
+  stroke-width: 8;
+  /* Adjust the stroke width as needed */
   stroke-linecap: round;
-  stroke-dasharray: 239; /* (2 * PI * radius) - for radius of 76 */
-  animation: dash 1s linear infinite; /* Adjust the animation duration as needed */
+  stroke-dasharray: 239;
+  /* (2 * PI * radius) - for radius of 76 */
+  animation: dash 1s linear infinite;
+  /* Adjust the animation duration as needed */
   transform-origin: center;
 }
 
@@ -76,8 +69,68 @@ body {
   50% {
     transform: rotate(180deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
 
+.logo-image {
+  min-height: 80px;
+  max-height: 100px;
+  min-width: 80px;
+  max-width: 100px;
+}
+
+.menu-button {
+  padding: 8px;
+}
+
+.menu-button-icon {
+  font-size: 20px;
+}
+
+@media screen and (max-height: 512px) {
+  .logo-image {
+    max-height: 80px;
+    min-height: 80px;
+    max-width: 80px;
+    min-width: 80px;
+  }
+
+  .menu-button {
+    padding: 4px;
+  }
+
+  .menu-menu-box {
+    padding-top: 4px;
+  }
+
+  .menu-button-icon {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .logo-image {
+    max-height: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    min-width: 40px;
+  }
+
+  .menu-button {
+    padding: 4px !important;
+  }
+
+  .menu-button-icon {
+    font-size: 18px !important;
+  }
+
+}
+
+@media screen and (max-height: 300px) {
+  .menu-button-outer-cover {
+    box-shadow: none !important;
+  }
+}

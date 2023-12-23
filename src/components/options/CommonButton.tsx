@@ -28,8 +28,9 @@ const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, right, onClick
       )}
 
       <motion.div
-        className={`md:w-[3rem] md:h-[3rem] w-[2.4rem] h-[2.4rem] rounded-full p-[2px] sm:p-[3px] `}
-        // whileHover={{ scale: 1.1 }} 
+        // className={`md:w-[3rem] md:h-[3rem] w-[2.4rem] h-[2.4rem] rounded-full p-[2px] sm:p-[3px] `}
+        className={`menu-button-outer-cover rounded-full p-[1px] sm:p-[2px] `}
+        whileHover={{ scale: 1.1 }} 
         animate={{
           boxShadow: isHovered
             ? "0px 0px 0px 3px #fff"
@@ -38,13 +39,13 @@ const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, right, onClick
         transition={{ duration: 0.2 }}
       >
         <motion.div
-          className={` rounded-full w-full h-full flex items-center justify-center ${isHovered ? "bg-white" : " bg-primary"
+          className={`menu-button p-[4px] rounded-full w-full h-full flex items-center justify-center ${isHovered ? "bg-white" : " bg-primary "
             }`}
 
         >
           {Icon && (
             <Icon
-              className={` text-[20px] md:text-[24px] ${isHovered ? 'text-[#454647]' : 'text-[#FFF]'} `}
+              className={`menu-button-icon text-[16px] sm:text-[20px] md:text-[24px] ${isHovered ? 'text-[#454647]' : 'text-[#FFF]'} `}
             />
           )}
         </motion.div>
