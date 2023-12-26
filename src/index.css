@@ -64,8 +64,7 @@ body {
   /* Adjust the animation duration as needed */
   transform-origin: center;
 }
-
-/* @keyframes dash {
+ @keyframes dash {
   50% {
     transform: rotate(180deg);
   }
@@ -75,6 +74,8 @@ body {
   }
 }
 
+
+/*
 .logo-image {
   min-height: 80px;
   max-height: 100px;
