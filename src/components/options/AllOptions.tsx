@@ -1,22 +1,22 @@
 import CommonButton from './CommonButton';
 import { IoPlayCircleOutline } from "react-icons/io5";
-import { BiNetworkChart } from "react-icons/bi";
+// import { BiNetworkChart } from "react-icons/bi";
 import { Tb360View } from "react-icons/tb";
 import { FiLayout } from "react-icons/fi";
-import { PiVirtualRealityBold } from "react-icons/pi";
+// import { PiVirtualRealityBold } from "react-icons/pi";
 import { FaRegMap } from "react-icons/fa6";
 
 import { BsHeadsetVr } from "react-icons/bs";
 import { RiPresentationLine } from "react-icons/ri";
 import { FaRegImages } from "react-icons/fa";
 import { LuContact } from "react-icons/lu";
-import { IoIosContacts } from "react-icons/io";
 import { MdFullscreen } from "react-icons/md";
 
 import { useDispatch } from 'react-redux';
-import { open360view, open3dpalladian, openHolisticsEcoststem, openIntroVideo, openSalesPresenter, openpalladian, openplans, openGalary, openContactUs, openAboutUs } from '../../store/slice/action';
+import { open360view, open3dpalladian, openIntroVideo, openSalesPresenter, openpalladian, openplans, openGalary, openContactUs} from '../../store/slice/action';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
+import { IoHomeOutline } from "react-icons/io5";
 
 interface AllOptionsProps {
   toggleFullScreen: () => void
@@ -35,7 +35,8 @@ const AllOptions: React.FC<AllOptionsProps> = ({
     !appSelector.d360View &&
     !appSelector.isplans &&
     !appSelector.ispalladian &&
-    !appSelector.isGalary);
+    !appSelector.isGalary &&
+    !appSelector.isContactUs);
 
   return (
     <div className="flex grow justify-between items-center py-[2vh] w-full h-full">
@@ -48,19 +49,19 @@ const AllOptions: React.FC<AllOptionsProps> = ({
         exit={{ opacity: 0 }}
         className="flex flex-col justify-around h-full">
         <div>
-          <CommonButton onClick={() => { dispatch(openIntroVideo()); console.log('open intro video') }} label='Introduction' icon={IoPlayCircleOutline} />
+          <CommonButton onClick={() => { dispatch(openIntroVideo());}} label='Arcade Commercial' icon={IoPlayCircleOutline} />
         </div>
         <div>
-          <CommonButton onClick={() => { dispatch(openHolisticsEcoststem()) }} label='Holistic Ecosystem' icon={BiNetworkChart} />
+          <CommonButton onClick={() => { dispatch(open3dpalladian()) }} label='Arcade Residential' icon={IoHomeOutline} />
         </div>
+        {/* <div>
+          <CommonButton onClick={() => { dispatch(openHolisticsEcoststem()) }} label='Holistic Ecosystem' icon={BiNetworkChart} />
+        </div> */}
         <div>
           <CommonButton onClick={() => { dispatch(open360view()) }} label='Neighbour View' icon={Tb360View} />
         </div>
         <div>
           <CommonButton onClick={() => { dispatch(openpalladian()) }} label='Palladian Layout' icon={FiLayout} />
-        </div>
-        <div>
-          <CommonButton onClick={() => { dispatch(open3dpalladian()) }} label='3D Palladian Tour' icon={PiVirtualRealityBold} />
         </div>
         <div>
           <CommonButton onClick={() => { dispatch(openplans()) }} label='Plans' icon={FaRegMap} />
@@ -86,9 +87,9 @@ const AllOptions: React.FC<AllOptionsProps> = ({
         <div>
           <CommonButton onClick={() => {dispatch(openContactUs()) }} right label='Contact Us' icon={LuContact} />
         </div>
-        <div>
+        {/* <div>
           <CommonButton onClick={() => {dispatch(openAboutUs())}} right label='About Us' icon={IoIosContacts} />
-        </div>
+        </div> */}
         <div>
           <CommonButton onClick={() => toggleFullScreen()} right label='Full Screen' icon={MdFullscreen} />
         </div>

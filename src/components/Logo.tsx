@@ -16,7 +16,8 @@ const Logo: React.FC<LogoProps> = () => {
     !appSelector.d360View &&
     !appSelector.isplans &&
     !appSelector.ispalladian &&
-    !appSelector.isGalary);
+    !appSelector.isGalary &&
+    !appSelector.isContactUs);
 
   return (
     <motion.div
@@ -31,8 +32,10 @@ const Logo: React.FC<LogoProps> = () => {
           className=" h-[10vh] "   />
       </a>
       <a href="https://stackkaroo.com" target="__blank">
-        <img src={"/stackkaroo-logo.svg"} alt="stackkaroo-logo"
-          className=" h-[10vh] right-0" />
+        {/* <img src={"/stackkaroo-logo.svg"} alt="stackkaroo-logo"
+          className=" h-[10vh] right-0" /> */}
+          <img src={"/logo/weaverBird.png"} alt="logo"
+            className=" max-h-[10vh] max-w-[20vh] "   />
       </a>
     </motion.div>
 

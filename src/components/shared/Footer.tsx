@@ -1,0 +1,53 @@
+import { FaExternalLinkAlt } from 'react-icons/fa'
+import { AnimatePresence, motion } from 'framer-motion';
+import { useSelector } from 'react-redux';
+
+const Footer = () => {
+  const appSelector = useSelector((state: any) => state);
+  const focusHome = (!appSelector.isIntroVideo &&
+    !appSelector.is3dpalladian &&
+    !appSelector.isHolisticsEcoststem &&
+    !appSelector.isSalesPresenter &&
+    !appSelector.d360View &&
+    !appSelector.isplans &&
+    !appSelector.ispalladian &&
+    !appSelector.isGalary &&
+    !appSelector.isContactUs);
+  return (
+    <AnimatePresence>
+      {focusHome && <motion.div
+        initial={{
+          transform: 'translate(-50%, 100%)',
+          opacity: 0,
+        }}
+        animate={{
+          transform: 'translate(-50%, 0%)',
+          opacity: 1,
+        }}
+        exit={{
+          transform: 'translate(-50%, 100%)',
+          opacity: 0,
+        }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        className=" z-10 copyright absolute text-[2vh] bottom-[2vh] left-1/2 -translate-x-1/2 bg-black/80 p-[1vh] rounded-[2vh]">
+        <p className="text-white text-center">
+          <strong>&copy;</strong>{" "}
+          {new Date().getFullYear()}{" "}
+          Arcade | All rights reserved.
+        </p>
+        <p className=" text-white text-center">
+          Designed and Developed by
+          <a
+            href="https://stackkaroo.com"
+            target="__blank"
+            className=" ml-[1vh] text-white font-bold inline-flex items-baseline">
+            Stackkaroo
+            <FaExternalLinkAlt className="inline text-white ml-[0.4vh] text-[1.7vh]" />
+          </a>
+        </p>
+      </motion.div>}
+    </AnimatePresence>
+  )
+}
+
+export default Footer

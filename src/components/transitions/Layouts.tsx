@@ -218,8 +218,6 @@ export const Sidebar = ({ setSrc }: SidebarProps) => {
           </AnimatePresence>
         </div>
       </div>
-      parent = {path.parentIndex}<br />
-      child = {path.childIndex}<br />
     </motion.div>
   )
 }

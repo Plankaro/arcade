@@ -8,17 +8,19 @@ import Neighbourhood360View from "./components/transitions/Neighbourhood360View"
 
 import IntroModal from "./components/transitions/IntroModal";
 import PalladianTour from "./components/transitions/PalladianTour";
-import HolisticEcosystem from "./components/transitions/HolisticEcosystem";
+// import HolisticEcosystem from "./components/transitions/HolisticEcosystem";
 import Plans from "./components/transitions/Plans";
 import Layouts from "./components/transitions/Layouts";
 import PdfViewerComponent from "./components/PdfModel";
 
 import AllOptions from "./components/options/AllOptions";
 import ContactUsModel from "./components/ContactUsModel";
-import AboutUs from "./components/transitions/AboutUs";
+// import AboutUs from "./components/transitions/AboutUs";
 import React, { useEffect, useState } from "react";
 import AskForLandscape from "./components/extras/AskForLandscape";
 import FullPageLoading from "./components/extras/FullPageLoading";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import Footer from "./components/shared/Footer";
 
 // import GalaryModel from "./components/GalaryModel";
 const GalaryModel = React.lazy(() => import("./components/GalaryModel"))
@@ -72,10 +74,13 @@ function App() {
               <div className={`z-10 px-[3vh] flex-grow shrink`}>
                 <AllOptions toggleFullScreen={toggleFullScreen} />
               </div>
+
+              <Footer />
+
               <div className="z-10 w-full relative">
                 {<Neighbourhood360View />}
                 {appSelector?.isIntroVideo && <IntroModal />}
-                {appSelector?.isHolisticsEcoststem && <HolisticEcosystem />}
+                {/* {appSelector?.isHolisticsEcoststem && <HolisticEcosystem />} */}
                 {appSelector?.ispalladian && <Layouts />}
                 {appSelector?.is3dpalladian && <PalladianTour />}
                 {appSelector?.isplans && <Plans />}
@@ -84,7 +89,7 @@ function App() {
                   {appSelector?.isGalary && <GalaryModel />}
                 </React.Suspense>
                 {appSelector?.isContactUs && <ContactUsModel />}
-                {appSelector?.isAboutUs && <AboutUs />}
+                {/* {appSelector?.isAboutUs && <AboutUs />} */}
 
               </div>
             </>

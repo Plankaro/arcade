@@ -8,7 +8,7 @@ import { useState } from "react";
 import { FaCanadianMapleLeaf } from "react-icons/fa";
 
 const API_KEY = import.meta.env.VITE_API_KEY as string;
-// console.log(API_KEY);
+console.log(API_KEY);
 const MapModel = () => {
     const [show, setShow] = useState(false);
   return (

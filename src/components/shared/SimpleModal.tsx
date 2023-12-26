@@ -11,11 +11,11 @@ const CommonModal = ({ show, children }: IntroModalProps) => {
   return (
     <motion.div
       initial={{
-        translateX: '-100%',
+        translateX: '-40%',
         opacity: 0,
       }}
       animate={{
-        translateX: show ? '0%' : '-100%',
+        translateX: show ? '0%' : '-40%',
         opacity: show ? 1 : 0,
       }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
