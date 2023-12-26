@@ -51,7 +51,7 @@ const AllOptions: React.FC<AllOptionsProps> = ({
 
 
   return (
-    <div className="menu-menu-box  flex grow justify-between items-center py-4 w-full h-full">
+    <div className="menu-menu-box flex grow justify-between items-center py-4 w-full h-full">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{
@@ -67,7 +67,7 @@ const AllOptions: React.FC<AllOptionsProps> = ({
           <CommonButton onClick={() => { dispatch(openHolisticsEcoststem()) }} label='Holistic Ecosystem' icon={BiNetworkChart} />
         </div>
         <div>
-          <CommonButton onClick={() => { dispatch(open360view()) }} label='Neighbourhood 360 View' icon={Tb360View} />
+          <CommonButton onClick={() => { dispatch(open360view()) }} label='Neighbour View' icon={Tb360View} />
         </div>
         <div>
           <CommonButton onClick={() => { dispatch(openpalladian()) }} label='Palladian Layout' icon={FiLayout} />

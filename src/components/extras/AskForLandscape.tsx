@@ -19,11 +19,11 @@ const AskForLandscape = () => {
             repeat: Infinity,
             repeatType: "mirror",
           }}
-          className="h-[100px] aspect-[9/16] bg-black border border-white rounded-sm flex items-center justify-center text-white text-xl"
+          className="h-[60px] sm:h-[100px] aspect-[9/16] bg-black border border-white rounded-sm flex items-center justify-center text-white text-md md:text-xl"
         >
           <FaArrowRotateRight />
         </motion.div>
-        <p className="text-lg text-white text-center">
+        <p className=" text-sm sm:text-md md:text-lg text-white text-center">
           Please rotate your device to 
             <span className="text-accent"> Landscape </span>
            mode

@@ -18,7 +18,7 @@ const AboutUs = () => {
             className='absoute w-full h-full object-cover'
             src='https://img.freepik.com/free-vector/gradient-cyber-futuristic-background_23-2149117429.jpg?size=626&ext=jpg&ga=GA1.1.1546980028.1703203200&semt=sph' />
 
-          <div className='absolute top-1/2 -translate-y-1/2 w-[30%] backdrop-blur-sm backdrop-brightness-125 mr-10 px-4 py-2 h-[95%] text-white bg-white/10'>
+          <div className='absolute top-1/2 -translate-y-1/2 w-[30%] backdrop-blur-sm backdrop-brightness-125 mr-10 px-4 py-2 h-[95%] text-white bg-white/10 overflow-auto'>
             <img src={logo} width={100} height={100}
               className='  w-[50px] h-[50px] sm:w-[100px] sm:h-[100px] object-contain'
             />
