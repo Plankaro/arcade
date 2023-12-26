@@ -15,8 +15,8 @@ import { ImageUrls } from '../constants/ImageUrls';
 import { FullScreenViewer } from './extras/Image';
 // import { SetStateAction, useState } from 'react';
 import React, { useState } from 'react';
-import { GoScreenFull } from "react-icons/go";
-import ImagesLoad, { MyImage } from './extras/ImagesLoad';
+// import { GoScreenFull } from "react-icons/go";
+import { MyImage } from './extras/ImagesLoad';
 
 
 
