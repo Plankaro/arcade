@@ -12,7 +12,7 @@ console.log(API_KEY);
 const MapModel = () => {
     const [show, setShow] = useState(false);
   return (
-    <div className="w-[80vw] h-[90vh]">
+    <div className=" h-[30vh] min-w-[90vw] md:h-[70vh] md:min-w-[0] ">
       <APIProvider apiKey={API_KEY}>
         <Map
           zoom={18}
