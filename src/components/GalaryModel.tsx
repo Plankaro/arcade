@@ -14,9 +14,9 @@ import "../index.css"
 import { ImageUrls } from '../constants/ImageUrls';
 import { FullScreenViewer } from './extras/Image';
 // import { SetStateAction, useState } from 'react';
-import {  useState } from 'react';
+import React, { useState } from 'react';
 import { GoScreenFull } from "react-icons/go";
-import ImagesLoad from './extras/ImagesLoad';
+import ImagesLoad, { MyImage } from './extras/ImagesLoad';
 
 
 
@@ -28,7 +28,6 @@ const GalaryModel = () => {
 
 
   const [fullScreen, setFullScreen] = useState<string | null>(null);
-
 
 
   return (
@@ -55,9 +54,11 @@ const GalaryModel = () => {
             } as any}
           >
             {/* <PreloadController setIndex={setSlideIndex} /> */}
+
+
             {
               galleryImages.map((src: string, idx: number) =>
-              (<SwiperSlide key={idx}>
+              (<SwiperSlide className='w-full h-full' key={idx}>
                 {/* <img
                   src={src}
                   loading="lazy"
@@ -66,7 +67,10 @@ const GalaryModel = () => {
                 /> */}
                 {/* <div className="swiper-lazy-preloader"></div> */}
                 {/* <Image renderImage={Math.abs(idx - slideIndex) <= 2} src={src} className=''  /> */}
-                <ImagesLoad src={src} />
+                {/* <ImagesLoad src={src} /> */}
+                <React.Suspense fallback={<div>Loading...</div>}>
+                  <MyImage url={src} />
+                </React.Suspense>
 
                 {/* <div className=" absolute inset-0">
                   <button className=" absolute right-4 top-4 w-8 h-8 bg-black text-white flex items-center justify-center text-xl shadow-md shadow-black/40 hover:scale-105 transition-transform duration-150 rounded-sm"
