@@ -63,14 +63,14 @@ function App() {
     <FullScreen handle={handle}>
       <div className={`w-screen ${isMobileHeight ? "h-screen" : "h-full"}`}>
 
-        <div className="main relative w-full h-screen max-h-screen max-w-screen overflow-y-hidden p-2 flex flex-col">
+        <div className="main relative w-full h-screen max-h-screen max-w-screen overflow-hidden flex flex-col">
           {isLandscape ?
             <>
               <div className="absolute inset-0 z-0  " />
-              <div className="z-10 w-full px-4 py-1 relative grow-0 shrink-0">
+              <div className="z-10 w-full px-[3vh] py-[1vh] relative grow-0 shrink-0">
                 <Logo />
               </div>
-              <div className={`z-10 px-[1rem] flex-grow shrink ${isMobile ? "mt-0" : "mt-2"}`}>
+              <div className={`z-10 px-[3vh] flex-grow shrink ${isMobile ? "mt-0" : "mt-2"}`}>
                 <AllOptions toggleFullScreen={toggleFullScreen} />
               </div>
               <div className="z-10 w-full relative">

@@ -21,43 +21,32 @@ const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, right, onClick
       // onTouchStart={() => setIsHovered(true)}
       // onTouchCancel={() => setIsHovered(false)}
       // whileHover={{ scale: 1.05 }} 
-      className="  flex cursor-pointer items-center justify-between"
+      className="  flex cursor-pointer items-center justify-end"
     >
-      {right && (
-        <div className="md:w-[14rem] w-[8.5rem]">
-          {<Label active={isHovered} label={label} right />}
-        </div>
-      )}
+      {right && <Label active={isHovered} label={label} right />}
 
       <motion.div
-        // className={`md:w-[3rem] md:h-[3rem] w-[2.4rem] h-[2.4rem] rounded-full p-[2px] sm:p-[3px] `}
-        className={`menu-button-outer-cover rounded-full p-[1px] sm:p-[2px] `}
-        whileHover={{ scale: 1.1 }} 
+        className={` rounded-full p-[0.5vh] grow-0`}
         animate={{
           boxShadow: isHovered
-            ? "0px 0px 0px 3px #fff"
-            : "0px 0px 0px 2px #fff",
+            ? "0px 0px 0px .5vh #fff"
+            : "0px 0px 0px .5vh #fff",
         }}
-        transition={{ duration: 0.2 }}
+        transition={{ duration: 0.3 }}
       >
         <motion.div
-          className={`menu-button p-[1px] sm:p-[4px] rounded-full w-full h-full flex items-center justify-center ${isHovered ? "bg-white" : " bg-primary "
-            }`}
+          className={` p-[1vh] rounded-full w-full h-full flex items-center justify-center ${isHovered ? "bg-white" : " bg-primary"}`}
 
         >
           {Icon && (
             <Icon
-              className={`menu-button-icon text-[16px] sm:text-[20px] md:text-[24px] ${isHovered ? 'text-[#454647]' : 'text-[#FFF]'} `}
+              className={` text-[4vh] ${isHovered ? 'text-[#454647]' : 'text-[#FFF]'} `}
             />
           )}
         </motion.div>
       </motion.div>
 
-      {!right && (
-        <div className="md:w-[14rem] w-[10rem]">
-          {<Label active={isHovered} label={label} />}
-        </div>
-      )}
+      {!right && <Label active={isHovered} label={label} />}
     </motion.div>
   );
 };

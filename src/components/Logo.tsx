@@ -28,11 +28,11 @@ const Logo: React.FC<LogoProps> = () => {
       className="top-0 left-0 z-10 w-full flex flex-row justify-between items-center">
       <a href="/">
         <img src={logo} alt="logo"
-          className="logo-image  md:h-[7rem] h-[4rem] md:w-[7rem] w-[4rem]"   />
+          className=" h-[10vh] "   />
       </a>
       <a href="https://stackkaroo.com" target="__blank">
         <img src={"/stackkaroo-logo.svg"} alt="stackkaroo-logo"
-          className="logo-image  md:h-[7rem] h-[4rem] md:w-[7rem] w-[4rem] right-0" />
+          className=" h-[10vh] right-0" />
       </a>
     </motion.div>
 

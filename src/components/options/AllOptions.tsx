@@ -37,21 +37,8 @@ const AllOptions: React.FC<AllOptionsProps> = ({
     !appSelector.ispalladian &&
     !appSelector.isGalary);
 
-  // const buttonVariants = {
-  //   hidden: { opacity: 0, y: -20 },
-  //   visible: {
-  //     opacity: 1,
-  //     y: 0,
-  //     transition: {
-  //       delay: 0.2, // Adjust this delay for the stagger effect
-  //       duration: 0.5
-  //     }
-  //   }
-  // };
-
-
   return (
-    <div className="menu-menu-box flex grow justify-between items-center py-4 w-full h-full">
+    <div className="flex grow justify-between items-center py-[2vh] w-full h-full">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{
@@ -86,7 +73,7 @@ const AllOptions: React.FC<AllOptionsProps> = ({
           x: focusHome ? 0 : 20,
         }}
         exit={{ opacity: 0 }}
-        className="flex flex-col gap-2 justify-around h-full">
+        className="flex flex-col justify-around h-full">
         <div>
           <CommonButton onClick={() => { window.location.href = "https://vr-tour-arcade-git-main-plankaro.vercel.app/" }} right label='3D Home Tour' icon={BsHeadsetVr} />
         </div>

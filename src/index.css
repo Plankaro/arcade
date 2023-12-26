@@ -65,7 +65,7 @@ body {
   transform-origin: center;
 }
 
-@keyframes dash {
+/* @keyframes dash {
   50% {
     transform: rotate(180deg);
   }
@@ -88,9 +88,31 @@ body {
 
 .menu-button-icon {
   font-size: 20px;
+} */
+
+/* @media (max-height: 768) {
+  .logo-image {
+    max-height: 100px !important;
+    min-height: 100px !important;
+    max-width: 100px !important;
+    min-width: 100px !important;
+  }
+
+  .menu-button {
+    padding: 20px !important;
+    background-color: green !important;
+  }
+
+  .menu-menu-box {
+    padding-top: 4px;
+  }
+
+  .menu-button-icon {
+    font-size: 16px;
+  }
 }
 
-@media screen and (max-height: 512px) {
+@media (max-height: 512px) {
   .logo-image {
     max-height: 80px;
     min-height: 80px;
@@ -111,7 +133,7 @@ body {
   }
 }
 
-@media screen and (max-height: 450px) {
+@media (max-height: 450px) {
   .logo-image {
     max-height: 40px;
     min-height: 40px;
@@ -129,8 +151,8 @@ body {
 
 }
 
-@media screen and (max-height: 300px) {
+@media (max-height: 300px) {
   .menu-button-outer-cover {
     box-shadow: none !important;
   }
-}
+} */
