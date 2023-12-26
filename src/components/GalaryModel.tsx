@@ -68,7 +68,7 @@ const GalaryModel = () => {
                 {/* <Image renderImage={Math.abs(idx - slideIndex) <= 2} src={src} className=''  /> */}
                 <ImagesLoad src={src} />
 
-                <div className=" absolute inset-0">
+                {/* <div className=" absolute inset-0">
                   <button className=" absolute right-4 top-4 w-8 h-8 bg-black text-white flex items-center justify-center text-xl shadow-md shadow-black/40 hover:scale-105 transition-transform duration-150 rounded-sm"
                     onClick={() => setFullScreen(t => {
                       if (t === null) {
@@ -79,7 +79,7 @@ const GalaryModel = () => {
                     })}>
                     <GoScreenFull />
                   </button>
-                </div>
+                </div> */}
               </SwiperSlide>))
             }
           </Swiper>

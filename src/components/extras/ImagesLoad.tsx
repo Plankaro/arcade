@@ -1,18 +1,21 @@
 import { AsyncImage } from 'loadable-image'
 import { FC } from 'react'
-interface ImageProps{
-    src:string
+interface ImageProps {
+  src: string
 }
-const ImagesLoad:FC<ImageProps> = ({src}) => {
-    return (
-      <div className=' max-h-full aspect-video w-auto max-w-[900px]'>
-            <AsyncImage
-                src={src}
-                style={{ height:"100vh" , width:"100vw" , borderRadius: 3 }}
-                loader={<div style={{ background: '#888' }} />}
-            />
-      </div>
-    )
+const ImagesLoad: FC<ImageProps> = ({ src }) => {
+  return (
+    <AsyncImage
+      src={src}
+      style={{
+        width: "100%",
+        height: "100%",
+        borderRadius: 3,
+        objectPosition: "center",
+      }}
+      loader={<div style={{ background: '#888' }}>Loading...</div>}
+    />
+  )
 }
 
 export default ImagesLoad
