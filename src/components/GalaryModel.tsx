@@ -1,4 +1,5 @@
-import { Swiper, SwiperSlide, useSwiper, } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Swiper, SwiperSlide, useSwiper, } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
@@ -11,9 +12,11 @@ import CommonModal from './shared/SimpleModal';
 import { useSelector } from 'react-redux';
 import "../index.css"
 import { ImageUrls } from '../constants/ImageUrls';
-import Image, { FullScreenViewer } from './extras/Image';
-import { SetStateAction, useState } from 'react';
+import { FullScreenViewer } from './extras/Image';
+// import { SetStateAction, useState } from 'react';
+import {  useState } from 'react';
 import { GoScreenFull } from "react-icons/go";
+import ImagesLoad from './extras/ImagesLoad';
 
 
 
@@ -21,7 +24,7 @@ const GalaryModel = () => {
   const isGalary = useSelector((state: any) => state.isGalary);
   const galleryImages = ImageUrls("compressed_tenth", "-min");
   const galleryImagesLarge = ImageUrls();
-  const [slideIndex, setSlideIndex] = useState<number>(0);
+  const [slideIndex] = useState<number>(0);
 
 
   const [fullScreen, setFullScreen] = useState<string | null>(null);
@@ -51,7 +54,7 @@ const GalaryModel = () => {
               "--swiper-pagination-bullet-horizontal-gap": "3px",
             } as any}
           >
-            <PreloadController setIndex={setSlideIndex} />
+            {/* <PreloadController setIndex={setSlideIndex} /> */}
             {
               galleryImages.map((src: string, idx: number) =>
               (<SwiperSlide key={idx}>
@@ -62,7 +65,8 @@ const GalaryModel = () => {
                   
                 /> */}
                 {/* <div className="swiper-lazy-preloader"></div> */}
-                <Image renderImage={Math.abs(idx - slideIndex) <= 2} src={src} className=''  />
+                {/* <Image renderImage={Math.abs(idx - slideIndex) <= 2} src={src} className=''  /> */}
+                <ImagesLoad src={src} />
 
                 <div className=" absolute inset-0">
                   <button className=" absolute right-4 top-4 w-8 h-8 bg-black text-white flex items-center justify-center text-xl shadow-md shadow-black/40 hover:scale-105 transition-transform duration-150 rounded-sm"
@@ -90,16 +94,16 @@ const GalaryModel = () => {
 export default GalaryModel;
 
 
-interface PreloadControllerProps {
-  setIndex: React.Dispatch<SetStateAction<number>>;
-}
+// interface PreloadControllerProps {
+//   setIndex: React.Dispatch<SetStateAction<number>>;
+// }
 
-const PreloadController = ({ setIndex }: PreloadControllerProps) => {
+// const PreloadController = ({ setIndex }: PreloadControllerProps) => {
 
-  const swiper = useSwiper();
-  swiper.on('slideChange', () => {
-    setIndex(swiper.activeIndex);
-  });
+//   const swiper = useSwiper();
+//   swiper.on('slideChange', () => {
+//     setIndex(swiper.activeIndex);
+//   });
 
-  return (<></>)
-}
+//   return (<></>)
+// }
