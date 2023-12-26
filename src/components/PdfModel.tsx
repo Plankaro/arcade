@@ -48,6 +48,9 @@ export default function Sample() {
     <div className='fixed w-screen h-full inset-0 z-30 flex items-start mt-3 justify-center'>
       <div className='absolute right-9 top-4'>
       <CloseButton />
+
+      
+
       </div>
         <div className=' w-full justify-center p-4 overflow-hidden overflow-y-scroll' style={{ height: `calc(100% - 2rem)` }} ref={setContainerRef}>
           <Document file={file} onLoadSuccess={onDocumentLoadSuccess} options={options}>

@@ -42,7 +42,6 @@ export const PlanImageUrls = [
   },
 ];
 
-
 export const LayoutMap = [
   {
     title: 'Aerial View',
@@ -101,3 +100,9 @@ export const LayoutMap = [
     ],
   },
 ];
+
+export const Brochure = [
+  "residential-brochure.pdf",
+  "commercial-brochure.pdf",
+  "service-apartment-brochure.pdf",
+]

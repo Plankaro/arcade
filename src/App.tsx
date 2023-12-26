@@ -11,7 +11,7 @@ import PalladianTour from "./components/transitions/PalladianTour";
 // import HolisticEcosystem from "./components/transitions/HolisticEcosystem";
 import Plans from "./components/transitions/Plans";
 import Layouts from "./components/transitions/Layouts";
-import PdfViewerComponent from "./components/PdfModel";
+// import PdfViewerComponent from "./components/PdfModel";
 
 import AllOptions from "./components/options/AllOptions";
 import ContactUsModel from "./components/ContactUsModel";
@@ -19,8 +19,9 @@ import ContactUsModel from "./components/ContactUsModel";
 import React, { useEffect, useState } from "react";
 import AskForLandscape from "./components/extras/AskForLandscape";
 import FullPageLoading from "./components/extras/FullPageLoading";
-import { FaExternalLinkAlt } from "react-icons/fa";
+// import { FaExternalLinkAlt } from "react-icons/fa";
 import Footer from "./components/shared/Footer";
+import Brochures from "./components/transitions/Brochure";
 
 // import GalaryModel from "./components/GalaryModel";
 const GalaryModel = React.lazy(() => import("./components/GalaryModel"))
@@ -84,7 +85,8 @@ function App() {
                 {appSelector?.ispalladian && <Layouts />}
                 {appSelector?.is3dpalladian && <PalladianTour />}
                 {appSelector?.isplans && <Plans />}
-                {appSelector?.isSalesPresenter && <PdfViewerComponent />}
+                {/* {appSelector?.isSalesPresenter && <PdfViewerComponent />} */}
+                {appSelector?.isSalesPresenter && <Brochures />}
                 <React.Suspense fallback={<FullPageLoading />}>
                   {appSelector?.isGalary && <GalaryModel />}
                 </React.Suspense>

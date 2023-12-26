@@ -22,7 +22,7 @@ export const Sidebar = ({ selected, items, setSlide }: SidebarProps) => {
         // opacity: 0,/
       }}
       animate={{
-        translateX: isMenuOpen ? '0%' : '-90%',
+        translateX: isMenuOpen ? '0%' : '-92%',
         // opacity: isMenuOpen ? 1 : 0,
       }}
       transition={{
