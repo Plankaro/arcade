@@ -59,7 +59,7 @@ const AllOptions: React.FC<AllOptionsProps> = ({
           x: focusHome ? 0 : -20,
         }}
         exit={{ opacity: 0 }}
-        className="flex flex-col justify-between gap-2 h-full">
+        className="flex flex-col justify-around h-full">
         <div>
           <CommonButton onClick={() => { dispatch(openIntroVideo()); console.log('open intro video') }} label='Introduction' icon={IoPlayCircleOutline} />
         </div>
@@ -86,7 +86,7 @@ const AllOptions: React.FC<AllOptionsProps> = ({
           x: focusHome ? 0 : 20,
         }}
         exit={{ opacity: 0 }}
-        className="flex flex-col gap-2 justify-between h-full">
+        className="flex flex-col gap-2 justify-around h-full">
         <div>
           <CommonButton onClick={() => { window.location.href = "https://vr-tour-arcade-git-main-plankaro.vercel.app/" }} right label='3D Home Tour' icon={BsHeadsetVr} />
         </div>
