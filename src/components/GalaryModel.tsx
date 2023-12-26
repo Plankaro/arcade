@@ -58,9 +58,11 @@ const GalaryModel = () => {
                 {/* <img
                   src={src}
                   loading="lazy"
-                  />
-                <div className="swiper-lazy-preloader"></div> */}
-                <Image renderImage={Math.abs(idx - slideIndex) <= 2} src={src} className='' />
+                  decoding="async"
+                  
+                /> */}
+                {/* <div className="swiper-lazy-preloader"></div> */}
+                <Image renderImage={Math.abs(idx - slideIndex) <= 2} src={src} className=''  />
 
                 <div className=" absolute inset-0">
                   <button className=" absolute right-4 top-4 w-8 h-8 bg-black text-white flex items-center justify-center text-xl shadow-md shadow-black/40 hover:scale-105 transition-transform duration-150 rounded-sm"

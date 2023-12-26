@@ -1,31 +1,40 @@
-import BasicLoading from "./BasicLoading";
-import { SetStateAction, useState } from "react";
+import { SetStateAction, Suspense, useState } from "react";
 import { MdFullscreenExit } from "react-icons/md";
 import { motion } from 'framer-motion';
+import { useImage } from 'react-image'
 
+const Image = ({ src,  renderImage = true }: { src: string, className?: string, renderImage?: boolean }) => {
 
-const Image = ({ src, className, renderImage = true }: { src: string, className?: string, renderImage?: boolean }) => {
-  const [loaded, setLoaded] = useState(false);
   return (
     <>
-      {renderImage && <img
-        src={src}
-        alt='gallery image'
-        className={className ?? ` max-h-full aspect-video w-auto max-w-[900px] ${loaded ? ' opacity-100' : 'opacity-0'}`}
-        onLoad={() => setLoaded(true)}
-      />}
-      {!loaded && <div
-        className='absolute inset-0 flex items-center justify-center h-full text-black text-2xl font-bold'>
-        <span>
-          <BasicLoading />
-        </span>
-      </div>}
+      {renderImage &&
+
+        <Suspense>
+          <MyImageComponent url={src} />
+
+
+          {/* <img
+          src={src}
+          alt='gallery image'
+          className={className ?? ` max-h-full aspect-video w-auto max-w-[900px] ${loaded ? ' opacity-100' : 'opacity-0'}`}
+          onLoad={() => setLoaded(true)}
+        />} */}
+        </Suspense>
+      }
+
     </>
   )
 };
 
 export default Image;
 
+function MyImageComponent({ url }: any) {
+  const { src } = useImage({
+    srcList: url,
+  })
+
+  return <img src={src} />
+}
 
 export const FullScreenViewer = ({ src, setFullScreen }: { src: string, setFullScreen: React.Dispatch<SetStateAction<string | null>> }) => {
   const [loaded, setLoaded] = useState<boolean>(false);
@@ -38,7 +47,7 @@ export const FullScreenViewer = ({ src, setFullScreen }: { src: string, setFullS
           }}
           className=" w-screen h-screen"
         >
-          <img src={src} onLoad={() => setLoaded(true)} className='w-full h-full object-cover object-center' alt='Fullscreen' />
+          <img src={src} onLoad={() => setLoaded(true)} className='w-full h-full object-cover object-center' alt='Fullscreen' decoding="async" loading="lazy" />
         </motion.div>
         <button
           onClick={() => setFullScreen(null)}
