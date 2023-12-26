@@ -24,7 +24,6 @@ import FullPageLoading from "./components/extras/FullPageLoading";
 const GalaryModel = React.lazy(() => import("./components/GalaryModel"))
 
 function App() {
-  const isMobile = useMediaQuery({ maxHeight: 767 });
   const isMobileHeight = useMediaQuery({ minHeight: 500 });
   const Options = useSelector((state: any) => state);
   const dispatch = useDispatch();
