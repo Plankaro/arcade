@@ -70,7 +70,7 @@ function App() {
               <div className="z-10 w-full px-[3vh] py-[1vh] relative grow-0 shrink-0">
                 <Logo />
               </div>
-              <div className={`z-10 px-[3vh] flex-grow shrink ${isMobile ? "mt-0" : "mt-2"}`}>
+              <div className={`z-10 px-[3vh] flex-grow shrink`}>
                 <AllOptions toggleFullScreen={toggleFullScreen} />
               </div>
               <div className="z-10 w-full relative">
