@@ -42,6 +42,7 @@ export const PlanImageUrls = [
   },
 ];
 
+
 export const LayoutMap = [
   {
     title: 'Aerial View',

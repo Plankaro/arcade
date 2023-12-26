@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
 import logo from "../../assets/logo/logo.png";
 import CloseButton from '../options/CloseButton';
@@ -25,7 +25,6 @@ const Layouts = () => {
 
       <Sidebar
         setSrc={setSrc}
-        slide={[0, 0]}
       />
 
       {/* body */}
@@ -73,13 +72,13 @@ export default Layouts
 
 
 interface SidebarProps {
-  slide: [number, number];
   setSrc: (src: string | null) => void;
 }
 
 export const Sidebar = ({ setSrc }: SidebarProps) => {
-  const [isMenuOpen, setMenuOpen] = useState(false);
-  const [path, setPath] = useState<[number | null, number | null]>([null, null]);
+  const [isMenuOpen, setMenuOpen] = useState(false)
+  const [path, setPath] = useState<{ parentIndex: number | null; childIndex: number | null }>({ parentIndex: 0, childIndex: 0 });
+  const [activeMenu, setActiveMenu] = useState<0 | 1>(0);
   console.log("sidebar rendered", path);
 
   return (
@@ -94,7 +93,7 @@ export const Sidebar = ({ setSrc }: SidebarProps) => {
         duration: 0.3,
         ease: "easeIn",
       }}
-      className={` z-30 fixed top-0 left-0 min-w-[280px] max-w-screen text-white bg-black/70 min-h-screen shadow-lg p-8`}
+      className={` z-30 fixed top-0 left-0 min-w-[280px] max-w-screen text-white bg-black/70 min-h-screen shadow-lg p-8 `}
     >
 
       {/* menu toggler */}
@@ -118,15 +117,20 @@ export const Sidebar = ({ setSrc }: SidebarProps) => {
         {/* back button */}
         <div className=' self-stretch'>
           <motion.button className={` w-[40px] h-[40px] rounded-full border border-white bg-accent disabled:bg-accent/50 disabled:text-gray flex items-center justify-center`}
-            disabled={path[0] === null}
-            onClick={() => { setPath([null, null]) }}
+            // disabled={path[0] === null}
+            onClick={() => {
+              setPath({
+                parentIndex: path.parentIndex,
+                childIndex: null,
+              }); setActiveMenu(0);
+            }}
           >
             <MdOutlineArrowBackIos className=' text-inherit' />
           </motion.button>
         </div>
 
         {/* menu */}
-        <div className=' relative mt-[30px] mb-auto self-stretch max-h-[200px]'>
+        <div className=' relative mt-[30px] mb-auto self-stretch max-h-[200px] overflow-hidden'>
           {/* parent menu */}
           <motion.div
             className=' w-full text-left pl-6 spacing flex items-stretch flex-col'
@@ -135,8 +139,8 @@ export const Sidebar = ({ setSrc }: SidebarProps) => {
               translateX: '-100%',
             }}
             animate={{
-              opacity: path[0] === null ? 1 : 0,
-              translateX: path[0] === null ? 0 : '-100%',
+              opacity: activeMenu === 0 ? 1 : 0,
+              translateX: activeMenu === 0 ? 0 : '-100%',
             }}
             transition={{
               duration: 0.3,
@@ -147,16 +151,19 @@ export const Sidebar = ({ setSrc }: SidebarProps) => {
               return (
                 <div
                   key={index}
-                  className=' w-full text-left border-b border-[#FFD700] pl-0 spacing flex items-stretch'
+                  className=' w-full text-left border-b border-[#FFD700] spacing flex items-stretch'
                 >
                   <motion.button className={` relative py-4 text-lg italic tracking-normal w-full text-start`}
                     whileHover={{
                       color: '#FFD700',
                     }}
                     animate={{
-                      color: path[0] === index ? '#FFD700' : '#fff',
+                      color: path.parentIndex === index ? '#FFD700' : '#fff',
                     }}
-                    onClick={() => { setPath([index, null]) }}
+                    onClick={() => { setPath({
+                      parentIndex: index,
+                      childIndex: 0,
+                    }); setActiveMenu(1); setSrc(item.items[0].image) }}
                   >
                     {item?.title[0].toUpperCase() + item.title.slice(1)}
                   </motion.button>
@@ -166,46 +173,53 @@ export const Sidebar = ({ setSrc }: SidebarProps) => {
           </motion.div>
 
           {/* child menu */}
-          <motion.div
-            className=' absolute top-0 w-full text-left pl-6 spacing flex items-stretch flex-col'
-            initial={{
-              opacity: 0,
-              translateX: '100%',
-            }}
-            animate={{
-              opacity: path[0] !== null ? 1 : 0,
-              translateX: path[0] !== null ? 0 : '100%',
-            }}
-            transition={{
-              duration: 0.3,
-              ease: "easeInOut",
-            }}
-          >
-            {
-              path[0] !== null && LayoutMap[path[0]].items.map((item, index) => {
-                return (
-                  <div
-                    key={index}
-                    className=' w-full text-left border-b border-[#FFD700] pl-0 spacing'
-                  >
-                    <motion.button className={` py-4 text-lg italic tracking-normal w-full text-start`}
-                      animate={{
-                        color: path[1] === index ? '#FFD700' : '#fff',
-                      }}
-                      whileHover={{
-                        color: '#FFD700',
-                      }}
-                      onClick={() => { setPath([path[0], index]), setSrc(item.image) }}
+          <AnimatePresence>
+            <motion.div
+              className=' absolute top-0 w-full text-left pl-6 spacing flex items-stretch flex-col'
+              initial={{
+                opacity: 0,
+                translateX: '100%',
+              }}
+              animate={{
+                opacity: activeMenu  == 1 ? 1 : 0,
+                translateX: activeMenu  == 1 ? 0 : '100%',
+              }}
+              transition={{
+                duration: 0.3,
+                ease: "easeInOut",
+              }}
+            >
+              {
+                path.parentIndex !== null && LayoutMap[path.parentIndex].items.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className=' w-full text-left border-b border-[#FFD700] pl-0 spacing'
                     >
-                      {item?.title[0].toUpperCase() + item.title.slice(1)}
-                    </motion.button>
-                  </div>
-                )
-              })
-            }
-          </motion.div>
+                      <motion.button className={` py-4 text-lg italic tracking-normal w-full text-start`}
+                        animate={{
+                          color: path.childIndex === index ? '#FFD700' : '#fff',
+                        }}
+                        whileHover={{
+                          color: '#FFD700',
+                        }}
+                        onClick={() => { setPath({
+                          parentIndex: path.parentIndex,
+                          childIndex: index,
+                        }), setSrc(item.image) }}
+                      >
+                        {item?.title[0].toUpperCase() + item.title.slice(1)}
+                      </motion.button>
+                    </div>
+                  )
+                })
+              }
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
+      parent = {path.parentIndex}<br />
+      child = {path.childIndex}<br />
     </motion.div>
   )
 }
