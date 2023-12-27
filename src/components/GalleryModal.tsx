@@ -15,6 +15,7 @@ import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from 'react-icons/md'
 import Sidebar from './shared/Sidebar';
 
 import { motion } from 'framer-motion'
+import FullPageLoading from './extras/FullPageLoading';
 
 const GalaryModel = () => {
   const isGalary = useSelector((state: any) => state.isGalary);
@@ -57,13 +58,12 @@ const GalaryModel = () => {
 
 export default GalaryModel;
 
-type NavigationButtonProps = {
-  src: string;
-  setFullScreen: React.Dispatch<React.SetStateAction<string | null>>;
-}
+// type NavigationButtonProps = {
+//   src: string;
+//   setFullScreen: React.Dispatch<React.SetStateAction<string | null>>;
+// }
 
-const NavigationButtons = ({ setFullScreen, src }: NavigationButtonProps) => {
-  console.log("🚀 ~ file: GalaryModel.tsx:99 ~ NavigationButtons ~  setFullScreen, src:", setFullScreen, src)
+const NavigationButtons = () => {
   const swiper = useSwiper();
   return (
     <div className=" absolute inset-0">
@@ -133,11 +133,11 @@ const Gallery = ({ images }: GalleryProps) => {
           {
             images.map((src: string, idx: number) =>
             (<SwiperSlide className='w-full h-full' key={idx}>
-              <React.Suspense fallback={<div>Loading...</div>}>
+              <React.Suspense fallback={<FullPageLoading />}>
                 <MyImage url={src} />
               </React.Suspense>
 
-              <NavigationButtons setFullScreen={(() => { })} src={src} />
+              <NavigationButtons />
             </SwiperSlide>))
           }
         </Swiper>

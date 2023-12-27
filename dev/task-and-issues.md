@@ -17,9 +17,10 @@ Block A - Commercial - 9 Images in ZIP - Done
 Block B - Residential - 5 Images in ZIP - Done
 Use Prefix "Arcade" for Options - Done
 By Default, All Sidebars Should Be Expanded - Done
-Contact Us Designing - Added Address Tag
+Contact Us Designing - Added Address Tag and border bottom
 Add Preloading Video - Waiting for Video
 Add Better Background Image - Waiting for Image
+
 
 Learnt:
 s -p | grep -v /   => list all files except directories
