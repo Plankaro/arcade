@@ -123,7 +123,6 @@ const Gallery = ({ images }: GalleryProps) => {
           modules={[EffectFade, Navigation, Pagination]}
           style={{
             "--swiper-navigation-color": "#000",
-            "--swiper-navigation-size": window.innerWidth < 768 ? "20px" : "40px",
             "--swiper-pagination-color": "#000",
             "--swiper-pagination-bullet-inactive-color": "#fff",
             "--swiper-pagination-bullet-inactive-opacity": ".4",

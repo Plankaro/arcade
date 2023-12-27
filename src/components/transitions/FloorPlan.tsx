@@ -12,7 +12,6 @@ const Layouts = () => {
   const isMenuOpen = useSelector((state: any) => state?.isSidebarOpen);
   const [src, setSrc] = useState<string | null>(FloorPlans[0].items[0].image);
 
-  // console.log("layout rendered", src);
   return (
     <motion.div
       animate={{
@@ -29,10 +28,7 @@ const Layouts = () => {
       />
 
       {/* body */}
-      {
-        <div className=" z-10 relative h-screen flex items-center justify-center ">
-          {/* {FloorPlans.map((section) =>
-            section.items.map((item) => ( */}
+      {<div className=" z-10 relative h-screen flex items-center justify-center ">
           <motion.div
             key={src}
             initial={{
