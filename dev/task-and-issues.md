@@ -1,38 +1,25 @@
-27 decemeber 2023
-
-rename:
-palladian layout -> floor plan - done
-neighbour view -> 360 view - done
-sales presenter -> brochure - done
-rearrage brochure button with gallery - done
-remove home icon and add live icon - done
-footer text in one line - done
-disable back button in nested sidebar - done
-add backdrop in all transitions - done
-pdf compress - done
-gallery slider button issue - done
-
-update arcade logo - done
-
-add exterior and interior in gallery option - done
-plans:
-nested menu for - done
-block A - commercial - 9 images in zip - done
-block B - residential - 5 images in zip - done
-
-
-
-use prefix "arcade" for options
-
-
-by default all sidebars should be expanded
-
-contact us designing
-
-add pre loading video
-
-add better background image
-
+27 December 2023
+Rename:
+Palladian Layout ➡️ Floor Plan - Done
+Neighbour View ➡️ 360 View - Done
+Sales Presenter ➡️ Brochure - Done
+Rearrange Brochure Button with Gallery - Done
+Remove Home Icon and Add Live Icon - Done
+Footer Text in One Line - Done
+Disable Back Button in Nested Sidebar - Done
+Add Backdrop in All Transitions - Done
+PDF Compress - Done
+Gallery Slider Button Issue - Done
+Update Arcade Logo - Done
+Add Exterior and Interior in Gallery Option - Done
+Plans: Nested Menu For - Done
+Block A - Commercial - 9 Images in ZIP - Done
+Block B - Residential - 5 Images in ZIP - Done
+Use Prefix "Arcade" for Options - Done
+By Default, All Sidebars Should Be Expanded - Done
+Contact Us Designing - Added Address Tag
+Add Preloading Video - Waiting for Video
+Add Better Background Image - Waiting for Image
 
 Learnt:
 s -p | grep -v /   => list all files except directories
