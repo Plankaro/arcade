@@ -7,10 +7,10 @@ import { allClose, openFullScreen } from "./store/slice/action";
 import Neighbourhood360View from "./components/transitions/Neighbourhood360View";
 
 import IntroModal from "./components/transitions/IntroModal";
-import PalladianTour from "./components/transitions/PalladianTour";
+import ArcadeResidential from "./components/transitions/ArcadeResidential";
 // import HolisticEcosystem from "./components/transitions/HolisticEcosystem";
 import Plans from "./components/transitions/Plans";
-import Layouts from "./components/transitions/Layouts";
+import FloorPlan from "./components/transitions/FloorPlan";
 // import PdfViewerComponent from "./components/PdfModel";
 
 import AllOptions from "./components/options/AllOptions";
@@ -24,7 +24,7 @@ import Footer from "./components/shared/Footer";
 import Brochures from "./components/transitions/Brochure";
 
 // import GalaryModel from "./components/GalaryModel";
-const GalaryModel = React.lazy(() => import("./components/GalaryModel"))
+const GalleryModal = React.lazy(() => import("./components/GalleryModal"))
 
 function App() {
   const isMobileHeight = useMediaQuery({ minHeight: 500 });
@@ -81,17 +81,14 @@ function App() {
               <div className="z-10 w-full relative">
                 {<Neighbourhood360View />}
                 {appSelector?.isIntroVideo && <IntroModal />}
-                {/* {appSelector?.isHolisticsEcoststem && <HolisticEcosystem />} */}
-                {appSelector?.ispalladian && <Layouts />}
-                {appSelector?.is3dpalladian && <PalladianTour />}
+                {appSelector?.ispalladian && <FloorPlan />}
+                {appSelector?.is3dpalladian && <ArcadeResidential />}
                 {appSelector?.isplans && <Plans />}
-                {/* {appSelector?.isSalesPresenter && <PdfViewerComponent />} */}
                 {appSelector?.isSalesPresenter && <Brochures />}
                 <React.Suspense fallback={<FullPageLoading />}>
-                  {appSelector?.isGalary && <GalaryModel />}
+                  {appSelector?.isGalary && <GalleryModal />}
                 </React.Suspense>
                 {appSelector?.isContactUs && <ContactUsModel />}
-                {/* {appSelector?.isAboutUs && <AboutUs />} */}
 
               </div>
             </>

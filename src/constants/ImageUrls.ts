@@ -1,4 +1,4 @@
-export const ImageUrls = (folder: string = "full_size", suffix: string = "") => [
+export const InteriorGalleryImages = (folder: string = "full_size", suffix: string = "") => [
   `3BHK-All-photos/${folder}/BEDROOM 1 (MASTER) 1${suffix}.jpg`,
   `3BHK-All-photos/${folder}/BEDROOM 1 (MASTER) 2${suffix}.jpg`,
   `3BHK-All-photos/${folder}/BEDROOM 1 (MASTER) 3${suffix}.jpg`,
@@ -17,6 +17,17 @@ export const ImageUrls = (folder: string = "full_size", suffix: string = "") => 
   `3BHK-All-photos/${folder}/LIVVING _ DINING ROOM 3${suffix}.jpg`,
   `3BHK-All-photos/${folder}/LIVVING _ DINING ROOM 4${suffix}.jpg`,
   `3BHK-All-photos/${folder}/LIVVING _ DINING ROOM 5${suffix}.jpg`,
+];
+export const ExteriorGalleryImages = (folder: string = "full_size") => [
+  `3BHK-All-photos/${folder}/Aerial.jpg`,
+  `3BHK-All-photos/${folder}/Cam_3.jpg`,
+  `3BHK-All-photos/${folder}/Cam_day 1.jpg`,
+  `3BHK-All-photos/${folder}/Cam_day2.jpg`,
+  `3BHK-All-photos/${folder}/Hero_1.jpg`,
+  `3BHK-All-photos/${folder}/Hero_2.jpg`,
+  `3BHK-All-photos/${folder}/Resi_1.jpg`,
+  `3BHK-All-photos/${folder}/Resi_2.jpg`,
+  `3BHK-All-photos/${folder}/Resi_3.jpg`,
 ];
 
 export const PlanImageUrls = [

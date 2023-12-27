@@ -29,14 +29,10 @@ const Logo: React.FC<LogoProps> = () => {
       className="top-0 left-0 z-10 w-full flex flex-row justify-between items-center">
       <a href="/">
         <img src={logo} alt="logo"
-          className=" h-[10vh] "   />
+          className=" h-[10vh] " />
       </a>
-      <a href="https://stackkaroo.com" target="__blank">
-        {/* <img src={"/stackkaroo-logo.svg"} alt="stackkaroo-logo"
-          className=" h-[10vh] right-0" /> */}
-          <img src={"/logo/weaverBird.png"} alt="logo"
-            className=" max-h-[10vh] max-w-[20vh] "   />
-      </a>
+      <img src={"/logo/weaverBird.png"} alt="logo"
+        className=" max-h-[10vh] max-w-[20vh] " />
     </motion.div>
 
   )

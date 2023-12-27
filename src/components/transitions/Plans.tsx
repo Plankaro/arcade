@@ -26,10 +26,10 @@ const Plans = () => {
         opacity: isplans ? 1 : 0,
         transition: 'transform 0.5s ease-in-out, opacity 0.5s ease-in-out',
       }}
-      className={`fixed inset-0 bg-black/30`}
+      className={`fixed inset-0 bg-black/60`}
     >
       <Sidebar
-        selected={slide}
+        slide={slide}
         items={PlanImageUrls.map(i => i.title)}
         setSlide={setSlide}
       />

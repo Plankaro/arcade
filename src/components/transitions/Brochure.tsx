@@ -1,9 +1,9 @@
 // import { useSelector } from 'react-redux'
 import { AnimatePresence, motion } from 'framer-motion';
 import PdfViewer from '../shared/PdfViewer';
-import CommercialBrochure from "../../assets/brochure/commercial-brochure.pdf";
-import ResidentialBrochure from "../../assets/brochure/residential-brochure.pdf";
-import ServiceAptBrochure from "../../assets/brochure/service-apartment-brochure.pdf";
+import CommercialBrochure from "../../assets/brochure/compressed/commercial-brochure.pdf";
+import ResidentialBrochure from "../../assets/brochure/compressed/residential-brochure.pdf";
+import ServiceAptBrochure from "../../assets/brochure/compressed/service-apartment-brochure.pdf";
 import { useState } from 'react';
 import Sidebar from '../shared/Sidebar';
 import CloseButton from '../options/CloseButton';
@@ -41,7 +41,7 @@ const Brochures = () => {
         className={` fixed inset-0 bg-black/60`}
       > 
         <CloseButton />
-        <Sidebar selected={slide} items={brochures.map(i => i.title)} setSlide={setSlide} />
+        <Sidebar slide={slide} items={brochures.map(i => i.title)} setSlide={setSlide} />
 
         <PdfViewer pdf={brochures[slide].src} />
       </motion.div>

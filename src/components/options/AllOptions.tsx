@@ -16,7 +16,6 @@ import { useDispatch } from 'react-redux';
 import { open360view, open3dpalladian, openIntroVideo, openSalesPresenter, openpalladian, openplans, openGalary, openContactUs } from '../../store/slice/action';
 import { useSelector } from 'react-redux';
 import { AnimatePresence, motion } from 'framer-motion';
-import { IoHomeOutline } from "react-icons/io5";
 
 interface AllOptionsProps {
   toggleFullScreen: () => void
@@ -57,16 +56,13 @@ const AllOptions: React.FC<AllOptionsProps> = ({
             <CommonButton onClick={() => { dispatch(openIntroVideo()); }} label='Arcade Commercial' icon={IoPlayCircleOutline} />
           </div>
           <div>
-            <CommonButton onClick={() => { dispatch(open3dpalladian()) }} label='Arcade Residential' icon={IoHomeOutline} />
-          </div>
-          {/* <div>
-          <CommonButton onClick={() => { dispatch(openHolisticsEcoststem()) }} label='Holistic Ecosystem' icon={BiNetworkChart} />
-        </div> */}
-          <div>
-            <CommonButton onClick={() => { dispatch(open360view()) }} label='Neighbour View' icon={Tb360View} />
+            <CommonButton onClick={() => { dispatch(open3dpalladian()) }} label='Arcade Residential' icon={IoPlayCircleOutline} />
           </div>
           <div>
-            <CommonButton onClick={() => { dispatch(openpalladian()) }} label='Palladian Layout' icon={FiLayout} />
+            <CommonButton onClick={() => { dispatch(open360view()) }} label='360 View' icon={Tb360View} />
+          </div>
+          <div>
+            <CommonButton onClick={() => { dispatch(openpalladian()) }} label='Floor Plan' icon={FiLayout} />
           </div>
           <div>
             <CommonButton onClick={() => { dispatch(openplans()) }} label='Plans' icon={FaRegMap} />
@@ -90,17 +86,14 @@ const AllOptions: React.FC<AllOptionsProps> = ({
             <CommonButton onClick={() => { window.location.href = "https://vr-tour-arcade-git-main-plankaro.vercel.app/" }} right label='3D Home Tour' icon={BsHeadsetVr} />
           </div>
           <div>
-            <CommonButton onClick={() => { dispatch(openSalesPresenter()) }} right label='Sales Presenter' icon={RiPresentationLine} />
+            <CommonButton onClick={() => { dispatch(openGalary()) }} right label='Gallery' icon={FaRegImages} />
           </div>
           <div>
-            <CommonButton onClick={() => { dispatch(openGalary()) }} right label='Gallery' icon={FaRegImages} />
+            <CommonButton onClick={() => { dispatch(openSalesPresenter()) }} right label='Brochures' icon={RiPresentationLine} />
           </div>
           <div>
             <CommonButton onClick={() => { dispatch(openContactUs()) }} right label='Contact Us' icon={LuContact} />
           </div>
-          {/* <div>
-          <CommonButton onClick={() => {dispatch(openAboutUs())}} right label='About Us' icon={IoIosContacts} />
-        </div> */}
           <div>
             <CommonButton onClick={() => toggleFullScreen()} right label='Full Screen' icon={MdFullscreen} />
           </div>
