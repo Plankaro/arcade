@@ -12,8 +12,8 @@ const Image = ({ src, className, renderImage = true }: { src: string, className?
       <img
         src={src}
         alt='gallery image'
-        // className={className ?? ` max-h-full aspect-video w-auto max-w-[900px] ${loaded ? ' opacity-100' : 'opacity-0'}`}
-        className={className ?? ` object-cover  ${loaded ? ' opacity-100' : 'opacity-0'}`}
+        className={className ?? ` max-h-full aspect-video w-auto max-w-[900px] ${loaded ? ' opacity-100' : 'opacity-0'}`}
+        // className={className ?? ` object-cover  ${loaded ? ' opacity-100' : 'opacity-0'}`}
         onLoad={() => setLoaded(true)}
       />}
       {!loaded && <div
