@@ -18,7 +18,7 @@ const FullPageLoading = () => {
           duration: 0.5,
           ease: "easeInOut",
         }}
-        className='bg-black/30 h-[20vh] w-[20vh] rounded-full flex items-center justify-center relative overflow-hidden'>
+        className='bg-black/30 h-[20dvh] w-[20dvh] rounded-full flex items-center justify-center relative overflow-hidden'>
         <img
           src={logo}
           alt="logo"

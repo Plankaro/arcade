@@ -38,7 +38,7 @@ const AllOptions: React.FC<AllOptionsProps> = ({
     !appSelector.isContactUs);
 
   return (
-    <div className="flex grow justify-between items-center py-[2vh] w-full h-full">
+    <div className="flex grow justify-between items-center py-[2dvh] w-full h-full">
       <AnimatePresence>
         <motion.div
           initial={{

@@ -13,7 +13,7 @@ const AboutUs = () => {
   return (
     <>
       <CommonModal show={isAboutUs}>
-        <div className='relative w-[80%] max-w-[1200px] min-w-[800px] h-[80vh] bg-primary flex flex-row items-stretch justify-end'>
+        <div className='relative w-[80%] max-w-[1200px] min-w-[800px] h-[80dvh] bg-primary flex flex-row items-stretch justify-end'>
           <img
             className='absoute w-full h-full object-cover'
             src='https://img.freepik.com/free-vector/gradient-cyber-futuristic-background_23-2149117429.jpg?size=626&ext=jpg&ga=GA1.1.1546980028.1703203200&semt=sph' />

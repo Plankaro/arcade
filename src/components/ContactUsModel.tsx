@@ -8,16 +8,16 @@ const ContactUsModel = () => {
     <CommonModal show={isContactUs}>
       <div className="relative z-30">
 
-        <div className="flex flex-row items-center justify-center bg-white h-[60vh] w-[100vh] rounded-[2vh]  ">
+        <div className="flex flex-row items-center justify-center bg-white h-[60dvh] w-[100dvh] rounded-[2dvh]  ">
           {/* Map Section */}
           <div className="grow basis-1/2">
             <MapModel />
           </div>
 
           {/* Contact Details Section */}
-          <div className="grow basis-1/2 flex gap-[1vh] flex-col items-start justify-start p-[2vh] leading-[3vh]">
+          <div className="grow basis-1/2 flex gap-[1dvh] flex-col items-start justify-start p-[2dvh] leading-[3dvh]">
             {/* Heading */}
-            <h2 className="font-roboto-bold text-[3vh] text-black/80 font-semibold ">Contact Us</h2>
+            <h2 className="font-roboto-bold text-[3dvh] text-black/80 font-semibold ">Contact Us</h2>
 
             {/* Phone */}
             <div className="text-md md:text-lg">
@@ -63,5 +63,5 @@ const ContactUsModel = () => {
 export default ContactUsModel
 
 
-const Strong = ({ children }: any) => <strong className=" border-b-[0.3vh] text-[2vh] border-accent font-medium text-black/80">{children}</strong>
-const Span = ({ children }: any) => <span className=" pl-[0.7vh] text-[1.8vh] text-black/60">{children}</span>
+const Strong = ({ children }: any) => <strong className=" border-b-[0.3dvh] text-[2dvh] border-accent font-medium text-black/80">{children}</strong>
+const Span = ({ children }: any) => <span className=" pl-[0.7dvh] text-[1.8dvh] text-black/60">{children}</span>

@@ -10,7 +10,7 @@
 
 
 .main {
-  height: 100vh;
+  height: 100dvh;
   margin: 0;
   /* padding: 0; */
   /* Adjust the path accordingly */
@@ -49,7 +49,7 @@ body {
 
 .leaflate-container {
   width: 80vw !important;
-  height: 70vh !important;
+  height: 70dvh !important;
 }
 
 .loading-spinner circle {

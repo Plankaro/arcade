@@ -39,7 +39,7 @@ const Plans = () => {
         >
           <Image
             src={src ?? PlanImageUrls[0].items[0].image}
-            className={"bg-white max-h-[90vh] rounded-md"} />
+            className={"bg-white max-h-[90dvh] rounded-md"} />
         </motion.div>
       </div>
 

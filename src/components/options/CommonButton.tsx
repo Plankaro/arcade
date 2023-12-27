@@ -26,21 +26,21 @@ const CommonButton: React.FC<CommonProps> = ({ icon: Icon, label, right, onClick
       {right && <Label active={isHovered} label={label} right />}
 
       <motion.div
-        className={` rounded-full p-[0.5vh] grow-0`}
+        className={` rounded-full p-[0.5dvh] grow-0`}
         animate={{
           boxShadow: isHovered
-            ? "0px 0px 0px .5vh #fff"
-            : "0px 0px 0px .5vh #fff",
+            ? "0px 0px 0px .5dvh #fff"
+            : "0px 0px 0px .5dvh #fff",
         }}
         transition={{ duration: 0.3 }}
       >
         <motion.div
-          className={` p-[1vh] rounded-full w-full h-full flex items-center justify-center ${isHovered ? "bg-white" : " bg-primary"}`}
+          className={` p-[1dvh] rounded-full w-full h-full flex items-center justify-center ${isHovered ? "bg-white" : " bg-primary"}`}
 
         >
           {Icon && (
             <Icon
-              className={` text-[4vh] ${isHovered ? 'text-[#454647]' : 'text-[#FFF]'} `}
+              className={` text-[4dvh] ${isHovered ? 'text-[#454647]' : 'text-[#FFF]'} `}
             />
           )}
         </motion.div>
