@@ -28,14 +28,7 @@ const Plans = () => {
       />
 
       {/* body */}
-      <motion.div
-        animate={{
-          translateX: isSidebarOpen ? 130 : 0,
-        }}
-        transition={{
-          duration: 0.5,
-          ease: "easeInOut",
-        }}
+      <div
         className="z-10 relative h-screen flex items-center justify-center">
         <motion.div
           key={src}
@@ -48,7 +41,7 @@ const Plans = () => {
             src={src ?? PlanImageUrls[0].items[0].image}
             className={"w-full h-full object-contain"} />
         </motion.div>
-      </motion.div>
+      </div>
 
       {/* close button */}
       <CloseButton />

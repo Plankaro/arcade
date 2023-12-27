@@ -37,15 +37,15 @@ const NestedSidebar = ({ setSrc, data }: NestedSidebarProps) => {
       }}
       transition={{
         duration: 0.3,
-        ease: "easeIn",
+        ease: "easeInOut",
       }}
-      className={` z-30 fixed top-0 left-0 min-w-[280px] text-white bg-black/70 min-h-screen shadow-lg p-8`}
+      className={` z-30 fixed top-0 left-0 min-w-[36vh] text-white bg-black/70 min-h-screen shadow-lg p-[4vh]`}
     >
 
       {/* menu toggler */}
-      <div className=' z-30 absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 '>
+      <div className=' z-30 absolute right-0 top-[50vh] translate-x-1/2 -translate-y-1/2 '>
         <button onClick={() => { dispatch(toggleSidebar()) }}
-          className=' border border-black bg-accent w-[40px] h-[40px] flex items-center justify-center rounded-full'
+          className=' border border-black bg-accent w-[6vh] h-[6vh] text-[3vh] flex items-center justify-center rounded-full'
         >
           {isMenuOpen
             ? <MdOutlineArrowBackIos className=' text-white' />
@@ -57,12 +57,12 @@ const NestedSidebar = ({ setSrc, data }: NestedSidebarProps) => {
 
         {/* logo */}
         {window.innerHeight > 600 && <div className=' min-h-10 mb-[30px]'>
-          <img src={logo} alt="logo" className="md:h-[4rem] h-[3rem]" />
+          <img src={logo} alt="logo" className="md:h-[9vh] h-[9vh]" />
         </div>}
 
         {/* back button */}
         <div className=' self-stretch'>
-          <motion.button className={` w-[40px] h-[40px] rounded-full border border-white bg-accent disabled:bg-accent/50 disabled:text-gray flex items-center justify-center`}
+          <motion.button className={` w-[6vh] h-[6vh] text-[3vh] rounded-full border border-white bg-accent disabled:bg-accent/50 disabled:text-gray flex items-center justify-center`}
             disabled={path.parentIndex === null || activeMenu === 0}
             onClick={() => {
               setPath({
@@ -76,11 +76,11 @@ const NestedSidebar = ({ setSrc, data }: NestedSidebarProps) => {
         </div>
 
         {/* menu */}
-        <div className=' relative mt-[30px] mb-auto self-stretch overflow-x-hidden overflow-y-auto h-full'>
+        <div className=' relative mt-[10vh] mb-auto self-stretch overflow-x-hidden overflow-y-auto h-full'>
           {/* parent menu */}
           <AnimatePresence>
             <motion.div
-              className=' w-full text-left pl-6 spacing flex items-stretch flex-col'
+              className=' w-full text-left pl-[1vh] spacing flex items-stretch flex-col'
               initial={{
                 opacity: 0,
                 translateX: '-100%',
@@ -100,7 +100,7 @@ const NestedSidebar = ({ setSrc, data }: NestedSidebarProps) => {
                     key={index}
                     className=' w-full text-left border-b border-[#FFD700] spacing flex items-stretch'
                   >
-                    <motion.button className={` relative py-4 text-lg italic tracking-normal w-full text-start`}
+                    <motion.button className={` relative py-[1vh] text-[2.4vh] italic w-full text-start`}
                       whileHover={{
                         color: '#FFD700',
                       }}
@@ -125,7 +125,7 @@ const NestedSidebar = ({ setSrc, data }: NestedSidebarProps) => {
           {/* child menu */}
           <AnimatePresence>
             <motion.div
-              className=' absolute top-0 w-full text-left pl-0 spacing flex items-stretch flex-col max-h-[300px] overflow-y-auto'
+              className=' absolute top-0 w-full text-left spacing flex items-stretch flex-col max-h-[30vh] overflow-y-auto'
               initial={{
                 opacity: 0,
                 translateX: '100%',
@@ -147,7 +147,7 @@ const NestedSidebar = ({ setSrc, data }: NestedSidebarProps) => {
                       className=' w-full text-left border-b border-[#FFD700] pl-0 spacing'
                     >
                       <motion.button
-                        className={` py-4 text-lg italic tracking-normal w-full text-start`}
+                        className={` py-[1.1vh] text-[2.3vh] italic tracking-normal w-full text-start`}
                         animate={{
                           color: path.childIndex === index ? '#FFD700' : '#fff',
                         }}

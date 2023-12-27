@@ -3,7 +3,7 @@ import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md"
 import logo from "../../assets/logo/logo.png";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import {  toggleSidebar } from "../../store/slice/action";
+import { toggleSidebar } from "../../store/slice/action";
 
 
 interface SidebarProps {
@@ -28,11 +28,12 @@ export const Sidebar = ({ slide, items, setSlide }: SidebarProps) => {
         duration: 0.3,
         ease: "easeIn",
       }}
-      className={` z-30 fixed top-0 left-0 min-w-[300px] text-white bg-black/80 shadow-lg h-screen p-8`}
+      className={` z-30 fixed top-0 left-0 min-w-[36vh] text-white bg-black/80 shadow-lg h-screen p-[4vh]`}
     >
+      {/* menu toggler */}
       <div className=' z-30 absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 '>
-        <button onClick={() => {dispatch(toggleSidebar())}}
-          className=' border border-black bg-accent w-[40px] h-[40px] flex items-center justify-center rounded-full'
+        <button onClick={() => { dispatch(toggleSidebar()) }}
+          className=' border border-black bg-accent w-[6vh] h-[6vh] text-[3vh] flex items-center justify-center rounded-full'
         >
           {isMenuOpen ?
             <MdOutlineArrowBackIos className=' text-white' />
@@ -41,14 +42,17 @@ export const Sidebar = ({ slide, items, setSlide }: SidebarProps) => {
       </div>
 
       <div className=' z-40 relative flex items-center flex-col justify-start h-full'>
-        {window.innerHeight > 600 && <div className=' min-h-10 mb-[30px]'>
-          <img src={logo} alt="logo" className="md:h-[4rem] h-[3rem]" />
-        </div>}
-        <div className=' mt-[30px] mb-auto self-stretch'>
+
+
+        <div className=' min-h-10 mb-[30px]'>
+          <img src={logo} alt="logo" className="md:h-[9vh] h-[9vh]" />
+        </div>
+
+        <div className=' mt-[10vh] mb-auto self-stretch'>
           {items.map((item, index) => {
             return (
-              <div key={index} className=' w-full text-left border-b border-[#FFD700] pl-1 spacing'>
-                <motion.button className={` py-4 text-lg italic tracking-normal w-full text-start`}
+              <div key={index} className=' w-full text-left border-b border-[#FFD700] pl-[1vh] spacing'>
+                <motion.button className={` py-[2vh] text-[2.3vh] italic tracking-normal w-full text-start`}
                   whileHover={{
                     color: '#FFD700',
                   }}
