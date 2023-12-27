@@ -71,16 +71,23 @@ export default GalaryModel;
 //   setFullScreen: React.Dispatch<React.SetStateAction<string | null>>;
 // }
 
-const NavigationButtons = () => {
+interface NavigationButtonsProps {
+  activeIndex: number;
+  totalImages: number;
+}
+
+const NavigationButtons = ({ activeIndex, totalImages }: NavigationButtonsProps) => {
   const swiper = useSwiper();
   return (
     <div className=" z-50 absolute inset-0">
 
       <div className=" absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-row justify-between items-center w-full p-[1vh] ">
-        <button className=' flex items-center justify-center bg-white p-[2vh] text-[2vh] rounded-full border border-black hover:text-white hover:bg-black'
+        <button className=' flex items-center justify-center bg-white p-[2vh] text-[2vh] rounded-full border border-black hover:text-white hover:bg-black disabled:opacity-50  disabled:pointer-events-none transition-colors duration-200'
+          disabled={activeIndex === 0}
           onClick={() => swiper.slidePrev()}
         ><MdOutlineArrowBackIos /></button>
-        <button className=' flex items-center justify-center bg-white p-[2vh] text-[2vh] rounded-full border border-black hover:text-white hover:bg-black'
+        <button className=' flex items-center justify-center bg-white p-[2vh] text-[2vh] rounded-full border border-black hover:text-white hover:bg-black disabled:opacity-50  disabled:pointer-events-none transition-colors duration-200'
+          disabled={activeIndex === totalImages - 1}
           onClick={() => swiper.slideNext()}
         ><MdOutlineArrowForwardIos /></button>
       </div>
@@ -107,6 +114,7 @@ interface GalleryProps {
 
 const Gallery = ({ images }: GalleryProps) => {
   // const isMenuOpen = useSelector((state: any) => state?.isSidebarOpen);
+  const [slideIndex, setSlideIndex] = useState<number>(0);
   return (
     <motion.div
       initial={{
@@ -131,9 +139,9 @@ const Gallery = ({ images }: GalleryProps) => {
           clickable: true,
         }}
         className="mySwiper h-auto"
-        // onSlideChange={(i) => {
-        //   setSlideIndex && setSlideIndex(i.activeIndex);
-        // }}
+        onSlideChange={(i) => {
+          setSlideIndex(i.activeIndex);
+        }}
         modules={[EffectFade, Navigation, Pagination]}
         // modules={[EffectFade, Navigation, Pagination, Controller]}
         // controller={{ control: slideIndex }}
@@ -154,7 +162,7 @@ const Gallery = ({ images }: GalleryProps) => {
             <img src={src} className=' object-cover' />
           </SwiperSlide>))
         }
-        <NavigationButtons />
+        <NavigationButtons activeIndex={slideIndex} totalImages={images.length} />
       </Swiper>
     </motion.div>
   )

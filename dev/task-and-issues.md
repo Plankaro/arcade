@@ -27,6 +27,15 @@ scrollbar issue - done
 update logo in sidebar and loader issue - done
 
 
+after mobile -12px - done
+swiper navigation button disable on last and first - done
+// vertically center align contact us and border radius 8 px 
+// remove loader from plans and floor plans - wait for check
+// dvh issue
+// sidebar should be smaller in mobile
+// better responsive images
+// remove all console logs
+
 pdf in phone issue
 
 

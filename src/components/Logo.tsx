@@ -28,7 +28,7 @@ const Logo: React.FC<LogoProps> = () => {
       className="top-0 left-0 z-10 w-full flex flex-row justify-between items-center">
       <a href="/">
         <img src={"/logo/logo-new.png"} alt="logo"
-          className=" w-[20vh] contrast-200" />
+          className=" sm:-ml-[1vh] w-[20vh] contrast-200" />
       </a>
       <img src={"/logo/weaverBird.png"} alt="logo"
         className=" max-h-[10vh] max-w-[20vh] " />

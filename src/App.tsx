@@ -96,11 +96,3 @@ export default App;
 
 
 
-// after mobile -12px
-// swiper navigation button disable on last and first
-// vertically center align contact us and border radius 8 px
-// remove loader from plans and floor plans 
-// dvh issue
-// sidebar should be smaller in mobile
-// better responsive images
-// remove all console logs
