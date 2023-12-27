@@ -8,14 +8,14 @@ const Image = ({ src, className, renderImage = true }: { src: string, className?
   const [loaded, setLoaded] = useState(false);
   return (
     <>
-      {renderImage && 
-      <img
-        src={src}
-        alt='gallery image'
-        className={className ?? ` max-h-full aspect-video w-auto max-w-[900px] ${loaded ? ' opacity-100' : 'opacity-0'}`}
-        // className={className ?? ` object-cover  ${loaded ? ' opacity-100' : 'opacity-0'}`}
-        onLoad={() => setLoaded(true)}
-      />}
+      {renderImage &&
+        <img
+          src={src}
+          alt='gallery image'
+          // className={className ?? ` max-h-full aspect-video w-auto max-w-[900px] ${loaded ? ' opacity-100' : 'opacity-0'}`}
+          className={` ${className} 'object-cover'  ${loaded ? ' opacity-100' : 'opacity-0'}`}
+          onLoad={() => setLoaded(true)}
+        />}
       {!loaded && <div
         className='absolute inset-0 flex items-center justify-center h-full text-black text-2xl font-bold'>
         <span>

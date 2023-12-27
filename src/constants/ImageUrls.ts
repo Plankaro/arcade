@@ -32,81 +32,111 @@ export const ExteriorGalleryImages = (folder: string = "full_size") => [
 
 export const PlanImageUrls = [
   {
-    title: "2 BHK Plan A",
-    url: "BlockB-plan/compressed_half/2 BHK A-min.png",
+    title: "Commercial",
+    items: [
+      {
+        title: "1 BHK Plan 1",
+        image: "/plans/commercial-block-a/Block A-1 BHK (02).png",
+      },
+      {
+        title: "1 BHK Plan 2",
+        image: "/plans/commercial-block-a/Block A-1 BHK (03).png",
+      },
+      {
+        title: "1 BHK Plan 3",
+        image: "/plans/commercial-block-a/Block A-1 BHK (04).png",
+      },
+      {
+        title: "1 BHK Plan 4",
+        image: "/plans/commercial-block-a/Block A-1 BHK (05).png",
+      },
+      {
+        title: "1 BHK Plan 5",
+        image: "/plans/commercial-block-a/Block A-1 BHK (06).png",
+      },
+      {
+        title: "1 BHK Plan 6",
+        image: "/plans/commercial-block-a/Block A-1 BHK (07).png",
+      },
+      {
+        title: "1 BHK Plan 7",
+        image: "/plans/commercial-block-a/Block A-1 BHK (08).png",
+      },
+      {
+        title: "2 BHK Plan 1",
+        image: "/plans/commercial-block-a/Block A-2 BHK.png",
+      },
+    ]
   },
   {
-    title: "2 BHK Plan B",
-    url: "BlockB-plan/compressed_half/2 BHK B-min.png",
-  },
-  {
-    title: "2 BHK Plan C",
-    url: "BlockB-plan/compressed_half/2 BHK C-min.png",
-  },
-  {
-    title: "3 BHK Plan A",
-    url: "BlockB-plan/compressed_half/3 BHK A-min.png",
-  },
-  {
-    title: "3 BHK Plan B",
-    url: "BlockB-plan/compressed_half/3 BHK B-min.png",
+    title: "Residential",
+    items: [
+      {
+        title: "3 BHK Plan 1",
+        image: "/plans/residential-block-b/Block A-3 BHK (01).png",
+      },
+      {
+        title: "2 BHK Plan 1",
+        image: "/plans/residential-block-b/Block B-2 BHK (01).png",
+      },
+      {
+        title: "2 BHK Plan 2",
+        image: "/plans/residential-block-b/Block B-2 BHK (02).png",
+      },
+      {
+        title: "2 BHK Plan 3",
+        image: "/plans/residential-block-b/Block B-2 BHK (03).png",
+      },
+      {
+        title: "3 BHK Plan 2",
+        image: "/plans/residential-block-b/Block B-3 BHK (02).png",
+      },
+    ]
   },
 ];
 
-export const LayoutMap = [
+export const FloorPlans = [
   {
-    title: 'Aerial View',
+    title: 'Ground Floor',
     items: [
       {
-        title: 'View 1',
-        image: '/Layouts/Aerial.jpg',
+        title: 'Layout',
+        image: '/floor-plans/comressed_tenth/GR.FLOOR 2D LAYOUT(NEW).png',
+      },
+      {
+        title: 'Block A',
+        image: '/floor-plans/comressed_tenth/Block_ A Service Floor.png',
       },
     ],
   },
   {
-    title: 'Campus View',
+    title: 'First Floor',
     items: [
       {
-        title: 'Campus View 1',
-        image: '/Layouts/Cam_3.jpg',
+        title: 'Layout',
+        image: '/floor-plans/comressed_tenth/1ST FLOOR LAYOUT.png',
       },
       {
-        title: 'Campus View 2',
-        image: '/Layouts/Cam_day 1.jpg',
-      },
-      {
-        title: 'Campus View 3',
-        image: '/Layouts/Cam_day2.jpg',
+        title: 'Block B',
+        image: '/floor-plans/comressed_tenth/Block B-1st floor.png',
       },
     ],
   },
   {
-    title: 'Hero View',
+    title: 'Second Floor',
     items: [
       {
-        title: 'Hero View 1',
-        image: '/Layouts/Hero_1.jpg',
-      },
-      {
-        title: 'Hero View 2',
-        image: '/Layouts/Hero_2.jpg',
+        title: 'Layout',
+        image: '/floor-plans/comressed_tenth/2ND FLOOR LAYOUT(NEW).png',
       },
     ],
   },
   {
-    title: 'Residental View',
+    title: 'Third Floor',
     items: [
       {
-        title: 'Residental View 1',
-        image: '/Layouts/Resi_1.jpg',
-      },
-      {
-        title: 'Residental View 2',
-        image: '/Layouts/Resi_2.jpg',
-      },
-      {
-        title: 'Residental View 3',
-        image: '/Layouts/Resi_3.jpg',
+        title: 'Layout',
+        image: '/floor-plans/comressed_tenth/3ND FLOOR LAYOUT(NEW).png',
       },
     ],
   },

@@ -22,7 +22,7 @@ const ContactUsModel = () => {
             {/* Phone */}
             <div className="text-md md:text-lg">
               <strong className="text-black/80">Phone:</strong>
-              <span className=" text-black/60 text-md">
+              <span className=" text-black/60 text-md pl-1">
                 <a href="tel:03512463384"> 03512463384</a>
               </span>
             </div>
@@ -30,23 +30,27 @@ const ContactUsModel = () => {
             {/* Email */}
             <div className="text-md md:text-lg">
               <strong className="text-black/80">E-Mail:</strong>
-              <span className=" text-black/60 text-md">
-                <a href="mailto:akarghy08@gmail.com"> akarghy08@gmail.com</a>
+              <span className=" text-black/60 text-md pl-1">
+                <a href="mailto:akarghy08@gmail.com">akarghy08@gmail.com</a>
               </span>
             </div>
 
             {/* Address */}
             <div className="text-md md:text-lg">
               <strong className="text-black/80">Address:</strong>
-              <span className=" text-black/60 text-md"> {" "}
-                2nd floor, Wooland M H Complex, Bye Lane opp. DGP Office,
-                B K Kakaty Road, Ulubari, Guwahati 781 007
-              </span>
+              <address>
+                <span className=" text-black/60 text-md"> {" "}
+                  2nd floor, Wooland M H Complex, Bye Lane opp. DGP Office,
+                  B K Kakaty Road, Ulubari, Guwahati 781 007
+                </span>
+              </address>
             </div>
             {/* Site Address */}
             <div className="text-md md:text-lg">
               <strong className="text-black/80">Site Address:</strong>
-              <span className=" text-black/60 text-md">Arcade, Dhopatari Bazaar, Changsari, Kamrup, Assam - 781101</span>
+              <address>
+                <span className=" text-black/60 text-md">Arcade, Dhopatari Bazaar, Changsari, Kamrup, Assam - 781101</span>
+              </address>
             </div>
 
           </div>

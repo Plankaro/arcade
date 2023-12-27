@@ -12,14 +12,14 @@ add backdrop in all transitions - done
 pdf compress - done
 gallery slider button issue - done
 
-update arcade logo - waiting
+update arcade logo - done
 
-add exterior and interior in gallery option
-
+add exterior and interior in gallery option - done
 plans:
-nested menu for 
-block A - commercial - 9 images in zip
-block B - residential - 5 images in zip
+nested menu for - done
+block A - commercial - 9 images in zip - done
+block B - residential - 5 images in zip - done
+
 
 
 use prefix "arcade" for options
@@ -35,7 +35,7 @@ add better background image
 
 
 Learnt:
-ls -p | grep -v => list all files except directories
+s -p | grep -v /   => list all files except directories
 curl -O or curl url > filename.extension => download file
 
 

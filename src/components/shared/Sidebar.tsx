@@ -1,20 +1,22 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
 import logo from "../../assets/logo/logo.png";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import {  toggleSidebar } from "../../store/slice/action";
 
 
 interface SidebarProps {
-  // show: boolean;
   items: string[];
   slide: number;
   setSlide: (index: number) => void;
-  // setMenuOpen: (isOpen: boolean) => void;
 }
 
 export const Sidebar = ({ slide, items, setSlide }: SidebarProps) => {
-  const [isMenuOpen, setMenuOpen] = useState(true);
-  // console.log("sidebar rendered");
+  // const [isMenuOpen, setMenuOpen] = useState(true);
+  const dispatch = useDispatch();
+  const isMenuOpen = useSelector((state: any) => state?.isSidebarOpen);
+
   return (
     <motion.div
       initial={{
@@ -30,7 +32,7 @@ export const Sidebar = ({ slide, items, setSlide }: SidebarProps) => {
       className={` z-30 fixed top-0 left-0 min-w-[300px] text-white bg-black/80 shadow-lg h-screen p-8`}
     >
       <div className=' z-30 absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 '>
-        <button onClick={() => setMenuOpen(i => !i)}
+        <button onClick={() => {dispatch(toggleSidebar())}}
           className=' border border-black bg-accent w-[40px] h-[40px] flex items-center justify-center rounded-full'
         >
           {isMenuOpen ?

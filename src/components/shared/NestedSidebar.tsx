@@ -2,12 +2,15 @@ import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md"
 import logo from "../../assets/logo/logo.png";
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { toggleSidebar } from "../../store/slice/action";
 
 type NestedMenuStructureItem = {
   title: string;
   items: {
-      title: string;
-      image: string;
+    title: string;
+    image: string;
   }[];
 }
 
@@ -19,10 +22,10 @@ type NestedSidebarProps = {
 }
 
 const NestedSidebar = ({ setSrc, data }: NestedSidebarProps) => {
-  const [isMenuOpen, setMenuOpen] = useState(true)
+  const dispatch = useDispatch();
+  const isMenuOpen = useSelector((state: any) => state?.isSidebarOpen);
   const [path, setPath] = useState<{ parentIndex: number | null; childIndex: number | null }>({ parentIndex: 0, childIndex: 0 });
   const [activeMenu, setActiveMenu] = useState<0 | 1>(0);
-  console.log("sidebar rendered", path);
 
   return (
     <motion.div
@@ -36,12 +39,12 @@ const NestedSidebar = ({ setSrc, data }: NestedSidebarProps) => {
         duration: 0.3,
         ease: "easeIn",
       }}
-      className={` z-30 fixed top-0 left-0 min-w-[280px] text-white bg-black/70 min-h-screen shadow-lg p-8 `}
+      className={` z-30 fixed top-0 left-0 min-w-[280px] text-white bg-black/70 min-h-screen shadow-lg p-8`}
     >
 
       {/* menu toggler */}
       <div className=' z-30 absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 '>
-        <button onClick={() => setMenuOpen(i => !i)}
+        <button onClick={() => { dispatch(toggleSidebar()) }}
           className=' border border-black bg-accent w-[40px] h-[40px] flex items-center justify-center rounded-full'
         >
           {isMenuOpen
@@ -50,7 +53,7 @@ const NestedSidebar = ({ setSrc, data }: NestedSidebarProps) => {
         </button>
       </div>
 
-      <div className=' z-40 relative flex items-center flex-col justify-start h-full'>
+      <div className=' z-40 relative flex items-center flex-col justify-start h-screen'>
 
         {/* logo */}
         {window.innerHeight > 600 && <div className=' min-h-10 mb-[30px]'>
@@ -73,59 +76,63 @@ const NestedSidebar = ({ setSrc, data }: NestedSidebarProps) => {
         </div>
 
         {/* menu */}
-        <div className=' relative mt-[30px] mb-auto self-stretch max-h-[200px] overflow-hidden'>
+        <div className=' relative mt-[30px] mb-auto self-stretch overflow-x-hidden overflow-y-auto h-full'>
           {/* parent menu */}
-          <motion.div
-            className=' w-full text-left pl-6 spacing flex items-stretch flex-col'
-            initial={{
-              opacity: 0,
-              translateX: '-100%',
-            }}
-            animate={{
-              opacity: activeMenu === 0 ? 1 : 0,
-              translateX: activeMenu === 0 ? 0 : '-100%',
-            }}
-            transition={{
-              duration: 0.3,
-              ease: "easeInOut",
-            }}
-          >
-            {data.map((item, index) => {
-              return (
-                <div
-                  key={index}
-                  className=' w-full text-left border-b border-[#FFD700] spacing flex items-stretch'
-                >
-                  <motion.button className={` relative py-4 text-lg italic tracking-normal w-full text-start`}
-                    whileHover={{
-                      color: '#FFD700',
-                    }}
-                    animate={{
-                      color: path.parentIndex === index ? '#FFD700' : '#fff',
-                    }}
-                    onClick={() => { setPath({
-                      parentIndex: index,
-                      childIndex: 0,
-                    }); setActiveMenu(1); setSrc(item.items[0].image) }}
+          <AnimatePresence>
+            <motion.div
+              className=' w-full text-left pl-6 spacing flex items-stretch flex-col'
+              initial={{
+                opacity: 0,
+                translateX: '-100%',
+              }}
+              animate={{
+                opacity: activeMenu === 0 ? 1 : 0,
+                translateX: activeMenu === 0 ? 0 : '-100%',
+              }}
+              transition={{
+                duration: 0.3,
+                ease: "easeInOut",
+              }}
+            >
+              {data.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    className=' w-full text-left border-b border-[#FFD700] spacing flex items-stretch'
                   >
-                    {item?.title[0].toUpperCase() + item.title.slice(1)}
-                  </motion.button>
-                </div>
-              )
-            })}
-          </motion.div>
+                    <motion.button className={` relative py-4 text-lg italic tracking-normal w-full text-start`}
+                      whileHover={{
+                        color: '#FFD700',
+                      }}
+                      animate={{
+                        color: path.parentIndex === index ? '#FFD700' : '#fff',
+                      }}
+                      onClick={() => {
+                        setPath({
+                          parentIndex: index,
+                          childIndex: 0,
+                        }); setActiveMenu(1); setSrc(item.items[0].image)
+                      }}
+                    >
+                      {item?.title[0].toUpperCase() + item.title.slice(1)}
+                    </motion.button>
+                  </div>
+                )
+              })}
+            </motion.div>
+          </AnimatePresence>
 
           {/* child menu */}
           <AnimatePresence>
             <motion.div
-              className=' absolute top-0 w-full text-left pl-6 spacing flex items-stretch flex-col'
+              className=' absolute top-0 w-full text-left pl-0 spacing flex items-stretch flex-col max-h-[300px] overflow-y-auto'
               initial={{
                 opacity: 0,
                 translateX: '100%',
               }}
               animate={{
-                opacity: activeMenu  == 1 ? 1 : 0,
-                translateX: activeMenu  == 1 ? 0 : '100%',
+                opacity: activeMenu == 1 ? 1 : 0,
+                translateX: activeMenu == 1 ? 0 : '100%',
               }}
               transition={{
                 duration: 0.3,
@@ -139,19 +146,23 @@ const NestedSidebar = ({ setSrc, data }: NestedSidebarProps) => {
                       key={index}
                       className=' w-full text-left border-b border-[#FFD700] pl-0 spacing'
                     >
-                      <motion.button className={` py-4 text-lg italic tracking-normal w-full text-start`}
+                      <motion.button
+                        className={` py-4 text-lg italic tracking-normal w-full text-start`}
                         animate={{
                           color: path.childIndex === index ? '#FFD700' : '#fff',
                         }}
                         whileHover={{
                           color: '#FFD700',
                         }}
-                        onClick={() => { setPath({
-                          parentIndex: path.parentIndex,
-                          childIndex: index,
-                        }), setSrc(item.image) }}
+                        onClick={() => {
+                          setPath({
+                            parentIndex: path.parentIndex,
+                            childIndex: index,
+                          }), setSrc(item.image)
+                        }}
                       >
                         {item?.title[0].toUpperCase() + item.title.slice(1)}
+
                       </motion.button>
                     </div>
                   )

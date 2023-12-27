@@ -1,23 +1,17 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
-import Sidebar from '../shared/Sidebar';
 import { PlanImageUrls } from '../../constants/ImageUrls';
 import CloseButton from '../options/CloseButton';
 import Image from '../extras/Image';
-
-// // Preload the images outside the component
-// const preloadedImages = PlanImageUrls.map((item) => {
-//   const image = new Image();
-//   image.src = item.url;
-//   return image;
-// });
+import NestedSidebar from '../shared/NestedSidebar';
 
 const Plans = () => {
   const isplans = useSelector((state: any) => state?.isplans);
-  const [slide, setSlide] = useState(0);
+  const isSidebarOpen = useSelector((state: any) => state?.isSidebarOpen);
+  const [src, setSrc] = useState<string | null>(PlanImageUrls[0].items[0].image);
 
-  console.log("holistic rendered", slide);
+  console.log("plans rendered", PlanImageUrls);
 
   return (
     <div
@@ -28,26 +22,33 @@ const Plans = () => {
       }}
       className={`fixed inset-0 bg-black/60`}
     >
-      <Sidebar
-        slide={slide}
-        items={PlanImageUrls.map(i => i.title)}
-        setSlide={setSlide}
+      <NestedSidebar
+        data={PlanImageUrls}
+        setSrc={setSrc}
       />
 
       {/* body */}
-      <div className="z-10 relative h-screen flex items-center justify-center">
+      <motion.div
+        animate={{
+          translateX: isSidebarOpen ? 130 : 0,
+        }}
+        transition={{
+          duration: 0.5,
+          ease: "easeInOut",
+        }}
+        className="z-10 relative h-screen flex items-center justify-center">
         <motion.div
-          key={slide}
+          key={src}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           className='absolute w-[70vw] max-w-[500px] bg-white rounded-md overflow-hidden shadow-2xl flex items-center justify-center'
         >
           <Image
-            src={PlanImageUrls[slide].url}
+            src={src ?? PlanImageUrls[0].items[0].image}
             className={"w-full h-full object-contain"} />
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* close button */}
       <CloseButton />

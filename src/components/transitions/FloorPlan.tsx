@@ -3,16 +3,16 @@ import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 
 import CloseButton from '../options/CloseButton';
-import { LayoutMap } from '../../constants/ImageUrls';
+import { FloorPlans } from '../../constants/ImageUrls';
 import Image from '../extras/Image';
 import NestedSidebar from '../shared/NestedSidebar';
 
 const Layouts = () => {
   const ispalladian = useSelector((state: any) => state?.ispalladian);
+  const isMenuOpen = useSelector((state: any) => state?.isSidebarOpen);
+  const [src, setSrc] = useState<string | null>(FloorPlans[0].items[0].image);
 
-  const [src, setSrc] = useState<string | null>(LayoutMap[0].items[0].image);
-
-  console.log("layout rendered", src);
+  // console.log("layout rendered", src);
   return (
     <motion.div
       animate={{
@@ -24,14 +24,14 @@ const Layouts = () => {
     >
 
       <NestedSidebar
-        data={LayoutMap}
+        data={FloorPlans}
         setSrc={setSrc}
       />
 
       {/* body */}
       {
         <div className=" z-10 relative h-screen flex items-center justify-center ">
-          {/* {LayoutMap.map((section) =>
+          {/* {FloorPlans.map((section) =>
             section.items.map((item) => ( */}
           <motion.div
             key={src}
@@ -50,7 +50,20 @@ const Layouts = () => {
               ease: "easeInOut",
             }}
             className='absolute flex items-center justify-center h-full'>
-            <Image src={src ?? LayoutMap[0].items[0].image} />
+            <motion.div
+              initial={{
+                translateX: 0,
+              }}
+              animate={{
+                translateX: isMenuOpen ? 130 : 0,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: "easeInOut"
+              }}
+              className={` w-[55vw] flex items-center justify-center`}>
+              <Image src={src ?? FloorPlans[0].items[0].image} className='bg-white max-h-[90vh] rounded-md' />
+            </motion.div>
           </motion.div>
 
         </div>

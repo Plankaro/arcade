@@ -1,46 +1,7 @@
-import {
-  APIProvider,
-  Map,
-  Marker,
-  InfoWindow,
-} from "@vis.gl/react-google-maps";
-import { useState } from "react";
-import { FaCanadianMapleLeaf } from "react-icons/fa";
-
-const API_KEY = import.meta.env.VITE_API_KEY as string;
-console.log(API_KEY);
 const MapModel = () => {
-    const [show, setShow] = useState(false);
   return (
     <div className=" h-[30vh] min-w-[90vw] md:h-[70vh] md:min-w-[0] ">
-      <APIProvider apiKey={API_KEY}>
-        <Map
-          zoom={18}
-          center={{ lat: 23.2313, lng: 87.0784 }}
-          gestureHandling={"greedy"}
-          disableDefaultUI={true}
-        >
-          <Marker
-            position={{ lat: 23.2289174, lng: 87.0801661 }}
-            onClick={() => setShow(true)}
-            title={"clickable google.maps.Marker"}
-            icon={FaCanadianMapleLeaf}
-          />
-
-          {show && (
-            <InfoWindow
-              position={{ lat: 23.229, lng: 87.0801661 }}
-              maxWidth={200}
-              onCloseClick={()=>setShow(false)}
-            >
-              <p>
-                This is the content for another infowindow with <em>HTML</em>
-                -elements.
-              </p>
-            </InfoWindow>
-          )}
-        </Map>
-      </APIProvider>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d13450.58962719343!2d91.6902592799861!3d26.256288272774672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDE1JzE1LjEiTiA5McKwNDEnMzQuMSJF!5e0!3m2!1sen!2sin!4v1703678084126!5m2!1sen!2sin" width="100%" height="100%" allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
     </div>
   );
 };

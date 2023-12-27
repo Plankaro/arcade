@@ -86,7 +86,7 @@ const AllOptions: React.FC<AllOptionsProps> = ({
             <CommonButton onClick={() => { window.location.href = "https://vr-tour-arcade-git-main-plankaro.vercel.app/" }} right label='3D Home Tour' icon={BsHeadsetVr} />
           </div>
           <div>
-            <CommonButton onClick={() => { dispatch(openGalary()) }} right label='Gallery' icon={FaRegImages} />
+            <CommonButton onClick={() => { dispatch(openGalary()) }} right label='Arcade Gallery' icon={FaRegImages} />
           </div>
           <div>
             <CommonButton onClick={() => { dispatch(openSalesPresenter()) }} right label='Brochures' icon={RiPresentationLine} />

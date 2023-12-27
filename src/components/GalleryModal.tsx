@@ -9,9 +9,7 @@ import CommonModal from './shared/SimpleModal';
 import { useSelector } from 'react-redux';
 import "../index.css"
 import { InteriorGalleryImages, ExteriorGalleryImages } from '../constants/ImageUrls';
-// import { FullScreenViewer } from './extras/Image';
-import React, { useRef, useState } from 'react';
-// import { GoScreenFull } from "react-icons/go";
+import React, { useState } from 'react';
 import { MyImage } from './extras/ImagesLoad';
 import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from 'react-icons/md';
 import Sidebar from './shared/Sidebar';
@@ -20,7 +18,6 @@ import { motion } from 'framer-motion'
 
 const GalaryModel = () => {
   const isGalary = useSelector((state: any) => state.isGalary);
-  // const galleryImagesLarge = InteriorGalleryImages();
 
   const options = [{
     title: "Interior Shots",
@@ -32,11 +29,7 @@ const GalaryModel = () => {
     imagesLarge: ExteriorGalleryImages(),
   }]
 
-  const [slideIndex] = useState<number>(0);
-
   const [slide, setSlide] = useState<number>(0);
-
-  // const [fullScreen, setFullScreen] = useState<string | null>(null);
 
 
   return (
@@ -47,37 +40,17 @@ const GalaryModel = () => {
         setSlide={setSlide}
       />
       <div className="self-stretch w-full h-full flex items-center justify-center flex-col rounded-md">
-        {/* <motion.div
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 1,
-          }}
-          transition={{
-            duration: 0.3,
-            ease: "easeIn",
-            delay: 1,
-          }}
-          className=" max-w-[97vw] w-full sm:max-w-[60vw] aspect-video flex items-center justify-center "> */}
         {slide === 0 &&
           <Gallery
             images={options[0].images}
-            // imagesLarge={options[0].imagesLarge}
-            // setFullScreen={setFullScreen}
-             />
+          />
         }
         {slide === 1 &&
           <Gallery
             images={options[1].images}
-            // imagesLarge={options[1].imagesLarge}
-            // setFullScreen={setFullScreen}
-             />
+          />
         }
-        {/* </motion.div> */}
       </div>
-      {/* {fullScreen && <FullScreenViewer src={galleryImagesLarge[slideIndex]} setFullScreen={setFullScreen} />} */}
-
     </CommonModal>
   );
 }
@@ -120,55 +93,55 @@ const NavigationButtons = ({ setFullScreen, src }: NavigationButtonProps) => {
 
 interface GalleryProps {
   images: string[];
-  // imagesLarge: string[];
-  // setFullScreen: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 const Gallery = ({ images }: GalleryProps) => {
+  const isMenuOpen = useSelector((state: any) => state?.isSidebarOpen);
   return (
-    <motion.div
-      initial={{
-        opacity: 0,
-      }}
-      animate={{
-        opacity: 1,
-      }}
-      transition={{
-        duration: 0.3,
-        ease: "easeIn",
-        delay: 0.5,
-      }}
-      className=" max-w-[97vw] w-full sm:max-w-[60vw] aspect-video flex items-center justify-center "
-    >
-      <Swiper
-        spaceBetween={30}
-        effect={'fade'}
-        pagination={{
-          clickable: true,
+    <motion.div>
+      <motion.div
+        initial={{
+          translateX: 0,
         }}
-        className="mySwiper h-auto"
-        // lazy={true} // Enable lazy loading // not works in swiper js v>9
-        modules={[EffectFade, Navigation, Pagination]}
-        style={{
-          "--swiper-navigation-color": "#000",
-          "--swiper-navigation-size": window.innerWidth < 768 ? "20px" : "40px",
-          "--swiper-pagination-color": "#000",
-          "--swiper-pagination-bullet-inactive-color": "#fff",
-          "--swiper-pagination-bullet-inactive-opacity": ".4",
-          "--swiper-pagination-bullet-horizontal-gap": "3px",
-        } as any}
+        animate={{
+          translateX: isMenuOpen ? 130 : 0,
+        }}
+        transition={{
+          // delay: 0.5,
+          duration: 0.5,
+          ease: "easeInOut"
+        }}
+        className=" max-w-[97vw] w-full sm:max-w-[60vw] aspect-video flex items-center justify-center "
       >
-        {
-          images.map((src: string, idx: number) =>
-          (<SwiperSlide className='w-full h-full' key={idx}>
-            <React.Suspense fallback={<div>Loading...</div>}>
-              <MyImage url={src} />
-            </React.Suspense>
+        <Swiper
+          spaceBetween={30}
+          effect={'fade'}
+          pagination={{
+            clickable: true,
+          }}
+          className="mySwiper h-auto"
+          modules={[EffectFade, Navigation, Pagination]}
+          style={{
+            "--swiper-navigation-color": "#000",
+            "--swiper-navigation-size": window.innerWidth < 768 ? "20px" : "40px",
+            "--swiper-pagination-color": "#000",
+            "--swiper-pagination-bullet-inactive-color": "#fff",
+            "--swiper-pagination-bullet-inactive-opacity": ".4",
+            "--swiper-pagination-bullet-horizontal-gap": "3px",
+          } as any}
+        >
+          {
+            images.map((src: string, idx: number) =>
+            (<SwiperSlide className='w-full h-full' key={idx}>
+              <React.Suspense fallback={<div>Loading...</div>}>
+                <MyImage url={src} />
+              </React.Suspense>
 
-            <NavigationButtons setFullScreen={(() => {})} src={src} />
-          </SwiperSlide>))
-        }
-      </Swiper>
+              <NavigationButtons setFullScreen={(() => { })} src={src} />
+            </SwiperSlide>))
+          }
+        </Swiper>
+      </motion.div>
     </motion.div>
   )
 }

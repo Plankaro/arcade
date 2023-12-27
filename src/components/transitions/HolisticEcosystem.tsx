@@ -19,7 +19,6 @@ const HolisticEcosystem = () => {
 
   const [slide, setSlide] = useState(0);
 
-  // console.log("holistic rendered", slide);
 
   return (
     <motion.div
@@ -32,7 +31,7 @@ const HolisticEcosystem = () => {
     >
 
       <Sidebar
-        selected={slide}
+        slide={slide}
         items={slideImages.map(i => i.title)}
         setSlide={setSlide}
       />
