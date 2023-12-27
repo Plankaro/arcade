@@ -8,7 +8,7 @@ import NestedSidebar from '../shared/NestedSidebar';
 
 const Plans = () => {
   const isplans = useSelector((state: any) => state?.isplans);
-  const isSidebarOpen = useSelector((state: any) => state?.isSidebarOpen);
+  // const isSidebarOpen = useSelector((state: any) => state?.isSidebarOpen);
   const [src, setSrc] = useState<string | null>(PlanImageUrls[0].items[0].image);
 
   console.log("plans rendered", PlanImageUrls);
