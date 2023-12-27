@@ -4,22 +4,22 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import { EffectFade, Navigation, Pagination, Controller } from 'swiper/modules';
+import { EffectFade, Navigation, Pagination } from 'swiper/modules';
 import CommonModal from './shared/SimpleModal';
 import { useSelector } from 'react-redux';
 import "../index.css"
 import { InteriorGalleryImages, ExteriorGalleryImages } from '../constants/ImageUrls';
-import React, { useEffect, useState } from 'react';
-import { MyImage } from './extras/ImagesLoad';
+import { useState } from 'react';
+// import { MyImage } from './extras/ImagesLoad';
 import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from 'react-icons/md';
 import Sidebar from './shared/Sidebar';
 
 import { motion } from 'framer-motion'
-import FullPageLoading from './extras/FullPageLoading';
+// import FullPageLoading from './extras/FullPageLoading';
 
 const GalaryModel = () => {
   const isGalary = useSelector((state: any) => state.isGalary);
-  
+
   const options = [{
     title: "Interior Shots",
     images: InteriorGalleryImages("interior/compressed_tenth", "-min"),
@@ -29,13 +29,13 @@ const GalaryModel = () => {
     images: ExteriorGalleryImages("exterior"),
     imagesLarge: ExteriorGalleryImages(),
   }]
-  
-  const [slideIndex, setSlideIndex] = useState<any>(0);
+
+  // const [slideIndex, setSlideIndex] = useState<any>(0);
   const [slide, setSlide] = useState<number>(0);
 
-  useEffect(() => {
-    setSlideIndex(0);
-  }, [slide]);
+  // useEffect(() => {
+  //   setSlideIndex(0);
+  // }, [slide]);
 
   return (
     <CommonModal show={isGalary}>
@@ -45,17 +45,19 @@ const GalaryModel = () => {
         setSlide={setSlide}
       />
       <div className="self-stretch w-full h-full flex items-center justify-center flex-col rounded-md">
-        {/* {slide === 0 &&
+        {slide === 0 &&
           <Gallery
             images={options[0].images}
           />
-        } */}
-        {/* {slide === 1 && */}
-        <Gallery
-          images={options[slide].images}
-          setSlideIndex={setSlideIndex}
-          slideIndex={slideIndex}
-        />
+        }
+        {slide === 1 &&
+          <Gallery
+            images={options[1].images}
+          />
+        }
+
+        {/* // setSlideIndex={setSlideIndex}
+          // slideIndex={slideIndex} */}
         {/* } */}
       </div>
     </CommonModal>
@@ -72,13 +74,13 @@ export default GalaryModel;
 const NavigationButtons = () => {
   const swiper = useSwiper();
   return (
-    <div className=" absolute inset-0">
+    <div className=" z-50 absolute inset-0">
 
-      <div className=" absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-row justify-between items-center w-full p-2">
-        <button className=' flex items-center justify-center bg-white p-3 rounded-full border border-black hover:text-white hover:bg-black'
+      <div className=" absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-row justify-between items-center w-full p-[1vh] ">
+        <button className=' flex items-center justify-center bg-white p-[2vh] text-[2vh] rounded-full border border-black hover:text-white hover:bg-black'
           onClick={() => swiper.slidePrev()}
         ><MdOutlineArrowBackIos /></button>
-        <button className=' flex items-center justify-center bg-white p-3 rounded-full border border-black hover:text-white hover:bg-black'
+        <button className=' flex items-center justify-center bg-white p-[2vh] text-[2vh] rounded-full border border-black hover:text-white hover:bg-black'
           onClick={() => swiper.slideNext()}
         ><MdOutlineArrowForwardIos /></button>
       </div>
@@ -98,61 +100,62 @@ const NavigationButtons = () => {
 }
 
 interface GalleryProps {
-  slideIndex?: any;
+  // slideIndex?: any;
   images: string[];
-  setSlideIndex?: React.Dispatch<React.SetStateAction<any>>;
+  // setSlideIndex?: React.Dispatch<React.SetStateAction<any>>;
 }
 
-const Gallery = ({ slideIndex, images, setSlideIndex }: GalleryProps) => {
-  const isMenuOpen = useSelector((state: any) => state?.isSidebarOpen);
+const Gallery = ({ images }: GalleryProps) => {
+  // const isMenuOpen = useSelector((state: any) => state?.isSidebarOpen);
   return (
-    <motion.div>
-      <motion.div
-        initial={{
-          translateX: 0,
+    <motion.div
+      initial={{
+        // translateX: 0,
+        opacity: 0,
+      }}
+      animate={{
+        // translateX: isMenuOpen ? 130 : 0,
+        opacity: 1,
+      }}
+      transition={{
+        delay: 0.5,
+        duration: 0.5,
+        ease: "easeInOut"
+      }}
+      className=" max-w-[97vw] w-full sm:max-w-[60vw] aspect-video flex items-center justify-center "
+    >
+      <Swiper
+        spaceBetween={30}
+        effect={'fade'}
+        pagination={{
+          clickable: true,
         }}
-        animate={{
-          translateX: isMenuOpen ? 130 : 0,
-        }}
-        transition={{
-          // delay: 0.5,
-          duration: 0.5,
-          ease: "easeInOut"
-        }}
-        className=" max-w-[97vw] w-full sm:max-w-[60vw] aspect-video flex items-center justify-center "
+        className="mySwiper h-auto"
+        // onSlideChange={(i) => {
+        //   setSlideIndex && setSlideIndex(i.activeIndex);
+        // }}
+        modules={[EffectFade, Navigation, Pagination]}
+        // modules={[EffectFade, Navigation, Pagination, Controller]}
+        // controller={{ control: slideIndex }}
+        style={{
+          "--swiper-navigation-color": "#000",
+          "--swiper-pagination-color": "#000",
+          "--swiper-pagination-bullet-inactive-color": "#fff",
+          "--swiper-pagination-bullet-inactive-opacity": ".4",
+          "--swiper-pagination-bullet-horizontal-gap": "3px",
+        } as any}
       >
-        <Swiper
-          spaceBetween={30}
-          effect={'fade'}
-          pagination={{
-            clickable: true,
-          }}
-          className="mySwiper h-auto"
-          onSlideChange={(i) => {
-            setSlideIndex && setSlideIndex(i.activeIndex);
-          }}
-          modules={[EffectFade, Navigation, Pagination, Controller]}
-          controller={{ control: slideIndex }}
-          style={{
-            "--swiper-navigation-color": "#000",
-            "--swiper-pagination-color": "#000",
-            "--swiper-pagination-bullet-inactive-color": "#fff",
-            "--swiper-pagination-bullet-inactive-opacity": ".4",
-            "--swiper-pagination-bullet-horizontal-gap": "3px",
-          } as any}
-        >
-          {
-            images.map((src: string, idx: number) =>
-            (<SwiperSlide className='w-full h-full' key={idx}>
-              <React.Suspense fallback={<FullPageLoading />}>
-                <MyImage url={src} />
-              </React.Suspense>
-
-              <NavigationButtons />
-            </SwiperSlide>))
-          }
-        </Swiper>
-      </motion.div>
+        {
+          images.map((src: string, idx: number) =>
+          (<SwiperSlide key={idx}>
+            {/* <React.Suspense fallback={<FullPageLoading />}>
+              <MyImage url={src} />
+            </React.Suspense> */}
+            <img src={src} className=' object-cover' />
+          </SwiperSlide>))
+        }
+        <NavigationButtons />
+      </Swiper>
     </motion.div>
   )
 }

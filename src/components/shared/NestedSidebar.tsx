@@ -56,9 +56,9 @@ const NestedSidebar = ({ setSrc, data }: NestedSidebarProps) => {
       <div className=' z-40 relative flex items-center flex-col justify-start h-screen'>
 
         {/* logo */}
-        {window.innerHeight > 600 && <div className=' min-h-10 mb-[30px]'>
+        <div className=' min-h-10 mb-[30px]'>
           <img src={logo} alt="logo" className="md:h-[9vh] h-[9vh]" />
-        </div>}
+        </div>
 
         {/* back button */}
         <div className=' self-stretch'>

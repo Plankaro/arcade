@@ -58,7 +58,7 @@ body {
   stroke-width: 8;
   /* Adjust the stroke width as needed */
   stroke-linecap: round;
-  stroke-dasharray: 239;
+  stroke-dasharray: 100;
   /* (2 * PI * radius) - for radius of 76 */
   animation: dash 1s linear infinite;
   /* Adjust the animation duration as needed */

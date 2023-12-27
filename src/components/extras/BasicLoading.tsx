@@ -27,7 +27,7 @@ const BasicLoading = () => {
         duration: 0.5,
         ease: "easeInOut",
       }}
-      className='bg-white h-40 w-40 rounded-full flex items-center justify-center relative overflow-hidden'>
+      className='bg-white h-[20vh] w-[20vh] rounded-full flex items-center justify-center relative overflow-hidden'>
       <img
         src={logo}
         alt="logo"
