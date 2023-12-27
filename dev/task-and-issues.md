@@ -22,6 +22,14 @@ Add Preloading Video - Waiting for Video
 Add Better Background Image - Waiting for Image
 
 
+gallery issue - done
+logo height issue - done
+scrollbar issue - done
+update logo in sidebar and loader issue - done
+pdf in phone issue
+
+
+
 Learnt:
 s -p | grep -v /   => list all files except directories
 curl -O or curl url > filename.extension => download file

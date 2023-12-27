@@ -44,7 +44,6 @@ function App() {
     const handleOrientationChange = () => {
       setTimeout(() => {
         setIsLandscape(window.innerWidth > window.innerHeight);
-        console.log("orientation changed", window.innerWidth > window.innerHeight, isLandscape);
       }, 100);
     };
     window.addEventListener('orientationchange', handleOrientationChange);

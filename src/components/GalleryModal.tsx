@@ -4,12 +4,12 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import { EffectFade, Navigation, Pagination } from 'swiper/modules';
+import { EffectFade, Navigation, Pagination, Controller } from 'swiper/modules';
 import CommonModal from './shared/SimpleModal';
 import { useSelector } from 'react-redux';
 import "../index.css"
 import { InteriorGalleryImages, ExteriorGalleryImages } from '../constants/ImageUrls';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MyImage } from './extras/ImagesLoad';
 import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from 'react-icons/md';
 import Sidebar from './shared/Sidebar';
@@ -19,7 +19,7 @@ import FullPageLoading from './extras/FullPageLoading';
 
 const GalaryModel = () => {
   const isGalary = useSelector((state: any) => state.isGalary);
-
+  
   const options = [{
     title: "Interior Shots",
     images: InteriorGalleryImages("interior/compressed_tenth", "-min"),
@@ -29,9 +29,13 @@ const GalaryModel = () => {
     images: ExteriorGalleryImages("exterior"),
     imagesLarge: ExteriorGalleryImages(),
   }]
-
+  
+  const [slideIndex, setSlideIndex] = useState<any>(0);
   const [slide, setSlide] = useState<number>(0);
 
+  useEffect(() => {
+    setSlideIndex(0);
+  }, [slide]);
 
   return (
     <CommonModal show={isGalary}>
@@ -41,16 +45,18 @@ const GalaryModel = () => {
         setSlide={setSlide}
       />
       <div className="self-stretch w-full h-full flex items-center justify-center flex-col rounded-md">
-        {slide === 0 &&
+        {/* {slide === 0 &&
           <Gallery
             images={options[0].images}
           />
-        }
-        {slide === 1 &&
-          <Gallery
-            images={options[1].images}
-          />
-        }
+        } */}
+        {/* {slide === 1 && */}
+        <Gallery
+          images={options[slide].images}
+          setSlideIndex={setSlideIndex}
+          slideIndex={slideIndex}
+        />
+        {/* } */}
       </div>
     </CommonModal>
   );
@@ -92,10 +98,12 @@ const NavigationButtons = () => {
 }
 
 interface GalleryProps {
+  slideIndex?: any;
   images: string[];
+  setSlideIndex?: React.Dispatch<React.SetStateAction<any>>;
 }
 
-const Gallery = ({ images }: GalleryProps) => {
+const Gallery = ({ slideIndex, images, setSlideIndex }: GalleryProps) => {
   const isMenuOpen = useSelector((state: any) => state?.isSidebarOpen);
   return (
     <motion.div>
@@ -120,7 +128,11 @@ const Gallery = ({ images }: GalleryProps) => {
             clickable: true,
           }}
           className="mySwiper h-auto"
-          modules={[EffectFade, Navigation, Pagination]}
+          onSlideChange={(i) => {
+            setSlideIndex && setSlideIndex(i.activeIndex);
+          }}
+          modules={[EffectFade, Navigation, Pagination, Controller]}
+          controller={{ control: slideIndex }}
           style={{
             "--swiper-navigation-color": "#000",
             "--swiper-pagination-color": "#000",

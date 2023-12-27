@@ -54,7 +54,7 @@ body {
 
 .loading-spinner circle {
   fill: transparent;
-  stroke: #0ac8a6;
+  stroke: #fff;
   stroke-width: 8;
   /* Adjust the stroke width as needed */
   stroke-linecap: round;
@@ -74,6 +74,18 @@ body {
   }
 }
 
+::-webkit-scrollbar {
+  width: 0.2rem;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f110;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 /*
 .logo-image {

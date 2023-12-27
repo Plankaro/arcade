@@ -57,7 +57,7 @@ const NestedSidebar = ({ setSrc, data }: NestedSidebarProps) => {
 
         {/* logo */}
         {window.innerHeight > 600 && <div className=' min-h-10 mb-[30px]'>
-          <img src={logo} alt="logo" className="md:h-[7rem] h-[4rem] md:w-[7rem] w-[4rem]" />
+          <img src={logo} alt="logo" className="md:h-[4rem] h-[3rem]" />
         </div>}
 
         {/* back button */}
