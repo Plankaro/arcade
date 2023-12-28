@@ -59,10 +59,7 @@ export default function Sample({ pdf }: { pdf: PDFFile }) {
         duration: 0.5
       }}
       className=' w-full md:w-[66vw]  mx-auto overflow-x-hidden overflow-y-scroll' style={{ height: `calc(100%)` }}>
-      {/* progress */}
-      {/* <div className=' absolute w-full h-10 bg-white top-0 left-0 z-10'>
-        <div className={` h-full bg-accent w-[${progress}%]`}></div>
-      </div> */}
+    
       <Document
 
         file={pdf}
