@@ -29,40 +29,43 @@ const Layouts = () => {
 
       {/* body */}
       {<div className=" z-10 relative h-screen flex items-center justify-center ">
+        <motion.div
+          key={src}
+          initial={{
+            opacity: 0,
+            translateX: '-20%',
+            skewY: 3,
+          }}
+          animate={{
+            opacity: 1,
+            translateX: '0%',
+            skewY: 0,
+          }}
+          transition={{
+            duration: 0.5,
+            ease: "easeInOut",
+          }}
+          className='absolute flex items-center justify-center h-full'>
           <motion.div
-            key={src}
             initial={{
-              opacity: 0,
-              translateX: '-20%',
-              skewY: 3,
+              translateX: 0,
             }}
             animate={{
-              opacity: 1,
-              translateX: '0%',
-              skewY: 0,
+              translateX: isMenuOpen ? 130 : 0,
             }}
             transition={{
               duration: 0.5,
-              ease: "easeInOut",
+              ease: "easeInOut"
             }}
-            className='absolute flex items-center justify-center h-full'>
-            <motion.div
-              initial={{
-                translateX: 0,
-              }}
-              animate={{
-                translateX: isMenuOpen ? 130 : 0,
-              }}
-              transition={{
-                duration: 0.5,
-                ease: "easeInOut"
-              }}
-              className={` w-[55vw] flex items-center justify-center`}>
-              <Image src={src ?? FloorPlans[0].items[0].image} className='bg-white max-h-[90vh] rounded-md' />
-            </motion.div>
+            className={` w-[55vw] flex items-center justify-center`}
+            >
+            <Image
+              src={src ?? FloorPlans[0].items[0].image}
+              className='bg-white max-h-[90vh] rounded-md' />
           </motion.div>
+        </motion.div>
 
-        </div>
+      </div>
       }
 
       {/* close button */}
