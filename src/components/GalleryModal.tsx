@@ -174,7 +174,7 @@ const Gallery = ({ images }: GalleryProps) => {
               <div 
               className="h-[60vh] w-full flex items-center justify-center bg-black/30 rounded-lg"
               >
-                <img src={src} className='h-full' style={{ objectFit: 'contain' }} />
+                <img src={src} className='h-full' style={{ objectFit: 'contain' }} loading='lazy' decoding='async'/>
               </div>
             </SwiperSlide>
 
