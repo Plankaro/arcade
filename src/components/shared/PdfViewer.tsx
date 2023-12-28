@@ -4,6 +4,7 @@ import { pdfjs, Document, Page } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 import { motion } from "framer-motion";
+import {useMediaQuery} from "react-responsive"
 // import pdf from "../assets/Arcade_residentail_brochure_R2_compressed (1).pdf";
 
 import type { PDFDocumentProxy } from 'pdfjs-dist';
@@ -45,6 +46,12 @@ export default function Sample({ pdf }: { pdf: PDFFile }) {
     setNumPages(nextNumPages);
   }
   // const progress = 100/10;
+let maxwidth = window.innerWidth / (3 / 2)
+  const isLandscape = useMediaQuery({ query: "(orientation: landscape)" });
+
+  if(isLandscape){
+    maxwidth= 700
+  }
   return (
     <motion.div initial={{
       translateX: 0
@@ -70,8 +77,8 @@ export default function Sample({ pdf }: { pdf: PDFFile }) {
           <Page
             key={`page_${index + 1}`}
             pageNumber={index + 1}
-            width={window.innerWidth / (3 / 2)}
-          // width={maxWidth}
+            // width={window.innerWidth / (3 / 2)}
+          width={maxwidth}
           />
         ))}
       </Document>
