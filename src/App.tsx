@@ -12,7 +12,7 @@ import FloorPlan from "./components/transitions/FloorPlan";
 
 import AllOptions from "./components/options/AllOptions";
 import ContactUsModel from "./components/ContactUsModel";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import AskForLandscape from "./components/extras/AskForLandscape";
 import FullPageLoading from "./components/extras/FullPageLoading";
 import Footer from "./components/shared/Footer";
@@ -22,7 +22,6 @@ const GalleryModal = React.lazy(() => import("./components/GalleryModal"));
 function App() {
   const isMobileHeight = useMediaQuery({ minHeight: 500 });
   const Options = useSelector((state: any) => state);
-  const [isLoad, setisLoad] = useState(true)
   const dispatch = useDispatch();
 
   const handle = useFullScreenHandle();
@@ -37,29 +36,29 @@ function App() {
     }
   };
 
-  const [isLandscape, setIsLandscape] = useState(
-    window.innerWidth > window.innerHeight
-  );
+  // const [isLandscape, setIsLandscape] = useState(
+  //   window.innerWidth > window.innerHeight
+  // );
 
-  useEffect(() => {
-    const handleOrientationChange = () => {
-      setTimeout(() => {
-        setIsLandscape(window.innerWidth > window.innerHeight);
-      }, 100);
-    };
+  // useEffect(() => {
+  //   const handleOrientationChange = () => {
+  //     setTimeout(() => {
+  //       setIsLandscape(window.innerWidth > window.innerHeight);
+  //     }, 100);
+  //   };
 
-    window.addEventListener("orientationchange", handleOrientationChange);
-    return () => {
-      window.removeEventListener("orientationchange", handleOrientationChange);
-    };
-  }, []);
+  //   window.addEventListener("orientationchange", handleOrientationChange);
+  //   return () => {
+  //     window.removeEventListener("orientationchange", handleOrientationChange);
+  //   };
+  // }, []);
 
   // useEffect(() => {
   //   (isLandscape && isLoad) && window.location.reload()
   //   setisLoad(false)
   // }, [isLandscape, isLoad])
 
-
+  const isLandscape = useMediaQuery({ query: "(orientation: landscape)" });
   return (
     <FullScreen handle={handle}>
       <div className={`w-screen ${isMobileHeight ? "h-screen" : "h-full"}`}>

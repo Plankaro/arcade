@@ -8,7 +8,6 @@
   font-family: "Open Sans", sans-serif;
 }
 
-
 .main {
   height: 100dvh;
   margin: 0;
@@ -64,7 +63,7 @@ body {
   /* Adjust the animation duration as needed */
   transform-origin: center;
 }
- @keyframes dash {
+@keyframes dash {
   50% {
     transform: rotate(180deg);
   }
@@ -169,3 +168,13 @@ body {
     box-shadow: none !important;
   }
 } */
+/* .react-pdf__Page{
+  max-width: 300px !important;
+} */
+
+@media screen and (orientation: landscape) {
+   .react-pdf__Page {
+    max-width: 300px !important;
+    /* Other portrait styles */
+  }
+}
