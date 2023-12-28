@@ -22,6 +22,7 @@ const GalleryModal = React.lazy(() => import("./components/GalleryModal"));
 function App() {
   const isMobileHeight = useMediaQuery({ minHeight: 500 });
   const Options = useSelector((state: any) => state);
+  const [isLoad, setisLoad] = useState(true)
   const dispatch = useDispatch();
 
   const handle = useFullScreenHandle();
@@ -52,6 +53,11 @@ function App() {
       window.removeEventListener("orientationchange", handleOrientationChange);
     };
   }, []);
+
+  useEffect(() => {
+    (isLandscape && isLoad) && window.location.reload()
+    setisLoad(false)
+  }, [isLandscape, isLoad])
 
 
   return (
