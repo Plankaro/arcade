@@ -44,7 +44,7 @@ export default function Sample({ pdf }: { pdf: PDFFile }) {
   function onDocumentLoadSuccess({ numPages: nextNumPages }: PDFDocumentProxy): void {
     setNumPages(nextNumPages);
   }
-  let maxwidth = window.innerWidth / (3 / 2)
+  let maxwidth = window.innerWidth / (4 / 3)
   
   console.log(maxwidth)
   console.log(window.innerWidth)
@@ -58,7 +58,7 @@ export default function Sample({ pdf }: { pdf: PDFFile }) {
       transition={{
         duration: 0.5
       }}
-      className=' w-full md:w-[66vw]  mx-auto overflow-x-hidden overflow-y-scroll' style={{ height: `calc(100%)` }}>
+      className=' w-full md:w-[80vw]  mx-auto overflow-x-hidden overflow-y-scroll' style={{ height: `calc(100%)` }}>
     
       <Document
 
