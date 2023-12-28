@@ -20,6 +20,7 @@ import Brochures from "./components/transitions/Brochure";
 const GalleryModal = React.lazy(() => import("./components/GalleryModal"));
 
 function App() {
+  // const isLandscape = useMediaQuery({ query: "(orientation: landscape)" });
   const isMobileHeight = useMediaQuery({ minHeight: 500 });
   const Options = useSelector((state: any) => state);
   const dispatch = useDispatch();
@@ -52,6 +53,7 @@ function App() {
       window.removeEventListener("orientationchange", handleOrientationChange);
     };
   }, []);
+  
 
 
   return (

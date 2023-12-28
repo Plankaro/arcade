@@ -4,7 +4,7 @@ import { pdfjs, Document, Page } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 import { motion } from "framer-motion";
-// import pdf from "../assets/Arcade_residentail_brochure_R2_compressed (1).pdf";
+import "../../index.css"
 
 import type { PDFDocumentProxy } from 'pdfjs-dist';
 import FullPageLoading from '../extras/FullPageLoading';
@@ -44,7 +44,10 @@ export default function Sample({ pdf }: { pdf: PDFFile }) {
   function onDocumentLoadSuccess({ numPages: nextNumPages }: PDFDocumentProxy): void {
     setNumPages(nextNumPages);
   }
-  // const progress = 100/10;
+  let maxwidth = window.innerWidth / (4 / 3)
+  
+  console.log(maxwidth)
+  console.log(window.innerWidth)
   return (
     <motion.div initial={{
       translateX: 0
@@ -52,26 +55,25 @@ export default function Sample({ pdf }: { pdf: PDFFile }) {
       animate={{
         translateX: 40
       }}
-     transition={{
-      duration:0.5
-     }}
-      className=' w-full md:w-[66vw]  mx-auto overflow-x-hidden overflow-y-scroll' style={{ height: `calc(100%)` }}>
-      {/* progress */}
-      {/* <div className=' absolute w-full h-10 bg-white top-0 left-0 z-10'>
-        <div className={` h-full bg-accent w-[${progress}%]`}></div>
-      </div> */}
+      transition={{
+        duration: 0.5
+      }}
+      className=' w-full md:w-[80vw]  mx-auto overflow-x-hidden overflow-y-scroll' style={{ height: `calc(100%)` }}>
+    
       <Document
+
         file={pdf}
         onLoadSuccess={onDocumentLoadSuccess}
         options={options}
         loading={<FullPageLoading />}
+
       >
         {Array.from(new Array(numPages), (_, index) => (
           <Page
             key={`page_${index + 1}`}
             pageNumber={index + 1}
-            width={window.innerWidth / (3 / 2)}
-          // width={maxWidth}
+            // width={window.innerWidth / (3 / 2)}
+            width={maxwidth}
           />
         ))}
       </Document>
