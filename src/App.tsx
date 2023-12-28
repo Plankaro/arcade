@@ -12,7 +12,7 @@ import FloorPlan from "./components/transitions/FloorPlan";
 
 import AllOptions from "./components/options/AllOptions";
 import ContactUsModel from "./components/ContactUsModel";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AskForLandscape from "./components/extras/AskForLandscape";
 import FullPageLoading from "./components/extras/FullPageLoading";
 import Footer from "./components/shared/Footer";
@@ -20,7 +20,7 @@ import Brochures from "./components/transitions/Brochure";
 const GalleryModal = React.lazy(() => import("./components/GalleryModal"));
 
 function App() {
-  const isLandscape = useMediaQuery({ query: "(orientation: landscape)" });
+  // const isLandscape = useMediaQuery({ query: "(orientation: landscape)" });
   const isMobileHeight = useMediaQuery({ minHeight: 500 });
   const Options = useSelector((state: any) => state);
   const dispatch = useDispatch();
@@ -37,27 +37,23 @@ function App() {
     }
   };
 
-  // const [isLandscape, setIsLandscape] = useState(
-  //   window.innerWidth > window.innerHeight
-  // );
+  const [isLandscape, setIsLandscape] = useState(
+    window.innerWidth > window.innerHeight
+  );
 
-  // useEffect(() => {
-  //   const handleOrientationChange = () => {
-  //     setTimeout(() => {
-  //       setIsLandscape(window.innerWidth > window.innerHeight);
-  //     }, 100);
-  //   };
+  useEffect(() => {
+    const handleOrientationChange = () => {
+      setTimeout(() => {
+        setIsLandscape(window.innerWidth > window.innerHeight);
+      }, 100);
+    };
 
-  //   window.addEventListener("orientationchange", handleOrientationChange);
-  //   return () => {
-  //     window.removeEventListener("orientationchange", handleOrientationChange);
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   (isLandscape && isLoad) && window.location.reload()
-  //   setisLoad(false)
-  // }, [isLandscape, isLoad])
+    window.addEventListener("orientationchange", handleOrientationChange);
+    return () => {
+      window.removeEventListener("orientationchange", handleOrientationChange);
+    };
+  }, []);
+  
 
 
   return (
