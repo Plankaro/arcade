@@ -1,76 +1,77 @@
-import { useCallback, useState } from "react";
-import { useResizeObserver } from "@wojtekmaj/react-hooks";
-import { pdfjs, Document, Page } from "react-pdf";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-import "react-pdf/dist/esm/Page/TextLayer.css";
-import pdf from "../assets/Arcade_residentail_brochure_R2_compressed (1).pdf";
+// import { useCallback, useState } from "react";
+// import { useResizeObserver } from "@wojtekmaj/react-hooks";
+// import { pdfjs, Document, Page } from "react-pdf";
+// import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+// import "react-pdf/dist/esm/Page/TextLayer.css";
+// import pdf from "../assets/Arcade_residentail_brochure_R2_compressed (1).pdf";
 
-import type { PDFDocumentProxy } from "pdfjs-dist";
-import CloseButton from "./options/CloseButton";
+// import type { PDFDocumentProxy } from "pdfjs-dist";
+// import CloseButton from "./options/CloseButton";
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.js",
-  import.meta.url
-).toString();
+// pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+//   "pdfjs-dist/build/pdf.worker.min.js",
+//   import.meta.url
+// ).toString();
 
-const options = {
-  cMapUrl: "/cmaps/",
-  standardFontDataUrl: "/standard_fonts/",
-};
+// const options = {
+//   cMapUrl: "/cmaps/",
+//   standardFontDataUrl: "/standard_fonts/",
+// };
 
-const resizeObserverOptions = {};
+// const resizeObserverOptions = {};
 
-const maxWidth = window.innerWidth - 60;
+// const maxWidth = window.innerWidth - 60;
 
-type PDFFile = string | File | null;
+// type PDFFile = string | File | null;
 
-export default function Sample() {
-  const [file] = useState<PDFFile>(pdf);
-  const [numPages, setNumPages] = useState<number>();
-  const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
-  const [containerWidth, setContainerWidth] = useState<number>();
+// export default function Sample() {
+//   const [file] = useState<PDFFile>(pdf);
+//   const [numPages, setNumPages] = useState<number>();
+//   const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
+//   const [containerWidth, setContainerWidth] = useState<number>(window.innerWidth - 60);
 
-  const onResize = useCallback<ResizeObserverCallback>((entries) => {
-    const [entry] = entries;
+//   const onResize = useCallback<ResizeObserverCallback>((entries) => {
+//     const [entry] = entries;
 
-    if (entry) {
-      setContainerWidth(entry.contentRect.width);
-    }
-  }, []);
+//     if (entry) {
+//       // setContainerWidth(entry.contentRect.width);
+//       setContainerWidth(window.innerWidth - 60);
+//     }
+//   }, []);
 
-  useResizeObserver(containerRef, resizeObserverOptions, onResize);
+//   useResizeObserver(containerRef, resizeObserverOptions, onResize);
 
-  function onDocumentLoadSuccess({
-    numPages: nextNumPages,
-  }: PDFDocumentProxy): void {
-    setNumPages(nextNumPages);
-  }
+//   function onDocumentLoadSuccess({
+//     numPages: nextNumPages,
+//   }: PDFDocumentProxy): void {
+//     setNumPages(nextNumPages);
+//   }
 
-  return (
-    <div className="fixed w-full h-full inset-0 z-30 flex items-start mt-3 justify-center">
-      <div className="absolute right-9 top-4">
-        <CloseButton />
-      </div>
-      <div
-        className=" w-full justify-center p-4 overflow-hidden overflow-y-scroll"
-        ref={setContainerRef}
-      >
-        <Document
-          file={file}
-          onLoadSuccess={onDocumentLoadSuccess}
-          options={options}
-        >
-          {Array.from(new Array(numPages), (_, index) => (
-            <Page
-              key={`page_${index + 1}`}
-              pageNumber={index + 1}
-              width={
-                containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth
-              }
-            />
-          ))}
-        </Document>
-      </div>
-    </div>
-  );
-}
+//   return (
+//     <div className="fixed w-full h-full inset-0 z-30 flex items-start mt-3 justify-center">
+//       <div className="absolute right-9 top-4">
+//         <CloseButton />
+//       </div>
+//       <div
+//         className=" w-full justify-center p-4 overflow-hidden overflow-y-scroll"
+//         // ref={setContainerRef}
+//       >
+//         <Document
+//           file={file}
+//           onLoadSuccess={onDocumentLoadSuccess}
+//           options={options}
+//         >
+//           {Array.from(new Array(numPages), (_, index) => (
+//             <Page
+//               key={`page_${index + 1}`}
+//               pageNumber={index + 1}
+//               width={
+//                1500
+//               }
+//             />
+//           ))}
+//         </Document>
+//       </div>
+//     </div>
+//   );
+// }

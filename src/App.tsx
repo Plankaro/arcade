@@ -17,28 +17,28 @@ import AskForLandscape from "./components/extras/AskForLandscape";
 import FullPageLoading from "./components/extras/FullPageLoading";
 import Footer from "./components/shared/Footer";
 import Brochures from "./components/transitions/Brochure";
-const GalleryModal = React.lazy(() => import("./components/GalleryModal"))
+const GalleryModal = React.lazy(() => import("./components/GalleryModal"));
 
 function App() {
   const isMobileHeight = useMediaQuery({ minHeight: 500 });
   const Options = useSelector((state: any) => state);
   const dispatch = useDispatch();
-  
+
   const handle = useFullScreenHandle();
   const appSelector = useSelector((state: any) => state);
 
   const toggleFullScreen = () => {
-    Options.isFullScreen
-      ? dispatch(allClose()) :  
-      dispatch(openFullScreen())  
+    Options.isFullScreen ? dispatch(allClose()) : dispatch(openFullScreen());
     if (!Options.isFullScreen) {
-      handle.enter(); 
+      handle.enter();
     } else {
-      handle.exit(); 
+      handle.exit();
     }
   };
 
-  const [isLandscape, setIsLandscape] = useState(window.innerWidth > window.innerHeight);
+  const [isLandscape, setIsLandscape] = useState(
+    window.innerWidth > window.innerHeight
+  );
 
   useEffect(() => {
     const handleOrientationChange = () => {
@@ -46,9 +46,10 @@ function App() {
         setIsLandscape(window.innerWidth > window.innerHeight);
       }, 100);
     };
-    window.addEventListener('orientationchange', handleOrientationChange);
+
+    window.addEventListener("orientationchange", handleOrientationChange);
     return () => {
-      window.removeEventListener('orientationchange', handleOrientationChange);
+      window.removeEventListener("orientationchange", handleOrientationChange);
     };
   }, []);
 
@@ -56,9 +57,8 @@ function App() {
   return (
     <FullScreen handle={handle}>
       <div className={`w-screen ${isMobileHeight ? "h-screen" : "h-full"}`}>
-
         <div className="main relative w-full h-screen max-h-screen max-w-screen overflow-hidden flex flex-col">
-          {isLandscape ?
+          {isLandscape ? (
             <>
               <div className="absolute inset-0 z-0  " />
               <div className="z-10 w-full px-[3dvh] py-[1dvh] relative grow-0 shrink-0">
@@ -81,11 +81,11 @@ function App() {
                   {appSelector?.isGalary && <GalleryModal />}
                 </React.Suspense>
                 {appSelector?.isContactUs && <ContactUsModel />}
-
               </div>
             </>
-            : <AskForLandscape />
-          }
+          ) : (
+            <AskForLandscape />
+          )}
         </div>
       </div>
     </FullScreen>
@@ -93,6 +93,3 @@ function App() {
 }
 
 export default App;
-
-
-

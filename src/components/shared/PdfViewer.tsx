@@ -3,6 +3,7 @@ import { useResizeObserver } from '@wojtekmaj/react-hooks';
 import { pdfjs, Document, Page } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
+import { motion } from "framer-motion";
 // import pdf from "../assets/Arcade_residentail_brochure_R2_compressed (1).pdf";
 
 import type { PDFDocumentProxy } from 'pdfjs-dist';
@@ -21,21 +22,20 @@ const options = {
 
 const resizeObserverOptions = {};
 
-const maxWidth = window.innerWidth;
 
 type PDFFile = string | File | null;
 
 export default function Sample({ pdf }: { pdf: PDFFile }) {
   // const [file] = useState<PDFFile>(pdf);
   const [numPages, setNumPages] = useState<number>();
-  const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
-  const [containerWidth, setContainerWidth] = useState<number>();
+  const [containerRef] = useState<HTMLElement | null>(null);
+  // const [ setContainerWidth] = useState<number>();
 
   const onResize = useCallback<ResizeObserverCallback>((entries) => {
     const [entry] = entries;
 
     if (entry) {
-      setContainerWidth(entry.contentRect.width);
+      // setContainerWidth(entry.contentRect.width);
     }
   }, []);
 
@@ -46,7 +46,16 @@ export default function Sample({ pdf }: { pdf: PDFFile }) {
   }
   // const progress = 100/10;
   return (
-    <div className=' w-full md:w-[80vw] mx-auto overflow-x-hidden overflow-y-scroll' style={{ height: `calc(100%)` }} ref={setContainerRef}>
+    <motion.div initial={{
+      translateX: 0
+    }}
+      animate={{
+        translateX: 40
+      }}
+     transition={{
+      duration:0.5
+     }}
+      className=' w-full md:w-[66vw]  mx-auto overflow-x-hidden overflow-y-scroll' style={{ height: `calc(100%)` }}>
       {/* progress */}
       {/* <div className=' absolute w-full h-10 bg-white top-0 left-0 z-10'>
         <div className={` h-full bg-accent w-[${progress}%]`}></div>
@@ -56,16 +65,16 @@ export default function Sample({ pdf }: { pdf: PDFFile }) {
         onLoadSuccess={onDocumentLoadSuccess}
         options={options}
         loading={<FullPageLoading />}
-        >
+      >
         {Array.from(new Array(numPages), (_, index) => (
           <Page
             key={`page_${index + 1}`}
             pageNumber={index + 1}
-            width={containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth}
-            // width={maxWidth}
+            width={window.innerWidth / (3 / 2)}
+          // width={maxWidth}
           />
         ))}
       </Document>
-    </div>
+    </motion.div>
   );
 }
