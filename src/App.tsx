@@ -54,10 +54,10 @@ function App() {
     };
   }, []);
 
-  useEffect(() => {
-    (isLandscape && isLoad) && window.location.reload()
-    setisLoad(false)
-  }, [isLandscape, isLoad])
+  // useEffect(() => {
+  //   (isLandscape && isLoad) && window.location.reload()
+  //   setisLoad(false)
+  // }, [isLandscape, isLoad])
 
 
   return (
