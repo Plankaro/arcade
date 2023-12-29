@@ -12,7 +12,7 @@ const PalladianTour = () => {
             width='100%'
             height='100%'
             controls={true}
-            url='https://www.youtube.com/watch?v=ht4Fcf2kYwg' />
+            url='https://youtu.be/-PbiINowmUg?si=uBpc2YFJtUpu7CC6' />
         </div>
       </CommonModal>
     </>
