@@ -13,10 +13,12 @@
   margin: 0;
   /* padding: 0; */
   /* Adjust the path accordingly */
+  /* background-image: url("./assets/home/home-large.jpg"); */
   background-image: url("./assets/home/home.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  /* filter: contrast(1.1) blur(.6px); */
 }
 
 body {
