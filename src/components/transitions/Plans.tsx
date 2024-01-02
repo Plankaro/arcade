@@ -8,7 +8,7 @@ import NestedSidebar from '../shared/NestedSidebar';
 
 const Plans = () => {
   const isplans = useSelector((state: any) => state?.isplans);
-  // const isSidebarOpen = useSelector((state: any) => state?.isSidebarOpen);
+  const isSidebarOpen = useSelector((state: any) => state?.isSidebarOpen);
   const [src, setSrc] = useState<string | null>(PlanImageUrls[0].items[0].image);
 
   console.log("plans rendered", PlanImageUrls);
@@ -28,20 +28,23 @@ const Plans = () => {
       />
 
       {/* body */}
-      <div
+      <motion.div
+        initial={{translateX: 0}}
+        animate={{translateX: isSidebarOpen && window.innerWidth > 1000 ? 100 : 0}}
+        transition={{duration: 0.5}}
         className="z-10 relative h-screen flex items-center justify-center">
         <motion.div
           key={src}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className='absolute w-[70vw] max-w-[500px] bg-white rounded-md overflow-hidden shadow-2xl flex items-center justify-center'
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className='absolute max-w-[60dvh] bg-white rounded-md overflow-hidden shadow-2xl flex items-center justify-center'
         >
           <Image
             src={src ?? PlanImageUrls[0].items[0].image}
             className={"bg-white max-h-[90dvh] rounded-md"} />
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* close button */}
       <CloseButton />

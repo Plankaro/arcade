@@ -30,7 +30,7 @@ const Footer = () => {
         }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
         className=" z-10 copyright absolute text-[2vh] bottom-[2vh] left-1/2 -translate-x-1/2 bg-black/80 p-[1vh] rounded-[2vh]">
-        <p className="text-white text-center">
+        <p className="text-white text-center text-[0.7rem]">
           <strong>&copy;</strong>{" "}
           {new Date().getFullYear()}{" "}
           <span>Arcade | All rights reserved | Designed and Developed by</span>

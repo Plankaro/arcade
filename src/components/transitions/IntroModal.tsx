@@ -12,7 +12,7 @@ const IntroModal = () => {
             width='100%'
             height='100%'
             controls={true}
-            url='https://www.youtube.com/watch?v=ht4Fcf2kYwg' />
+            url='https://youtu.be/SKsqN3zDtBA?si=_6_AQNaGPmrpJkfL' />
         </div>
       </CommonModal>
     </>
