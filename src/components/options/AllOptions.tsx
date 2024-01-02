@@ -83,7 +83,7 @@ const AllOptions: React.FC<AllOptionsProps> = ({
           transition={{ duration: 0.3 }}
           className="flex flex-col justify-around h-full">
           <div>
-            <CommonButton onClick={() => { window.location.href = "https://vr-tour-arcade-git-main-plankaro.vercel.app/" }} right label='3D Home Tour' icon={BsHeadsetVr} />
+            <CommonButton onClick={() => { window.location.href = "https://hometour.3ddemo.online/" }} right label='3D Home Tour' icon={BsHeadsetVr} />
           </div>
           <div>
             <CommonButton onClick={() => { dispatch(openGalary()) }} right label='Arcade Gallery' icon={FaRegImages} />
