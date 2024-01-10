@@ -70,7 +70,7 @@ function App() {
                 <AllOptions toggleFullScreen={toggleFullScreen} />
               </div>
 
-              <Footer />
+              {/* <Footer /> */}
 
               <div className="z-10 w-full relative">
                 {<Neighbourhood360View />}
