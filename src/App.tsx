@@ -15,7 +15,7 @@ import ContactUsModel from "./components/ContactUsModel";
 import React, { useEffect, useState } from "react";
 import AskForLandscape from "./components/extras/AskForLandscape";
 import FullPageLoading from "./components/extras/FullPageLoading";
-import Footer from "./components/shared/Footer";
+// import Footer from "./components/shared/Footer";
 import Brochures from "./components/transitions/Brochure";
 const GalleryModal = React.lazy(() => import("./components/GalleryModal"));
 
