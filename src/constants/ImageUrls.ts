@@ -19,15 +19,23 @@ export const InteriorGalleryImages = (folder: string = "full_size", suffix: stri
   `3BHK-All-photos/${folder}/LIVVING _ DINING ROOM 5${suffix}.jpg`,
 ];
 export const ExteriorGalleryImages = (folder: string = "full_size") => [
-  `3BHK-All-photos/${folder}/Aerial.jpg`,
-  `3BHK-All-photos/${folder}/Cam_3.jpg`,
-  `3BHK-All-photos/${folder}/Cam_day 1.jpg`,
-  `3BHK-All-photos/${folder}/Cam_day2.jpg`,
-  `3BHK-All-photos/${folder}/Hero_1.jpg`,
-  `3BHK-All-photos/${folder}/Hero_2.jpg`,
-  `3BHK-All-photos/${folder}/Resi_1.jpg`,
-  `3BHK-All-photos/${folder}/Resi_2.jpg`,
-  `3BHK-All-photos/${folder}/Resi_3.jpg`,
+  // old images now in exterior-old folder
+  // `3BHK-All-photos/${folder}/Aerial.jpg`,
+  // `3BHK-All-photos/${folder}/Cam_3.jpg`,
+  // `3BHK-All-photos/${folder}/Cam_day 1.jpg`,
+  // `3BHK-All-photos/${folder}/Cam_day2.jpg`,
+  // `3BHK-All-photos/${folder}/Hero_1.jpg`,
+  // `3BHK-All-photos/${folder}/Hero_2.jpg`,
+  // `3BHK-All-photos/${folder}/Resi_1.jpg`,
+  // `3BHK-All-photos/${folder}/Resi_2.jpg`,
+  // `3BHK-All-photos/${folder}/Resi_3.jpg`,
+  
+  `3BHK-All-photos/${folder}/aer.jpg`,
+  `3BHK-All-photos/${folder}/day.jpg`,
+  `3BHK-All-photos/${folder}/eve.jpg`,
+  `3BHK-All-photos/${folder}/ren1.jpg`,
+  `3BHK-All-photos/${folder}/ren2.jpg`,
+  `3BHK-All-photos/${folder}/ren3.jpg`,
 ];
 
 export const PlanImageUrls = [
