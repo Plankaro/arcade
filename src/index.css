@@ -15,7 +15,8 @@
   /* Adjust the path accordingly */
   /* background-image: url("./assets/home/home-large.jpg"); */
   /* background-image: url("./assets/home/home-old.jpg"); */
-  background-image: url("/Hero-small.jpg");
+  /* background-image: url("/Hero-small.jpg"); */
+  background-image: url("/ren2-min.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
