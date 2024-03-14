@@ -27,8 +27,8 @@ const Logo: React.FC<LogoProps> = () => {
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className="top-0 left-0 z-10 w-full flex flex-row justify-between items-center">
       <a href="/">
-        <img src={"/logo/logo-new.png"} alt="logo"
-          className=" sm:-ml-[1dvh] w-[20dvh] contrast-200" />
+        <img src={"/logo/logo.png"} alt="logo"
+          className=" sm:-ml-[1dvh] w-[15dvh] contrast-200" />
       </a>
       <img src={"/logo/weaverBird.png"} alt="logo"
         className=" max-h-[10dvh] max-w-[20dvh] " />

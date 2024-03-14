@@ -45,7 +45,7 @@ export const Sidebar = ({ slide, items, setSlide }: SidebarProps) => {
 
 
         <div className=' min-h-10 mb-[30px]'>
-          <img src={logo} alt="logo" className="md:h-[9dvh] h-[9dvh]" />
+          <img src={logo} alt="logo" className="md:h-[16dvh] h-[16dvh]" />
         </div>
 
         <div className=' mt-[10dvh] mb-auto self-stretch'>
