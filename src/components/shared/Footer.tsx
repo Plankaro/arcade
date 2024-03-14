@@ -33,7 +33,7 @@ const Footer = () => {
         <p className="text-white text-center text-[0.7rem]">
           <strong>&copy;</strong>{" "}
           {new Date().getFullYear()}{" "}
-          <span>Arcade | All rights reserved | Designed and Developed by</span>
+          <span>Arya Arcade | All rights reserved | Designed and Developed by</span>
           <a
             href="https://stackkaroo.com"
             target="__blank"

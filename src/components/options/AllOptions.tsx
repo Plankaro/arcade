@@ -53,10 +53,10 @@ const AllOptions: React.FC<AllOptionsProps> = ({
           transition={{ duration: 0.3 }}
           className="flex flex-col justify-around h-full">
           <div>
-            <CommonButton onClick={() => { dispatch(openIntroVideo()); }} label='Arcade Commercial' icon={IoPlayCircleOutline} />
+            <CommonButton onClick={() => { dispatch(openIntroVideo()); }} label='Arya Arcade Commercial' icon={IoPlayCircleOutline} />
           </div>
           <div>
-            <CommonButton onClick={() => { dispatch(open3dpalladian()) }} label='Arcade Residential' icon={IoPlayCircleOutline} />
+            <CommonButton onClick={() => { dispatch(open3dpalladian()) }} label='Arya Arcade Residential' icon={IoPlayCircleOutline} />
           </div>
           <div>
             <CommonButton onClick={() => { dispatch(open360view()) }} label='360 View' icon={Tb360View} />
@@ -86,7 +86,7 @@ const AllOptions: React.FC<AllOptionsProps> = ({
             <CommonButton onClick={() => { window.location.href = "https://hometour.3ddemo.online/" }} right label='3D Home Tour' icon={BsHeadsetVr} />
           </div>
           <div>
-            <CommonButton onClick={() => { dispatch(openGalary()) }} right label='Arcade Gallery' icon={FaRegImages} />
+            <CommonButton onClick={() => { dispatch(openGalary()) }} right label='Arya Arcade Gallery' icon={FaRegImages} />
           </div>
           <div>
             <CommonButton onClick={() => { dispatch(openSalesPresenter()) }} right label='Brochures' icon={RiPresentationLine} />

@@ -49,7 +49,7 @@ const ContactUsModel = () => {
             <div className="text-md md:text-lg">
               <Strong>Site Address:</Strong>
               <address>
-                <Span>Arcade, Dhopatari Bazaar, Changsari, Kamrup, Assam - 781101</Span>
+                <Span>Arya Arcade, Dhopatari Bazaar, Changsari, Kamrup, Assam - 781101</Span>
               </address>
             </div>
 
